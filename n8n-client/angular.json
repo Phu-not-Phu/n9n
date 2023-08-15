@@ -97,6 +97,13 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "n8n-client:build:production"
+          }
         }
       }
     }

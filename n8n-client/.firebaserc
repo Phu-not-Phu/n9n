@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "n9n-project-8b290": {
+      "hosting": {
+        "n8n-client": [
+          "n9n-project-8b290"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "n9n-project-8b290"
+  }
+}

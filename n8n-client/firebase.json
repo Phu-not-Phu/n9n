@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "n8n-client",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
