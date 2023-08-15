@@ -34,8 +34,9 @@ export class GoogleService {
   }
 
   loginWithFacebook() {
-    let facebookProvider = new FacebookAuthProvider();
-    return signInWithPopup(this.auth, facebookProvider);
+    alert('Coming soon!');
+    // let facebookProvider = new FacebookAuthProvider();
+    // return signInWithPopup(this.auth, facebookProvider);
   }
 
   loginWithGithub() {
