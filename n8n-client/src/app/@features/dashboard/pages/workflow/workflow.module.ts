@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { WorkflowRoutingModule } from './workflow-routing.module';
 import { WorkflowComponent } from './workflow.component';
 import { ContainerModule } from './containers/container.module';
+import { NgxGraphModule } from '@swimlane/ngx-graph';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { ContainerModule } from './containers/container.module';
     CommonModule,
     WorkflowRoutingModule,
 
-    ContainerModule
+    ContainerModule,
+
+    NgxGraphModule
   ]
 })
 export class WorkflowModule { }

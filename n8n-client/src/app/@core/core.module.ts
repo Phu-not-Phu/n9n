@@ -2,13 +2,19 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
-const CORE_MODULES = [HttpClientModule, FormsModule, ReactiveFormsModule];
+const CORE_MODULES = [
+  HttpClientModule,
+  FormsModule,
+  ReactiveFormsModule,
+  BrowserAnimationsModule,
+]
 
 @NgModule({
   declarations: [],

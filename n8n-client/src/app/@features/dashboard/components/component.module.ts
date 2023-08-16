@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HelperComponent } from './helper/helper.component';
-import { UserComponent } from './user/user.component';
+import { HelperComponent } from './navigation/helper/helper.component';
+import { UserComponent } from './navigation/user/user.component';
 import { SharedModule } from 'src/app/@shared/shared.module';
-import { NavigationContentComponent } from './navigation-content/navigation-content.component';
+import { MainComponent } from './navigation/main/main.component';
 
 
 @NgModule({
   declarations: [
-    NavigationContentComponent,
+    MainComponent,
     HelperComponent,
     UserComponent
   ],
@@ -18,7 +18,7 @@ import { NavigationContentComponent } from './navigation-content/navigation-cont
     SharedModule
   ],
   exports: [
-    NavigationContentComponent,
+    MainComponent,
     HelperComponent,
     UserComponent
   ]

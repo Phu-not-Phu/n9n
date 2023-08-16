@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./workflow.component.scss']
 })
 export class WorkflowComponent {
-
+  onNodeSelect(e: any) {
+    // console.log(e);
+  }
 }
