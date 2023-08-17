@@ -1,0 +1,101 @@
+$container-padding: 0.5rem;
+$transition-time: 0.25s;
+
+$button-icon: 28;
+$button-icon-px: 28px;
+$button-text: 170;
+$button-text-px: 170px;
+$button-height: 40px;
+$button-padding: 0.5rem;
+
+.container {
+  width: calc($button-text-px + $button-icon-px + $container-padding * 2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 $container-padding;
+  transition: all $transition-time ease-in-out;
+}
+
+.close-container {
+  width: calc(
+    $button-icon-px + $container-padding * 2 + $button-padding * 2
+  ) !important;
+  transition: all $transition-time ease-in-out;
+}
+
+button {
+  width: 100%;
+  height: $button-height;
+
+  visibility: visible;
+  opacity: 1;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0.25rem $button-padding;
+  margin-bottom: 0.5rem;
+
+  color: white;
+  background: none;
+  border: none;
+  border-radius: 10px;
+
+  transition: all $transition-time ease-in-out;
+  cursor: pointer;
+
+  span {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-icon {
+    flex: $button-icon 0 auto;
+    width: $button-icon-px;
+
+    min-width: 0;
+  }
+
+  .button-text {
+    font-size: 0.65rem;
+    font-weight: 600;
+
+    flex: $button-text 0 auto;
+    width: $button-text-px;
+    min-width: 0;
+
+    margin-left: 15px;
+    white-space: nowrap;
+  }
+
+  .close {
+    visibility: hidden;
+    opacity: 0;
+    transition: all $transition-time ease-in-out;
+    width: 0;
+  }
+}
+
+button:hover,
+.focus {
+  background-color: white;
+  color: var(--primary-color);
+  transition: all $transition-time ease-in-out;
+
+  #all-executions-svg,
+  #workflows-svg,
+  #credentials-svg {
+    fill: var(--primary-color);
+  }
+}
+
+#all-executions-svg,
+#workflows-svg,
+#credentials-svg {
+  transition: all $transition-time ease-in-out;
+  fill: #f6f1f1;
+}

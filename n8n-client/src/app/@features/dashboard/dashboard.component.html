@@ -1,7 +1,10 @@
-<div>
-    <aside>
-        <app-navigation></app-navigation>
-    </aside>
+<div class="container">
+    <div class="navigation">
+        <app-navigation [openNavigation]="isOpenNavigation" [currentNavigation]="currentNavigation"></app-navigation>
+        <div>
+            <button class="btn-nav" (click)="toggleNagivation()"></button>
+        </div>
+    </div>
     <div class="content">
         <router-outlet></router-outlet>
     </div>

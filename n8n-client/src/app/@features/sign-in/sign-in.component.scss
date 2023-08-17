@@ -1,73 +1,84 @@
-.body{
- position: fixed;
- width: 100vw;
- height: 100vh;
- background-color: #19003f;
- margin: 0;
- padding: 0;
+.body {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #19003f;
+  margin: 0;
+  padding: 0;
 }
 
-.bigbox{
+.bigbox {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.box{
-  background-color: #F6F1F1;
+.box {
+  background-color: #f6f1f1;
 }
 
-
-.welcomeBack{
+.welcomeBack {
   text-align: center;
-  color: #F6F1F1;
+  color: #f6f1f1;
   margin-top: 150px;
 
-  &  > h2 {
+  & > h2 {
     font-size: 2rem;
   }
 }
 
-#signin{
+#signin {
   & > h3 {
-  color: #19003f;
-  text-align: center;
-  margin-top: 40px;
-  font-size: 1rem;
+    color: #19003f;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1rem;
   }
 }
 
-#input > input{
+#input {
+  padding: 0 30px;
+}
+
+#input > input {
+  width: 100%;
   color: #19003f;
-    height: 35px;
-    font-size: 0.9rem;
-    border-radius: 10px;
-    margin-left: 50px;
-    margin-bottom: 25px ;
-    padding-left: 10px;
-}
+  background-color: #dddddd;
 
-#input > button{
-  color: #F6F1F1;
-  background-color: #19003f;
-  border-radius: 10px;
   height: 35px;
-  width: 256px;
-  margin-left: 51px;
-  margin-bottom: 25px ;
-  font-size: 0.9rem;
-  padding-left: 10px;
+  border-radius: 35px;
+  border: none;
+
+  font-size: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  padding: 0 20px;
 }
 
-hr{
+#input > button {
+  $button-height: 40px;
+
+  width: 100%;
+  height: $button-height;
+
+  color: #f6f1f1;
+  background-color: #19003f;
+  border-radius: $button-height;
+  border: none;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+hr {
   width: 9rem;
 }
 
-.box{
-   border: 2px solid #F6F1F1;
-   border-radius: 23px;
-   width: 350px;
-   height: 500px;
+.box {
+  border: 2px solid #f6f1f1;
+  border-radius: 23px;
+  width: 350px;
+  height: 500px;
 }
-

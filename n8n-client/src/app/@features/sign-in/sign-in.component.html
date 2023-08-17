@@ -11,14 +11,14 @@
         <div id="input">
           <input id="text" type="text" placeholder="Email or User Name">
           <input id="pass" type="password" placeholder="Password">
-          <button id="button_login"> Log In </button>
+          <button id="button_login"> Log in </button>
         </div>
         <hr>
         <div class="bottom">
           <div id="icon_signin">
-            <button>Google</button>
+            <button (click)="loginWithGoogle()">Google</button>
             <button>Facebook</button>
-            <button>Github</button>
+            <button (click)="loginWithGithub()">Github</button>
           </div>
           <div id="no_account">
           </div>

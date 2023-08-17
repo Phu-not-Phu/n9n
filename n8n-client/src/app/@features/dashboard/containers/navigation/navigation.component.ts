@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
+  currentTab: string = 'workflows';
+  _isOpen: boolean = true;
 
+  @Input() set openNavigation(value: boolean) {
+    this._isOpen = value;
+  }
+
+  @Input() set currentNavigation(value: string) {
+    this.currentTab = value;
+  }
 }
