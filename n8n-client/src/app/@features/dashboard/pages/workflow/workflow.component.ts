@@ -1,21 +1,17 @@
 import { Component, ElementRef, Injector, ViewChild } from '@angular/core';
-import { createEditor } from './services/editor';
+import { EditorService } from './services/editor.service';
 
 @Component({
   selector: 'app-workflow',
   templateUrl: './workflow.component.html',
-  styleUrls: ['./workflow.component.scss']
+  styleUrls: ['./workflow.component.scss'],
 })
 export class WorkflowComponent {
-  constructor(private injector: Injector) { }
+  constructor(private injector: Injector, private editor: EditorService) {}
+  @ViewChild('editor') editorElement!: ElementRef<HTMLDivElement>;
 
-  @ViewChild("editor") editor!: ElementRef<HTMLDivElement>;
-
-  ngAfterViewInit(): void {
-    const el = this.editor.nativeElement;
-
-    if (el) {
-      createEditor(el, this.injector);
-    }
+  ngAfterViewInit() {
+    this.editor.contruct(this.editorElement.nativeElement, this.injector);
+    this.editor.testAdd2Nodes();
   }
 }
