@@ -15,6 +15,7 @@ const routes: Routes = [
       ),
   },
   { path: '', pathMatch: 'full', redirectTo: 'signin' },
+  { path: 'register', loadChildren: () => import('./@features/register/register.module').then(m => m.RegisterModule) },
   {
     path: '**',
     pathMatch: 'full',
