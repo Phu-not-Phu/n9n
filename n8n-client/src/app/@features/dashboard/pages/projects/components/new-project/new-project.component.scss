@@ -1,0 +1,60 @@
+$text-size: 15px;
+$color-primary: #19003f;
+$color-ocapacity: 0.25;
+$color-ocapacity-hover: 0.75;
+
+$transition-speed: 0.2s;
+
+$card-height: 200px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  padding: 20px;
+  width: 100%;
+  height: $card-height;
+
+  background-color: white;
+  border: 3px rgba($color: $color-primary, $alpha: $color-ocapacity) dashed;
+
+  transition: all $transition-speed ease-in-out;
+}
+
+.container:hover {
+  border: 3px rgba($color: $color-primary, $alpha: $color-ocapacity-hover)
+    dashed;
+  cursor: pointer;
+
+  .title {
+    span {
+      color: rgba($color: $color-primary, $alpha: $color-ocapacity-hover);
+    }
+  }
+
+  #plus-icon {
+    fill-opacity: $color-ocapacity-hover;
+  }
+}
+
+.title {
+  span {
+    transition: all $transition-speed ease-in-out;
+
+    font-size: $text-size;
+    font-weight: bolder;
+    color: rgba($color: $color-primary, $alpha: $color-ocapacity);
+  }
+}
+
+.new-icon {
+  #plus-icon {
+    transition: all $transition-speed ease-in-out;
+
+    fill: $color-primary;
+    fill-opacity: $color-ocapacity;
+  }
+}
