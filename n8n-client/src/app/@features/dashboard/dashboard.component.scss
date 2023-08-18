@@ -1,3 +1,5 @@
+$transition-time: 0.25s;
+
 .container {
   height: 100%;
   width: 100%;
@@ -14,7 +16,7 @@
     background-color: var(--primary-color);
     height: 100%;
 
-    $button-nav-size: 13px;
+    $button-nav-size: 5px;
 
     & > div {
       display: flex;
@@ -25,12 +27,25 @@
       .btn-nav {
         padding: $button-nav-size;
 
+        background-color: var(--secondary-color);
+
         border-radius: 50%;
         border: 1px solid var(--primary-color);
 
         transform: translateX(-50%);
 
         cursor: pointer;
+
+        transition: all $transition-time ease-in-out;
+
+        .button-icon {
+          display: flex;
+          align-items: center;
+        }
+
+        #expand-button-svg {
+          fill: var(--primary-color);
+        }
       }
     }
   }

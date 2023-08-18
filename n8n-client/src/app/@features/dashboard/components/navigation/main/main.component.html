@@ -1,12 +1,12 @@
 <div class="container" [ngClass]="{'close-container': _isOpen !== true}">
-    <button [ngClass]="{'focus': _currentTab === 'workflows'}" (click)="changeNavigation('workflows')">
+    <button [ngClass]="{'focus': _currentTab === 'projects'}" (click)="changeNavigation('projects')">
         <span class="button-icon">
             <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="workflows-svg"
                     d="M10.8156 15.2926L16.2175 15.3061C16.9632 15.3079 17.5664 15.9513 17.5644 16.7427L17.5501 22.4759C17.5482 23.2674 16.9418 23.9077 16.1961 23.9059L10.7941 23.8924C10.0484 23.8906 9.44523 23.2472 9.44721 22.4558L9.46149 16.7226C9.46346 15.9311 10.0698 15.2908 10.8156 15.2926ZM18.9506 2.41311C18.9526 1.62166 19.559 0.981317 20.3047 0.983175L25.7067 0.996635C26.4524 0.998493 27.0555 1.64185 27.0536 2.4333L27.0393 8.1665C27.0373 8.95795 26.4309 9.59829 25.6852 9.59643L21.6456 9.58637L18.5437 15.3137C18.0774 14.4588 17.2171 13.8753 16.2211 13.8728L16.2093 13.8727L18.9346 8.84101L18.9399 6.71301L9.48649 6.68945L9.49363 3.82285L18.9471 3.84641L18.9506 2.41311ZM1.39784 0.936064L6.7998 0.949524C7.54552 0.951382 8.14869 1.59474 8.14672 2.38619L8.13243 8.11939C8.13046 8.91084 7.52409 9.55118 6.77837 9.54932L1.37641 9.53586C0.630688 9.534 0.0275207 8.89065 0.0294928 8.0992L0.0437783 2.366C0.0457504 1.57455 0.652117 0.934206 1.39784 0.936064Z" />
             </svg>
         </span>
-        <span [ngClass]="{'close': _isOpen !== true}" class="button-text"> Workflows </span>
+        <span [ngClass]="{'close': _isOpen !== true}" class="button-text"> Projects </span>
     </button>
 
     <button [ngClass]="{'focus': _currentTab === 'credentials'}" (click)="changeNavigation('credentials')">

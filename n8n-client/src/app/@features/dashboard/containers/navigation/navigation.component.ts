@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
-  currentTab: string = 'workflows';
+  currentTab: string = 'projects';
   _isOpen: boolean = true;
 
   @Input() set openNavigation(value: boolean) {
