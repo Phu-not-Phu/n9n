@@ -69,8 +69,8 @@ export class EditorService {
     // );
     // b.addInput('b', new ClassicPreset.Input(this.socket));
 
-    const a = await this.createNode('A');
-    const b = await this.createNode('B');
+    const a = await this.createInputNode('A');
+    const b = await this.createOutputNode('B');
 
     await this.editor.addNode(a);
     await this.editor.addNode(b);
@@ -83,6 +83,28 @@ export class EditorService {
     //   new ClassicPreset.InputControl('text', { initial: 'hello' })
     // );
     //node.addOutput(name, new ClassicPreset.Output(this.socket));
+    return node;
+  }
+
+  async createOutputNode(name: string) {
+    const node = new ClassicPreset.Node(name);
+    node.addOutput(name, new ClassicPreset.Output(this.socket));
+    return node;
+  }
+
+  async createInputNode(name: string) {
+    const node = new ClassicPreset.Node(name);
+    node.addInput(name, new ClassicPreset.Input(this.socket));
+    return node;
+  }
+
+  async createInputOutputNode(name: string, output: number = 1) {
+    const node = new ClassicPreset.Node(name);
+
+    for (let i = 0; i < output; i++) {
+      node.addOutput(`${name} ${i}`, new ClassicPreset.Output(this.socket));
+    }
+
     return node;
   }
 }
