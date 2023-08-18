@@ -8,10 +8,17 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path: 'workflows',
+        path: 'projects',
         loadChildren: () =>
-          import('./pages/workflows/workflows.module').then(
-            (m) => m.WorkflowsModule
+          import('./pages/projects/projects.module').then(
+            (m) => m.ProjectsModule
+          ),
+      },
+      {
+        path: 'project/:id',
+        loadChildren: () =>
+          import('./pages/project/project.module').then(
+            (m) => m.ProjectModule
           ),
       },
       {
@@ -35,7 +42,9 @@ const routes: Routes = [
             (m) => m.WorkflowModule
           ),
       },
-      { path: 'workflow', redirectTo: 'workflows' },
+      { path: 'workflow', redirectTo: 'project/:id' },
+      { path: 'project', redirectTo: 'projects' },
+      { path: '**', redirectTo: 'projects' },
     ],
   },
 ];
