@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { GoogleService } from 'src/app/@core/services/google.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { GoogleService } from 'src/app/@core/services/google.service';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
-  constructor(private googleService: GoogleService) {}
+  constructor(private googleService: GoogleService, private router: Router) {}
 
   loginWithGoogle() {
     this.googleService.loginWithGoogle().then(console.log);
@@ -21,5 +22,9 @@ export class SignInComponent {
 
   logout() {
     this.googleService.logOut();
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']);
   }
 }
