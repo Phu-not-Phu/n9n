@@ -59,14 +59,18 @@
     color: #f6f1f1;
     
     & > button{
-        border: none;
+        border-style: solid;
+        border-color: #f6f1f1;
         border-radius: 20px;
-        background-color: #f6f1f1;
-        color: #19003f;
+        background-color: #19003f;
+        color: #f6f1f1;
         font-size: medium;
         display: flex;
         justify-content: center;
         align-items: center;
+        #registerIcon{
+            stroke: #f6f1f1;
+        }
 
         & > span{
             font-size: medium;
@@ -76,14 +80,20 @@
     }
 
     & > button:hover{
-        border-style: solid;
-        border-color: #f6f1f1;
-        border-radius: 10px;
-        background-color: #19003f;
-        color: #f6f1f1;
+        border: none;
+        border-radius: 20px;
+        background-color: #f6f1f1;
+        color: #19003f;
         font-size: medium;
+        
         #registerIcon{
-            stroke: #f6f1f1;
+            stroke: #19003f;
+        }
+
+        & > span{
+            font-size: medium;
+            position: relative;
+            left: 8px;
         }
     }
 

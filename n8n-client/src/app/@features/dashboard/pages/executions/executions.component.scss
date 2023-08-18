@@ -1,0 +1,51 @@
+.body {
+  padding: 40px 90px;
+}
+
+#div1 {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  justify-content: space-evenly;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #19003f;
+  }
+
+  & > #leftSpan {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+
+    label,
+    p {
+      color: #19003f;
+      font-size: 15px;
+    }
+  }
+}
+
+#filterBox {
+  height: 30px;
+  width: 100px;
+  padding: 5px 5px;
+  background-color: #ffff;
+  border: 1.5px solid #19003f;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #19003f;
+  font-size: 15px;
+}
+
+#filterBox:hover {
+  background-color: #19003f;
+  color: #f6f1f1;
+
+  #filterIcon {
+    fill: #f6f1f1;
+  }
+}
