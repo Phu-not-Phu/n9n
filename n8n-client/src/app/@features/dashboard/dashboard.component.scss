@@ -1,4 +1,7 @@
-$transition-time: 0.25s;
+$transition-time: 0.2s;
+$color-primary: #19003f;
+$color-ocapacity: 0.25;
+$color-ocapacity-hover: 0.5;
 
 .container {
   height: 100%;
@@ -30,7 +33,7 @@ $transition-time: 0.25s;
         background-color: var(--secondary-color);
 
         border-radius: 50%;
-        border: 1px solid var(--primary-color);
+        border: 1px rgba($color: $color-primary, $alpha: $color-ocapacity) solid;
 
         transform: translateX(-50%);
 
@@ -45,6 +48,17 @@ $transition-time: 0.25s;
 
         #expand-button-svg {
           fill: var(--primary-color);
+          fill-opacity: $color-ocapacity;
+          transition: all $transition-time ease-in-out;
+        }
+      }
+
+      .btn-nav:hover {
+        border: 1px rgba($color: $color-primary, $alpha: $color-ocapacity-hover) solid;
+
+        #expand-button-svg {
+          fill: var(--primary-color);
+          fill-opacity: $color-ocapacity-hover;
         }
       }
     }

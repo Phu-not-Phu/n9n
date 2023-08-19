@@ -1,7 +1,9 @@
 $text-size: 15px;
 $color-primary: #19003f;
 $color-ocapacity: 0.25;
-$color-ocapacity-hover: 0.75;
+$color-ocapacity-hover: 0.5;
+
+$box-width: 190px;
 
 $transition-speed: 0.2s;
 
@@ -15,11 +17,12 @@ $card-height: 200px;
   gap: 10px;
 
   padding: 20px;
-  width: 100%;
+  width: $box-width;
   height: $card-height;
 
   background-color: white;
   border: 3px rgba($color: $color-primary, $alpha: $color-ocapacity) dashed;
+  border-radius: 10px;
 
   transition: all $transition-speed ease-in-out;
 }
