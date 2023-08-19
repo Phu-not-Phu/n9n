@@ -1,0 +1,113 @@
+$text-size: 15px;
+$color-primary: #19003f;
+$color-secondary: #f6f1f1;
+
+$color-ocapacity: 0.25;
+$color-ocapacity-hover: 0.5;
+
+$box-width: 190px;
+
+$transition-speed: 0.2s;
+
+$card-height: 200px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px 20px 20px 20px;
+  width: $box-width;
+  height: $card-height;
+
+  background-color: $color-primary;
+  border: 3px rgba($color: $color-primary, $alpha: $color-ocapacity);
+  border-radius: 10px;
+
+  transition: all $transition-speed ease-in-out;
+
+  svg {
+    transition: all $transition-speed ease-in-out;
+  }
+
+  .setting-icon {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    #dots-icon,
+    #trash-icon {
+      transition: all $transition-speed ease-in-out;
+      padding: 15px;
+      fill: $color-secondary;
+      height: 20px;
+    }
+  }
+
+  .container-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 20px 20px 20px;
+    width: $box-width;
+    height: $card-height;
+
+    transition: all $transition-speed ease-in-out;
+
+    svg {
+      transition: all $transition-speed ease-in-out;
+    }
+
+    .title > span {
+      transition: all $transition-speed ease-in-out;
+
+      font-size: $text-size;
+      font-weight: bolder;
+      color: $color-secondary;
+    }
+
+    .file-icon {
+      #zip-icon {
+        transition: all $transition-speed ease-in-out;
+
+        fill: $color-secondary;
+      }
+    }
+  }
+}
+
+.container:hover {
+  cursor: pointer;
+
+  box-shadow: $color-primary 0px 0px 0px 5px;
+
+  svg {
+    transform: scale(1.3);
+  }
+
+  .setting-icon {
+    .circle-behind:hover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      #dots-icon,
+      #trash-icon {
+        fill: $color-secondary;
+        fill-opacity: $color-ocapacity-hover;
+      }
+    }
+  }
+
+  .container-2 {
+    .title > span {
+      font-size: $text-size + 5px;
+    }
+  }
+}

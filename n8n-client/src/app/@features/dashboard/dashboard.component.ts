@@ -14,10 +14,13 @@ export class DashboardComponent implements OnInit {
     this.router.events
       .pipe(filter((evt) => evt instanceof NavigationEnd))
       .subscribe((event: any) => {
+        console.log(event);
         let urls = event['url'].split('/');
         this.currentNavigation = urls[urls.length - 1];
         console.log(this.currentNavigation);
       });
+
+    this.currentNavigation = this.router.url.split('/')[2];
   }
 
   isOpenNavigation: boolean = true;

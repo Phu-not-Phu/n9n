@@ -12,10 +12,6 @@ $button-padding: 0.5rem;
   background-color: var(--secondary-color);
 }
 
-.spacer {
-  flex: 0.25;
-}
-
 .welcome {
   display: flex;
   flex-direction: column;
@@ -37,4 +33,9 @@ $button-padding: 0.5rem;
     justify-content: center;
     gap: 0.5rem;
   }
+}
+
+.create-project{
+  padding: 20px;
+  overflow: auto;
 }
