@@ -27,4 +27,8 @@ export class SignInComponent {
   navigateToRegister() {
     this.router.navigate(['/register']);
   }
+
+  navigateToHome(){
+    this.router.navigate(['/dashboard']);
+  }
 }
