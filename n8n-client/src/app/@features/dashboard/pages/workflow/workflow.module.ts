@@ -14,6 +14,7 @@ import { ContainerModule } from './containers/container.module';
     WorkflowRoutingModule,
 
     ContainerModule,
-  ]
+  ],
+
 })
 export class WorkflowModule { }
