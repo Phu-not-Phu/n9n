@@ -1,4 +1,4 @@
-import { ElementRef, Injectable, Injector } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 
 import { NodeEditor, GetSchemes, ClassicPreset } from 'rete';
 import { AreaPlugin, AreaExtensions } from 'rete-area-plugin';
@@ -7,6 +7,8 @@ import {
   Presets as ConnectionPresets,
 } from 'rete-connection-plugin';
 import { AngularPlugin, Presets, AngularArea2D } from 'rete-angular-plugin/16';
+import { NodeModel } from '../models/node.model';
+import { Workflow } from '../models/workflow.model';
 
 type Schemes = GetSchemes<
   ClassicPreset.Node,
@@ -53,58 +55,57 @@ export class EditorService {
     return () => this.area.destroy();
   }
 
-  async testAdd2Nodes() {
-    // const a = new ClassicPreset.Node('A');
-    // a.addControl(
-    //   'a',
-    //   new ClassicPreset.InputControl('text', { initial: 'hello' })
-    // );
-    // a.addOutput('a', new ClassicPreset.Output(this.socket));
-    // await this.editor.addNode(a);
+  // async createOutputNode(label: string) {
+  //   const node = new ClassicPreset.Node(label);
+  //   node.addOutput(label, new ClassicPreset.Output(this.socket));
+  //   return node;
+  // }
 
-    // const b = new ClassicPreset.Node('B');
-    // b.addControl(
-    //   'b',
-    //   new ClassicPreset.InputControl('text', { initial: 'hello' })
-    // );
-    // b.addInput('b', new ClassicPreset.Input(this.socket));
+  // async createInputNode(label: string) {
+  //   const node = new ClassicPreset.Node(label);
+  //   node.addInput(label, new ClassicPreset.Input(this.socket));
+  //   return node;
+  // }
 
-    const a = await this.createInputNode('A');
-    const b = await this.createOutputNode('B');
+  // async createInputOutputNode(label: string, output: number = 1) {
+  //   const node = new ClassicPreset.Node(label);
 
-    await this.editor.addNode(a);
-    await this.editor.addNode(b);
-  }
+  //   for (let i = 0; i < output; i++) {
+  //     node.addOutput(`${label} ${i}`, new ClassicPreset.Output(this.socket));
+  //   }
 
-  async createNode(name: string) {
-    const node = new ClassicPreset.Node(name);
-    // node.addControl(
-    //   name,
-    //   new ClassicPreset.InputControl('text', { initial: 'hello' })
-    // );
-    //node.addOutput(name, new ClassicPreset.Output(this.socket));
-    return node;
-  }
+  //   return node;
+  // }
 
-  async createOutputNode(name: string) {
-    const node = new ClassicPreset.Node(name);
-    node.addOutput(name, new ClassicPreset.Output(this.socket));
-    return node;
-  }
+  async createBaseNode(nodeModel: NodeModel) {
+    const node = new ClassicPreset.Node(nodeModel.name);
 
-  async createInputNode(name: string) {
-    const node = new ClassicPreset.Node(name);
-    node.addInput(name, new ClassicPreset.Input(this.socket));
-    return node;
-  }
-
-  async createInputOutputNode(name: string, output: number = 1) {
-    const node = new ClassicPreset.Node(name);
-
-    for (let i = 0; i < output; i++) {
-      node.addOutput(`${name} ${i}`, new ClassicPreset.Output(this.socket));
+    if (nodeModel.id) {
+      node.id = nodeModel.id;
     }
 
     return node;
   }
+
+  async loadEditor(workflow: Workflow) {
+
+    for (let node of workflow.nodes) {
+      const tempNode = await this.createBaseNode(node);
+      console.log(node);
+      await this.addNode(tempNode);
+      await this.translateNode(tempNode, node.position);
+    }
+
+    await AreaExtensions.zoomAt(this.area, this.editor.getNodes());
+  }
+
+  async addNode(node: ClassicPreset.Node) {
+    await this.editor.addNode(node);
+  }
+
+  async translateNode(node: ClassicPreset.Node, position: [number, number]) {
+    await this.area.translate(node.id, { x: position[0], y: position[1] });
+  }
+
+
 }
