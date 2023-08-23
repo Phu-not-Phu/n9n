@@ -1,15 +1,15 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type ProjectDocument = HydratedDocument<Project>;
+export type WorkflowDocument = HydratedDocument<Workflow>;
 
 @Schema()
-export class Project {
+export class Workflow {
   @Prop()
   id: string;
 
-  @Prop({type: [String]})
-  workflowsID: string[];
+  @Prop()
+  content: string;
 
   @Prop()
   createAt: Date;
@@ -21,4 +21,4 @@ export class Project {
   isDeleted: boolean;
 }
 
-export const ProjectSchema = SchemaFactory.createForClass(Project);
+export const WorkflowSchema = SchemaFactory.createForClass(Workflow);

@@ -1,6 +1,6 @@
-export class CreateProjectDto {
+export class CreateWorkflowDto {
   id: string;
-  workflowsID: string[];
+  content: string;
   createAt: Date;
   updateAt: Date;
   isDeleted: boolean;
