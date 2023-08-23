@@ -16,4 +16,5 @@ export class NavigationComponent {
   @Input() set currentNavigation(value: string) {
     this.currentTab = value;
   }
+
 }

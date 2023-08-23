@@ -36,6 +36,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'settings',
+        loadChildren: () =>
+          import('./pages/settings/settings.module').then(
+            (m) => m.SettingsModule
+          ),
+      },
+      {
         path: 'workflow/:id',
         loadChildren: () =>
           import('./pages/workflow/workflow.module').then(
