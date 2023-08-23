@@ -6,7 +6,7 @@ import { ComponentModule } from '../components/component.module';
 
 @NgModule({
   declarations: [
-    NavigationComponent
+    NavigationComponent,
   ],
   imports: [
     CommonModule,
