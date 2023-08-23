@@ -3,17 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { NavigationComponent } from './navigation/navigation.component';
 import { ComponentModule } from '../components/component.module';
+import { FilterBoxComponent } from './filter-box/filter-box.component';
 
 @NgModule({
-  declarations: [
-    NavigationComponent
-  ],
-  imports: [
-    CommonModule,
-    ComponentModule
-  ],
-  exports: [
-    NavigationComponent
-  ]
+  declarations: [NavigationComponent, FilterBoxComponent],
+  imports: [CommonModule, ComponentModule],
+  exports: [NavigationComponent, FilterBoxComponent],
 })
-export class ContainerModule { }
+export class ContainerModule {}
