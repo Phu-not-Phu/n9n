@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainComponent } from './main.component';
+import { FilterBoxComponent } from './filter-box.component';
 
-describe('NavigationComponent', () => {
-  let component: MainComponent;
-  let fixture: ComponentFixture<MainComponent>;
+describe('FilterBoxComponent', () => {
+  let component: FilterBoxComponent;
+  let fixture: ComponentFixture<FilterBoxComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MainComponent]
+      declarations: [FilterBoxComponent]
     });
-    fixture = TestBed.createComponent(MainComponent);
+    fixture = TestBed.createComponent(FilterBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
