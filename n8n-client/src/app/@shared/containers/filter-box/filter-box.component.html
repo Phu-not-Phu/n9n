@@ -1,5 +1,5 @@
-<div (click)="this.openFilter()">
-  <button id="filterBox">
+<div>
+  <button id="filterBox" (click)="this.openFilter()">
     <svg
       width="27"
       height="22"
@@ -15,5 +15,7 @@
     </svg>
     Filters
   </button>
+  <filter-credential></filter-credential>
+  <filter-execution></filter-execution>
   <div class="content" [ngClass]="{ 'close-content': _isOpen !== false }"></div>
 </div>
