@@ -1,0 +1,136 @@
+.container{
+    padding: 50px 245px;
+    width: 100%;
+    height: auto;
+}
+
+//////////////////
+
+#title{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    justify-items: center;
+    // margin-bottom: 10px;
+
+    & > *{
+        color: #19003f;
+    }
+
+    & > span{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    & > span > img{
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 40px;
+    }
+}
+
+#personalSettings{
+    width: 100%;
+    float: left;
+
+    & > h1{
+        font-size: larger;
+        font-weight: 600;
+    }
+}
+
+#nameAndAvatar{
+    width: 100%;
+    justify-content: flex-end;
+
+    & > p{
+        font-size: small;
+    }
+}
+
+///////////////////
+
+#info{
+    display: grid;
+
+    & > .sections > p{
+        margin: 0;
+        margin-top: 50px;
+        font-size: large;
+        font-weight: 550;
+        opacity: 0.8;
+    }
+
+    & > div, span > p{
+        margin: 10px 0;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    & > #firstLastName{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr;
+        
+        & > #lastName{
+            display: grid;
+            justify-content: end;
+        }
+    }
+    
+    & > *{
+        float: left;
+        color: #19003f;
+    }
+
+    & > span > button{
+        padding: 0;
+        font-size: medium;
+        font-weight: 500;
+        border: none;
+        background-color: transparent;
+        color: #900bce;
+    }
+
+    & > span > button:hover{
+        cursor: pointer;
+    }
+
+    & > div > button{
+        background-color: #19003fb8;
+        border: none;
+        border-radius: 8px;
+        width: 80px;
+        height: 40px;
+        color: #f6f1f1;
+        float: right;
+        font-size: medium;
+    }
+
+    & > div > button:hover{
+        cursor: pointer;
+        border: none;
+        background-color: #19003f;
+        color: #f6f1f1;
+    }
+}
+
+input{
+    padding: 10px;
+    width: 360px;
+    height: 40px;
+    font-size: small;
+    border: 1px solid #19003f;
+    border-radius: 5px;
+    outline-color: #19003f;
+
+}
+
+
+
+///////////////////////////////#6e1f84
+
+
+    
