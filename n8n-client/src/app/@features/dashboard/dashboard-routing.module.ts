@@ -36,10 +36,10 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'settings',
+        path: 'personal',
         loadChildren: () =>
-          import('./pages/settings/settings.module').then(
-            (m) => m.SettingsModule
+          import('./pages/personal/personal.module').then(
+            (m) => m.PersonalModule
           ),
       },
       {
