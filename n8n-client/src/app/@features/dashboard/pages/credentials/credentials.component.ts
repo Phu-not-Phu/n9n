@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-credentials',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./credentials.component.scss']
 })
 export class CredentialsComponent {
+  currentTab: string = 'credentials';
 
+  @Input() set currentNavigation(value: string) {
+    this.currentTab = value;
+  }
 }

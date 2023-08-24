@@ -31,26 +31,3 @@
   display: flex;
   align-items: center;
 }
-
-#filterBox {
-  height: 30px;
-  width: 100px;
-  padding: 5px 5px;
-  background-color: #ffff;
-  border: 1.5px solid #19003f;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #19003f;
-  font-size: 15px;
-}
-
-#filterBox:hover {
-  background-color: #19003f;
-  color: #f6f1f1;
-
-  #filterIcon {
-    fill: #f6f1f1;
-  }
-}
