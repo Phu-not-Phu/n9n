@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-filter-box',
@@ -7,8 +7,14 @@ import { Component } from '@angular/core';
 })
 export class FilterBoxComponent {
   _isOpen: boolean = false;
+  currentTab: string = 'credentials';
 
   openFilter() {
     this._isOpen = !this._isOpen;
+    console.log(this.currentTab);
+  }
+
+  @Input() set currentNavigation(value: string) {
+    this.currentTab = value;
   }
 }

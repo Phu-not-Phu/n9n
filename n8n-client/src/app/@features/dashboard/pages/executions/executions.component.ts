@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-executions',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./executions.component.scss']
 })
 export class ExecutionsComponent {
+  currentTab: string = 'executions';
 
+  @Input() set currentNavigation(value: string) {
+    this.currentTab = value;
+  }
 }
