@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TypeComponent } from './type.component';
+import { SettingComponent } from './setting.component';
 
-describe('TypeComponent', () => {
-  let component: TypeComponent;
-  let fixture: ComponentFixture<TypeComponent>;
+describe('SettingComponent', () => {
+  let component: SettingComponent;
+  let fixture: ComponentFixture<SettingComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TypeComponent]
+      declarations: [SettingComponent]
     });
-    fixture = TestBed.createComponent(TypeComponent);
+    fixture = TestBed.createComponent(SettingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
