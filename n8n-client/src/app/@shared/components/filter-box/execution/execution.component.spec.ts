@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainComponent } from './main.component';
+import { ExecutionComponent } from './execution.component';
 
-describe('NavigationComponent', () => {
-  let component: MainComponent;
-  let fixture: ComponentFixture<MainComponent>;
+describe('ExecutionComponent', () => {
+  let component: ExecutionComponent;
+  let fixture: ComponentFixture<ExecutionComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MainComponent]
+      declarations: [ExecutionComponent]
     });
-    fixture = TestBed.createComponent(MainComponent);
+    fixture = TestBed.createComponent(ExecutionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
