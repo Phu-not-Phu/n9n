@@ -1,8 +1,19 @@
+$container-padding: 0.5rem;
+$transition-time: 0.25s;
+
+$button-icon: 28;
+$button-icon-px: 28px;
+$button-text: 170;
+$button-text-px: 170px;
+$button-height: 40px;
+$button-padding: 0.5rem;
+
 .container {
   height: 100%;
 }
 
-.main, .settings {
+.main,
+.settings {
   height: 100%;
 
   display: flex;
@@ -20,7 +31,40 @@
   transform: translateX(-100%);
 }
 
-
 .spacer {
   flex: 1;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem 0.5rem;
+
+  transition: all $transition-time ease-in-out;
+
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-size: 0.65rem;
+  
+  .close {
+    display: none;
+    opacity: 0;
+    width: 0;
+
+    transition: all $transition-time ease-in-out;
+  }
+
+  .smaller{
+    width: 28px;
+    height: 28px;
+
+    transition: all $transition-time ease-in-out;
+  }
+}
+
+.bigger-logo{
+  transition: all $transition-time ease-in-out;
 }
