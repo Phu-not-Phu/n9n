@@ -22,5 +22,8 @@ export class HelperComponent {
 
   changeNavigation(tab: string) {
     this.router.navigate(['dashboard', tab]);
+    if (tab == 'settings') {
+      this.router.navigate(['dashboard', tab, 'personal']);
+    }
   }
 }

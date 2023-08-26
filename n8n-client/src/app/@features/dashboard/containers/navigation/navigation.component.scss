@@ -12,23 +12,13 @@ $button-padding: 0.5rem;
   height: 100%;
 }
 
-.main,
-.settings {
+.main{
   height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.settings {
-  position: absolute;
-  background-color: var(--primary-color);
-}
-
-.settings.closed {
-  transform: translateX(-100%);
 }
 
 .spacer {
@@ -48,31 +38,31 @@ $button-padding: 0.5rem;
   color: var(--secondary-color);
   font-weight: 600;
   font-size: 0.65rem;
-  
-  .close-text {
-    opacity: 0;
-    width: 0;
-    visibility: hidden;
-    height: 0;
-
-    transition: all $transition-time ease-in-out;
-  }
-
-  .smaller{
-    width: 28px;
-    height: 28px;
-
-    transition: all $transition-time ease-in-out;
-  }
 }
 
-.bigger-logo{
+.bigger-logo {
   width: 60px;
   height: 60px;
   transition: all $transition-time ease-in-out;
 }
 
-.button-text{
+.smaller {
+  width: 28px;
+  height: 28px;
+
+  transition: all $transition-time ease-in-out;
+}
+
+.button-text {
   transition: all $transition-time ease-in-out;
   white-space: nowrap;
+}
+
+.close-text {
+  opacity: 0;
+  width: 0;
+  visibility: hidden;
+  height: 0;
+  transition: all $transition-time ease-in-out;
+  z-index: -1;
 }
