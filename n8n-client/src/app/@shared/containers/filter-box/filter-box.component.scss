@@ -1,3 +1,5 @@
+$transition-time: 0.3s;
+
 #filterBox {
   height: 30px;
   width: 100px;
@@ -23,7 +25,7 @@
 }
 
 .executions {
-  width: 400px;
+  width: 10px;
   height: 200px;
   position: absolute;
   background-color: #f6f1f1;
@@ -32,7 +34,11 @@
 
   inset: 93.6px auto auto 1050.4px;
 
-  display: none;
+  visibility: hidden;
+
+  transition: all $transition-time ease-in-out;
+
+  
 }
 
 .executions.open-executions {
@@ -45,20 +51,22 @@
 
   inset: 93.6px auto auto 1050.4px;
 
-  display: block;
+  visibility: visible;
+
+  transition: all $transition-time ease-in-out;
 }
 
 .credentials {
-  width: 400px;
+  width: 100px;
   height: 200px;
   position: absolute;
   background-color: #f6f1f1;
   border: 1.5px solid #19003f;
   border-radius: 5px;
-
+  
   inset: 93.6px auto auto 1050.4px;
 
-  display: none;
+  transition: all $transition-time ease-in-out;
 }
 
 .credentials.open-credentials {
@@ -71,5 +79,5 @@
 
   inset: 93.6px auto auto 1050.4px;
 
-  display: block;
+  transition: all $transition-time ease-in-out;
 }

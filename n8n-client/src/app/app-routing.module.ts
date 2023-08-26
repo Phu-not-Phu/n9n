@@ -15,8 +15,13 @@ const routes: Routes = [
       ),
   },
   { path: '', pathMatch: 'full', redirectTo: 'signin' },
-  { path: 'register', loadChildren: () => import('./@features/register/register.module').then(m => m.RegisterModule) },
-  { path: 'personal', loadChildren: () => import('./@features/dashboard/pages/personal/personal.module').then(m => m.PersonalModule) },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./@features/register/register.module').then(
+        (m) => m.RegisterModule
+      ),
+  },
   {
     path: '**',
     pathMatch: 'full',

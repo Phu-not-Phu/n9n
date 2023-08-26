@@ -54,12 +54,17 @@ $color-ocapacity-hover: 1;
       }
 
       .btn-nav:hover {
-        border: 1px rgba($color: $color-primary, $alpha: $color-ocapacity-hover) solid;
+        border: 1px rgba($color: $color-primary, $alpha: $color-ocapacity-hover)
+          solid;
 
         #expand-button-svg {
           fill: var(--primary-color);
           fill-opacity: $color-ocapacity-hover;
         }
+      }
+
+      .hide-button {
+        display: none;
       }
     }
   }

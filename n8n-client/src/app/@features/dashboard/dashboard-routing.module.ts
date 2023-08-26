@@ -17,9 +17,7 @@ const routes: Routes = [
       {
         path: 'project/:id',
         loadChildren: () =>
-          import('./pages/project/project.module').then(
-            (m) => m.ProjectModule
-          ),
+          import('./pages/project/project.module').then((m) => m.ProjectModule),
       },
       {
         path: 'credentials',
@@ -36,19 +34,25 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'personal',
-        loadChildren: () =>
-          import('./pages/personal/personal.module').then(
-            (m) => m.PersonalModule
-          ),
-      },
-      {
         path: 'workflow/:id',
         loadChildren: () =>
           import('./pages/workflow/workflow.module').then(
             (m) => m.WorkflowModule
           ),
       },
+      {
+        path: 'settings/personal',
+        loadChildren: () =>
+          import('./pages/personal/personal.module').then(
+            (m) => m.PersonalModule
+          ),
+      },
+      {
+        path: 'settings/users',
+        loadChildren: () =>
+          import('./pages/users/users.module').then((m) => m.UsersModule),
+      },
+      { path: 'settings', redirectTo: 'settings/personal' },
       { path: 'workflow', redirectTo: 'project/:id' },
       { path: 'project', redirectTo: 'projects' },
       { path: '**', redirectTo: 'projects' },
