@@ -1,3 +1,70 @@
-h3 {
-  color: white;
+$container-padding: 0.5rem;
+$transition-time: 0.25s;
+
+$button-icon: 28;
+$button-icon-px: 28px;
+$button-text: 170;
+$button-text-px: 170px;
+$button-height: 40px;
+$button-padding: 0.4rem;
+
+.container {
+  width: calc($button-text-px + $button-icon-px + $container-padding * 2);
+
+  border-top: 1px solid var(--secondary-color);
+
+  padding: 0 $container-padding;
+  transition: all $transition-time ease-in-out;
+
+  & > span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: $button-height;
+  }
+}
+
+.close-container {
+  width: calc(
+    $button-icon-px + $container-padding * 2 + $button-padding * 2
+  ) !important;
+  transition: all $transition-time ease-in-out;
+}
+
+#nameAndAvatar {
+  padding: 0.25rem $button-padding;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+
+  color: var(--secondary-color);
+
+  img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 40px;
+  }
+
+  p {
+    font-size: 0.65rem;
+    font-weight: 600;
+
+    flex: $button-text 0 auto;
+    width: $button-text-px;
+    min-width: 0;
+
+    margin: 0;
+    margin-left: 14px;
+
+    transition: all calc($transition-time * 3) ease-in-out;
+  }
+
+  .close {
+    visibility: hidden;
+    opacity: 0;
+    transition: all calc($transition-time / 5) ease-in-out;
+    width: 0;
+  }
 }
