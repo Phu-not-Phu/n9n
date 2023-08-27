@@ -1,10 +1,10 @@
 <div class="container">
     <div class="navigation">
-        <app-settings *ngIf="this.currentSettingsNavigation === 'settings'" [currentNavigation]="currentNavigation" [currentSettingsNavigation]="currentSettingsNavigation"></app-settings>
+        <app-settings class="settings-off" [ngClass]="{'settings-on': this.currentSettings === 'settings'}" [currentNavigation]="currentNavigation" [currentSettings]="currentSettings"></app-settings>
         <app-navigation [openNavigation]="isOpenNavigation" [currentNavigation]="currentNavigation"></app-navigation>
 
         <div>
-            <button class="btn-nav" (click)="toggleNagivation()" [ngClass]="{'hide-button': currentSettingsNavigation === 'settings'}">
+            <button class="btn-nav" (click)="toggleNagivation()" [ngClass]="{'hide-button': currentSettings === 'settings'}">
                 <span class="button-icon" *ngIf="this.isOpenNavigation != true">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path id="expand-button-svg" 

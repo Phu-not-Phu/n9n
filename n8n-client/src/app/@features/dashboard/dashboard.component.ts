@@ -17,20 +17,23 @@ export class DashboardComponent implements OnInit {
         console.log(event);
         let urls = event['url'].split('/');
         this.currentNavigation = urls[urls.length - 1];
-        if (this.currentNavigation == 'settings') {
-          this.currentSettingsNavigation = 'settings';
-        }
-        this.currentSettingsNavigation = this.router.url.split('/')[2];
-        console.log(this.currentNavigation);
+        this.currentSettings = this.router.url.split('/')[2];
+
+        console.log("Navbar: " + this.currentNavigation);
+        console.log("Settings: " + this.currentSettings);
       });
 
-    this.currentNavigation = this.router.url.split('/')[2];
-    this.currentSettingsNavigation = this.router.url.split('/')[2];
+    this.currentNavigation = this.router.url.split('/')[3];
+    this.currentSettings = this.router.url.split('/')[2];
+
+    console.log("Navbar: " + this.currentNavigation);
+    console.log("Settings: " + this.currentSettings);
   }
 
   isOpenNavigation: boolean = true;
   currentNavigation: string = 'workflows';
-  currentSettingsNavigation: string = 'personal';
+
+  currentSettings: string = 'personal';
 
   toggleNagivation() {
     this.isOpenNavigation = !this.isOpenNavigation;

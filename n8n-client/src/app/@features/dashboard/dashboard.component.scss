@@ -76,3 +76,11 @@ $color-ocapacity-hover: 1;
     background-color: var(--secondary-color);
   }
 }
+
+.settings-off{
+  display: none;
+}
+
+.settings-on{
+  display: block;
+}
