@@ -9,6 +9,12 @@ import {
 import { AngularPlugin, Presets, AngularArea2D } from 'rete-angular-plugin/16';
 import { NodeModel } from '../models/node.model';
 import { Workflow } from '../models/workflow.model';
+import { CoreServerService } from './core-server.service';
+import { lastValueFrom } from 'rxjs';
+
+import { CustomNodeComponent } from '../components/custom-node/custom-node.component';
+import { CustomConnectionComponent } from '../components/custom-connection/custom-connection.component';
+import { CustomSocketComponent } from '../components/custom-socket/custom-socket.component';
 
 type Schemes = GetSchemes<
   ClassicPreset.Node,
@@ -20,6 +26,8 @@ type AreaExtra = AngularArea2D<Schemes>;
   providedIn: 'root',
 })
 export class EditorService {
+  constructor(private coreServerService: CoreServerService) { }
+
   editor!: NodeEditor<Schemes>;
   area!: AreaPlugin<Schemes, AreaExtra>;
   render!: AngularPlugin<Schemes, AreaExtra>;
@@ -41,9 +49,27 @@ export class EditorService {
       accumulating: AreaExtensions.accumulateOnCtrl(),
     });
 
+    AreaExtensions.snapGrid(this.area, { size: 10 });
+
     this.editor.use(this.area);
 
-    this.render.addPreset(Presets.classic.setup());
+    this.render.addPreset(
+      Presets.classic.setup({
+        customize: {
+          node() {
+            return CustomNodeComponent;
+          },
+          connection() {
+            return CustomConnectionComponent;
+          },
+          socket() {
+            return CustomSocketComponent;
+          }
+        }
+      })
+    );
+
+    //this.render.addPreset(Presets.classic.setup());
     this.connection.addPreset(ConnectionPresets.classic.setup());
 
     this.area.use(this.connection);
@@ -55,28 +81,6 @@ export class EditorService {
     return () => this.area.destroy();
   }
 
-  // async createOutputNode(label: string) {
-  //   const node = new ClassicPreset.Node(label);
-  //   node.addOutput(label, new ClassicPreset.Output(this.socket));
-  //   return node;
-  // }
-
-  // async createInputNode(label: string) {
-  //   const node = new ClassicPreset.Node(label);
-  //   node.addInput(label, new ClassicPreset.Input(this.socket));
-  //   return node;
-  // }
-
-  // async createInputOutputNode(label: string, output: number = 1) {
-  //   const node = new ClassicPreset.Node(label);
-
-  //   for (let i = 0; i < output; i++) {
-  //     node.addOutput(`${label} ${i}`, new ClassicPreset.Output(this.socket));
-  //   }
-
-  //   return node;
-  // }
-
   async createBaseNode(nodeModel: NodeModel) {
     const node = new ClassicPreset.Node(nodeModel.name);
 
@@ -87,16 +91,23 @@ export class EditorService {
     return node;
   }
 
-  async loadEditor(workflow: Workflow) {
+  async createNode(nodeModel: NodeModel) {
+    const node = await this.createBaseNode(nodeModel);
+    const { inputs, outputs } = await lastValueFrom(this.coreServerService.getNodeTypes(nodeModel.type));
 
-    for (let node of workflow.nodes) {
-      const tempNode = await this.createBaseNode(node);
-      console.log(node);
-      await this.addNode(tempNode);
-      await this.translateNode(tempNode, node.position);
+    if (inputs) {
+      inputs.forEach((input, index) => {
+        node.addInput(`${input} ${index}`, new ClassicPreset.Input(this.socket));
+      })
     }
 
-    await AreaExtensions.zoomAt(this.area, this.editor.getNodes());
+    if (outputs) {
+      outputs.forEach((output, index) => {
+        node.addOutput(`${output} ${index}`, new ClassicPreset.Output(this.socket));
+      })
+    }
+
+    return node;
   }
 
   async addNode(node: ClassicPreset.Node) {
@@ -107,5 +118,33 @@ export class EditorService {
     await this.area.translate(node.id, { x: position[0], y: position[1] });
   }
 
+  async connectNodes(workflow: Workflow) {
+    const nodes = this.editor.getNodes();
+    const connections = workflow.connections;
+
+    console.log(connections);
+
+    for (let [key, targeNodes] of Object.entries(connections)) {
+      const sourceNode = nodes.find((node) => node.label === key);
+
+      for (let [index, element] of targeNodes.main.entries()) {
+        const targetNode = nodes.find((node) => node.label === element[0].node);
+        await this.editor.addConnection(new ClassicPreset.Connection(sourceNode!, `main ${index}`, targetNode!, `main ${element[0].index}`));
+      }
+    }
+  }
+
+  async loadEditor(workflow: Workflow) {
+
+    for (let node of workflow.nodes) {
+      const tempNode = await this.createNode(node);
+      await this.addNode(tempNode);
+      await this.translateNode(tempNode, node.position);
+    }
+
+    this.connectNodes(workflow);
+
+    await AreaExtensions.zoomAt(this.area, this.editor.getNodes());
+  }
 
 }

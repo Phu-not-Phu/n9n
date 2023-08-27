@@ -58,7 +58,7 @@ export class NodesService {
         return result !== null ? result['properties'] : [];
     }
 
-    async getNodeType(type: string): Promise<any> {
+    async getNodeSockets(type: string): Promise<any> {
         const result = await this.projectModel.find({
             name: type
         }, {

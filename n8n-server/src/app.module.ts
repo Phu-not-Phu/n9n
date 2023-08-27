@@ -7,8 +7,11 @@ import { UsersModule } from './users/users.module';
 import { NodesController } from './types/nodes/nodes.controller';
 import { CredentialsController } from './types/credentials/credentials.controller';
 import { CredentialsService } from './types/credentials/credentials.service';
-import { NodesService } from './types/nodes/nodes.service';
 import { NodesModule } from './types/nodes/nodes.module';
+
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -16,6 +19,10 @@ dotenv.config();
   imports: [
     MongooseModule.forRoot(process.env.MONGO_URI),
     ProjectModule,
+    NodesModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+    }),
   ],
   controllers: [AppController, NodesController, CredentialsController],
   providers: [AppService, CredentialsService],

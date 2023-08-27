@@ -12,9 +12,9 @@ export class NodesController {
         return await this.nodesService.getNodes(name);
     }
 
-    @Get('type')
-    async getNode(@Query('q') type: string): Promise<any> {
-        return await this.nodesService.getNodeType(type);
+    @Get('sockets')
+    async getNodeSockets(@Query('q') type: string): Promise<any> {
+        return await this.nodesService.getNodeSockets(type);
     }
 
     @Get('properties')
