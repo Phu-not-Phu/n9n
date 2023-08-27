@@ -1,16 +1,15 @@
 @use "sass:math";
-@import "../vars";
+@import "../../vars";
 
 svg {
-    overflow: visible;
-    position: absolute;
-    pointer-events: none;
+  overflow: visible;
+  position: absolute;
+  pointer-events: none;
 
-    path {
-        fill: none;
-        stroke-width: 5px;
-        stroke: black;
-        pointer-events: auto;
-    }
-
+  path {
+    fill: none;
+    stroke-width: $connection-width;
+    stroke: $connection-color;
+    pointer-events: auto;
+  }
 }

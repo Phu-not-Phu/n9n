@@ -1,4 +1,10 @@
-import { ChangeDetectorRef, Component, HostBinding, Input, OnChanges } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  HostBinding,
+  Input,
+  OnChanges,
+} from '@angular/core';
 import { ClassicPreset } from 'rete';
 import { KeyValue } from '@angular/common';
 
@@ -7,8 +13,8 @@ import { KeyValue } from '@angular/common';
   templateUrl: './custom-node.component.html',
   styleUrls: ['./custom-node.component.scss'],
   host: {
-    "data-testid": "node"
-  }
+    'data-testid': 'node',
+  },
 })
 export class CustomNodeComponent implements OnChanges {
   @Input() data!: ClassicPreset.Node;
@@ -17,7 +23,7 @@ export class CustomNodeComponent implements OnChanges {
 
   seed = 0;
 
-  @HostBinding("class.selected") get selected() {
+  @HostBinding('class.selected') get selected() {
     return this.data.selected;
   }
 
@@ -31,24 +37,16 @@ export class CustomNodeComponent implements OnChanges {
     this.seed++; // force render sockets
   }
 
-  //   sortByIndex =
-  //     <
-  //       T extends object,
-  //       U extends KeyValue<string, T & { index?: number }>
-  //     >(a: U, b: U) => {
-  //       const ai = a.value.index || 0;
-  //       const bi = b.value.index || 0;
+  sortByIndex = <
+    T extends object,
+    U extends KeyValue<string, (T & { index?: number }) | undefined>
+  >(
+    a: U,
+    b: U
+  ) => {
+    const ai = a.value?.index || 0;
+    const bi = b.value?.index || 0;
 
-  //       return ai - bi;
-  //     }
-
-  sortByIndex<T>(a: KeyValue<number, T>, b: KeyValue<number, T>) {
-    // const ai = a.value.index || 0;
-    // const bi = b.value.index || 0;
-
-    // return ai - bi;
-    return 0;
-  }
-
-
+    return ai - bi;
+  };
 }

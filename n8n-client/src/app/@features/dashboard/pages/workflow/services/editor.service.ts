@@ -26,20 +26,24 @@ type AreaExtra = AngularArea2D<Schemes>;
   providedIn: 'root',
 })
 export class EditorService {
-  constructor(private coreServerService: CoreServerService) { }
+  constructor(private coreServerService: CoreServerService) {}
 
   editor!: NodeEditor<Schemes>;
   area!: AreaPlugin<Schemes, AreaExtra>;
   render!: AngularPlugin<Schemes, AreaExtra>;
   connection!: ConnectionPlugin<Schemes, AreaExtra>;
-  socket!: ClassicPreset.Socket;
+
+  socketInput!: ClassicPreset.Socket;
+  socketOutput!: ClassicPreset.Socket;
 
   contruct(container: HTMLElement, injector: Injector) {
     this.editor = new NodeEditor<Schemes>();
     this.area = new AreaPlugin<Schemes, AreaExtra>(container);
     this.connection = new ConnectionPlugin<Schemes, AreaExtra>();
     this.render = new AngularPlugin<Schemes, AreaExtra>({ injector });
-    this.socket = new ClassicPreset.Socket('socket');
+
+    this.socketInput = new ClassicPreset.Socket('sInput');
+    this.socketOutput = new ClassicPreset.Socket('sOutput');
 
     this.initialize();
   }
@@ -49,7 +53,7 @@ export class EditorService {
       accumulating: AreaExtensions.accumulateOnCtrl(),
     });
 
-    AreaExtensions.snapGrid(this.area, { size: 10 });
+    AreaExtensions.snapGrid(this.area, { size: 1 });
 
     this.editor.use(this.area);
 
@@ -64,8 +68,8 @@ export class EditorService {
           },
           socket() {
             return CustomSocketComponent;
-          }
-        }
+          },
+        },
       })
     );
 
@@ -93,18 +97,26 @@ export class EditorService {
 
   async createNode(nodeModel: NodeModel) {
     const node = await this.createBaseNode(nodeModel);
-    const { inputs, outputs } = await lastValueFrom(this.coreServerService.getNodeTypes(nodeModel.type));
+    const { inputs, outputs } = await lastValueFrom(
+      this.coreServerService.getNodeTypes(nodeModel.type)
+    );
 
     if (inputs) {
       inputs.forEach((input, index) => {
-        node.addInput(`${input} ${index}`, new ClassicPreset.Input(this.socket));
-      })
+        node.addInput(
+          `${input} ${index}`,
+          new ClassicPreset.Input(this.socketInput)
+        );
+      });
     }
 
     if (outputs) {
       outputs.forEach((output, index) => {
-        node.addOutput(`${output} ${index}`, new ClassicPreset.Output(this.socket));
-      })
+        node.addOutput(
+          `${output} ${index}`,
+          new ClassicPreset.Output(this.socketOutput)
+        );
+      });
     }
 
     return node;
@@ -129,13 +141,19 @@ export class EditorService {
 
       for (let [index, element] of targeNodes.main.entries()) {
         const targetNode = nodes.find((node) => node.label === element[0].node);
-        await this.editor.addConnection(new ClassicPreset.Connection(sourceNode!, `main ${index}`, targetNode!, `main ${element[0].index}`));
+        await this.editor.addConnection(
+          new ClassicPreset.Connection(
+            sourceNode!,
+            `main ${index}`,
+            targetNode!,
+            `main ${element[0].index}`
+          )
+        );
       }
     }
   }
 
   async loadEditor(workflow: Workflow) {
-
     for (let node of workflow.nodes) {
       const tempNode = await this.createNode(node);
       await this.addNode(tempNode);
@@ -146,5 +164,4 @@ export class EditorService {
 
     await AreaExtensions.zoomAt(this.area, this.editor.getNodes());
   }
-
 }
