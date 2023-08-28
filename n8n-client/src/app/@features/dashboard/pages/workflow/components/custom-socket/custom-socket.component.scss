@@ -1,0 +1,59 @@
+@import "../../vars";
+
+// :host {
+//   display: inline-block;
+//   cursor: pointer;
+//   border: 1px solid grey;
+
+//   width: $socket-output-width;
+//   height: $socket-output-height;
+
+//   vertical-align: middle;
+//   background: #fff;
+//   z-index: 2;
+//   box-sizing: border-box;
+
+//   &:hover {
+//     background: #ddd;
+//   }
+// }
+
+.input {
+  display: inline-block;
+  cursor: pointer;
+
+  width: $socket-input-width;
+  height: $socket-input-height;
+  border-radius: $socket-input-border-radius;
+
+  background: $socket-input-background-color;
+  border: $socket-input-border-width solid $socket-input-border-color;
+
+  z-index: 2;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  &:hover {
+    background: #ddd;
+  }
+}
+
+.output {
+  display: inline-block;
+  cursor: pointer;
+
+  width: $socket-output-width;
+  height: $socket-output-height;
+  border-radius: $socket-output-border-radius;
+
+  background: $socket-output-background-color;
+  border: $socket-output-border-width solid $socket-output-border-color;
+
+  z-index: 2;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  &:hover {
+    background: #ddd;
+  }
+}

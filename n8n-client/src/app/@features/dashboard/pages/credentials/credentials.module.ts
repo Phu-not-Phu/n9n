@@ -10,13 +10,13 @@ import { SharedModule } from 'src/app/@shared/shared.module';
 
 @NgModule({
   declarations: [
-    CredentialsComponent
+    CredentialsComponent,
   ],
   imports: [
     CommonModule,
     CredentialsRoutingModule,
     ContainerModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class CredentialsModule { }

@@ -1,0 +1,150 @@
+@use "sass:math";
+@import "../../vars.scss";
+
+:host {
+  .node {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    background: $node-background-color;
+    border: $node-border-width solid $node-border-color;
+    border-radius: $node-border-radius;
+
+    cursor: pointer;
+    box-sizing: content-box;
+
+    width: $node-width;
+    height: $node-height;
+
+    position: relative;
+    user-select: none;
+  }
+
+  .body {
+    width: $node-width;
+    height: $node-height;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .input-sockets-container,
+    .output-sockets-container {
+      width: auto;
+      height: 100%;
+
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .input-sockets-container {
+      transform: translateX(-50%);
+    }
+
+    .output-sockets-container {
+      transform: translateX(50%);
+    }
+
+    .input,
+    .output {
+      margin: 0;
+      padding: 0;
+    }
+
+    .input {
+      .input-title {
+        display: none;
+      }
+
+      .input-socket {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: $socket-input-height;
+        width: $socket-input-width;
+      }
+    }
+
+    .output {
+      .output-title {
+        display: none;
+      }
+
+      .output-socket {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: $socket-output-height;
+        width: $socket-output-width;
+      }
+    }
+  }
+
+  &:hover {
+    background: #333;
+  }
+
+  &.selected {
+    border-color: red;
+  }
+
+  .title {
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  //   .output {
+  //     text-align: right;
+  //   }
+
+  //   .input {
+  //     text-align: left;
+  //   }
+
+  //   .output-socket {
+  //     text-align: right;
+  //     margin-right: -1px;
+  //     display: inline-block;
+  //   }
+
+  //   .input-socket {
+  //     text-align: left;
+  //     margin-left: -1px;
+  //     display: inline-block;
+  //   }
+
+  //   .input-title,
+  //   .output-title {
+  //     vertical-align: middle;
+  //     color: white;
+  //     display: inline-block;
+  //     font-family: sans-serif;
+  //     font-size: 14px;
+  //     margin: $socket-margin;
+  //     line-height: $socket-size;
+  //   }
+
+  .input-control {
+    z-index: 1;
+    width: calc(100% - #{$socket-size + 2 * $socket-margin});
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .control {
+    padding: $socket-margin math.div($socket-size, 2) + $socket-margin;
+  }
+}

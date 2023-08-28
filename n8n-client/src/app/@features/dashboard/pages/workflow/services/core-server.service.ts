@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, lastValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
+import { NodeSocketsType } from '../models/node.model';
+
 
 const { n8n } = environment;
 
@@ -20,6 +22,10 @@ export class CoreServerService {
 
   getWorkflow(id: string): Observable<any> {
     return this.httpClient.get(`${n8n.apiServer}workflows/${id}`);
+  }
+
+  getNodeTypes(type: string): Observable<NodeSocketsType> {
+    return this.httpClient.get(`${n8n.outerShellServer}nodes/sockets?q=${type}`);
   }
 
 }

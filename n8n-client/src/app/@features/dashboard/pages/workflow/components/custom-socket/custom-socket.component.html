@@ -1,0 +1,9 @@
+<div *ngIf="name === 'sInput';then inputSocket else outputSocket"></div>
+
+<ng-template #inputSocket>
+    <div class="input"></div>
+</ng-template>
+
+<ng-template #outputSocket>
+    <div class="output"></div>
+</ng-template>
