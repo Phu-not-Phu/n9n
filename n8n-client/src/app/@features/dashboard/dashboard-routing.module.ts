@@ -49,6 +49,12 @@ const routes: Routes = [
             (m) => m.WorkflowModule
           ),
       },
+      {
+        path: 'users',
+        loadChildren: () =>
+          import('./pages/users/users.module').then(
+            (m) => m.UsersModule),
+      },
       { path: 'workflow', redirectTo: 'project/:id' },
       { path: 'project', redirectTo: 'projects' },
       { path: '**', redirectTo: 'projects' },

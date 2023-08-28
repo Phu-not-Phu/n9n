@@ -24,8 +24,8 @@
     }
 
     & > span > img{
-        width: 40px;
-        height: 40px;
+        width: 55px;
+        height: 55px;
         object-fit: cover;
         border-radius: 40px;
     }
@@ -47,6 +47,7 @@
 
     & > p{
         font-size: small;
+        font-weight: 600;
     }
 }
 
@@ -107,6 +108,7 @@
         color: #f6f1f1;
         float: right;
         font-size: medium;
+        transition: all 0.2s;
     }
 
     & > div > button:hover{
