@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'create-new-project',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-project.component.scss']
 })
 export class NewProjectComponent {
+  @Output() createProject = new EventEmitter();
 
+  openCreateProjectDialog() {
+    this.createProject.emit();
+  }
 }

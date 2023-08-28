@@ -13,7 +13,7 @@ export class ProjectService {
   constructor(
     @InjectModel(Project.name) private projectModel: Model<Project>,
     @InjectModel(Workflow.name) private workflowModel: Model<Workflow>,
-  ) {}
+  ) { }
 
   //------------------Project------------------
   async create(createProjectDto: CreateProjectDto): Promise<ProjectDocument> {
@@ -64,10 +64,12 @@ export class ProjectService {
     updateProjectDto: UpdateProjectDto,
   ): Promise<ProjectDocument> {
     updateProjectDto.updateAt = new Date();
+
     await this.createWorkflow(workflowID, new CreateWorkflowDto());
     const addWorkflow = await this.projectModel
       .findOneAndUpdate({ id: id }, updateProjectDto, { new: true })
       .exec();
+
     addWorkflow.workflowsID.push(workflowID);
     addWorkflow.save();
     return addWorkflow;

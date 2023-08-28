@@ -26,7 +26,7 @@ type AreaExtra = AngularArea2D<Schemes>;
   providedIn: 'root',
 })
 export class EditorService {
-  constructor(private coreServerService: CoreServerService) {}
+  constructor(private coreServerService: CoreServerService) { }
 
   editor!: NodeEditor<Schemes>;
   area!: AreaPlugin<Schemes, AreaExtra>;
@@ -133,8 +133,6 @@ export class EditorService {
   async connectNodes(workflow: Workflow) {
     const nodes = this.editor.getNodes();
     const connections = workflow.connections;
-
-    console.log(connections);
 
     for (let [key, targeNodes] of Object.entries(connections)) {
       const sourceNode = nodes.find((node) => node.label === key);

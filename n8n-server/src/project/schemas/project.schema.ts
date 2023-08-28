@@ -8,7 +8,13 @@ export class Project {
   @Prop()
   id: string;
 
-  @Prop({type: [String]})
+  @Prop()
+  name: string;
+
+  @Prop()
+  description: string;
+
+  @Prop({ type: [String] })
   workflowsID: string[];
 
   @Prop()
