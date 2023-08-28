@@ -27,8 +27,11 @@ export class DashboardComponent implements OnInit {
         console.log('Settings: ' + this.currentSettings);
       });
 
-    this.currentNavigation = this.router.url.split('/')[3];
+    this.currentNavigation = this.router.url.split('/')[2     ];
     this.currentSettings = this.router.url.split('/')[2];
+    if (this.currentSettings == 'settings') {
+      this.currentNavigation = this.router.url.split('/')[3];
+    }
 
     console.log('Navbar: ' + this.currentNavigation);
     console.log('Settings: ' + this.currentSettings);
