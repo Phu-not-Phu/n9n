@@ -1,50 +1,84 @@
+$transition-time: 0.3s;
+
 #filterBox {
-    height: 30px;
-    width: 100px;
-    padding: 5px 5px;
-    background-color: #f6f1f1;
-    border: 1.5px solid #19003f;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #19003f;
-    font-size: 15px;
+  height: 30px;
+  width: 100px;
+  padding: 5px 5px;
+  background-color: #f6f1f1;
+  border: 1.5px solid #19003f;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #19003f;
+  font-size: 15px;
+}
+
+#filterBox:hover {
+  background-color: #19003f;
+  color: #f6f1f1;
+  cursor: pointer;
+
+  #filterIcon {
+    fill: #f6f1f1;
   }
+}
+
+.executions {
+  width: 10px;
+  height: 200px;
+  position: absolute;
+  background-color: #f6f1f1;
+  border: 1.5px solid #19003f;
+  border-radius: 5px;
+  margin: 8px 0;
+
+  inset: 93.6px auto auto 1050.4px;
+
+  visibility: hidden;
+
+  transition: all $transition-time ease-in-out;
+
   
-  #filterBox:hover {
-    background-color: #19003f;
-    color: #f6f1f1;
-    cursor: pointer;
+}
+
+.executions.open-executions {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  background-color: #f6f1f1;
+  border: 1.5px solid #19003f;
+  border-radius: 5px;
+
+  inset: 93.6px auto auto 1050.4px;
+
+  visibility: visible;
+
+  transition: all $transition-time ease-in-out;
+}
+
+.credentials {
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  background-color: #f6f1f1;
+  border: 1.5px solid #19003f;
+  border-radius: 5px;
   
-    #filterIcon {
-      fill: #f6f1f1;
-    }
-  }
-  
-  .content {
-    width: 400px;
-    height: 200px;
-    position: absolute;
-    background-color: #f6f1f1;
-    border: 1.5px solid #19003f;
-    border-radius: 5px;
-  
-    inset: 93.6px auto auto 1050.4px;
-  
-    display: none;
-  }
-  
-  .content.close-content {
-    width: 400px;
-    height: 200px;
-    position: absolute;
-    background-color: #f6f1f1;
-    border: 1.5px solid #19003f;
-    border-radius: 5px;
-  
-    inset: 93.6px auto auto 1050.4px;
-    
-    display: block;
-  }
-  
+  inset: 93.6px auto auto 1050.4px;
+
+  transition: all $transition-time ease-in-out;
+}
+
+.credentials.open-credentials {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  background-color: #f6f1f1;
+  border: 1.5px solid #19003f;
+  border-radius: 5px;
+
+  inset: 93.6px auto auto 1050.4px;
+
+  transition: all $transition-time ease-in-out;
+}

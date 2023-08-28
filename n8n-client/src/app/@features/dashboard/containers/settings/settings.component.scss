@@ -1,0 +1,96 @@
+$container-padding: 0.5rem;
+$transition-time: 0.25s;
+
+$button-icon: 28;
+$button-icon-px: 28px;
+$button-text: 170;
+$button-text-px: 170px;
+$button-height: 50px;
+$button-padding: 0.5rem;
+
+.container {
+  height: 100%;
+  width: 220px;
+  position: absolute;
+
+  background-color: var(--primary-color);
+  border-right: 1px solid var(--primary-color);
+
+  transition: all $transition-time ease-in-out;
+}
+
+.button-back,
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-back{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+button {
+  width: 100%;
+  height: $button-height;
+
+  visibility: visible;
+  opacity: 1;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0.25rem $button-padding;
+  margin-bottom: 0.5rem;
+
+  color: var(--secondary-color);
+  background: none;
+  border: none;
+  border-radius: 10px;
+
+  transition: all $transition-time ease-in-out;
+  cursor: pointer;
+
+  span {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-icon {
+    flex: $button-icon 0 auto;
+    width: $button-icon-px;
+
+    min-width: 0;
+  }
+
+  .return-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    flex: $button-text 0 auto;
+    width: $button-text-px;
+    min-width: 0;
+
+    margin-left: 15px;
+    white-space: nowrap;
+  }
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+
+  #back-svg {
+    stroke: var(--primary-color);
+  }
+}
+
+#back-svg {
+  stroke: var(--secondary-color);
+  stroke-width: 10;
+  transition: all $transition-time ease-in-out;
+}

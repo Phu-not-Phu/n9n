@@ -1,7 +1,17 @@
 $transition-time: 0.2s;
+
 $color-primary: #19003f;
 $color-ocapacity: 0.25;
 $color-ocapacity-hover: 1;
+
+$container-padding: 0.5rem;
+
+$button-icon: 28;
+$button-icon-px: 28px;
+$button-text: 170;
+$button-text-px: 170px;
+$button-height: 40px;
+$button-padding: 0.5rem;
 
 .container {
   height: 100%;
@@ -54,12 +64,17 @@ $color-ocapacity-hover: 1;
       }
 
       .btn-nav:hover {
-        border: 1px rgba($color: $color-primary, $alpha: $color-ocapacity-hover) solid;
+        border: 1px rgba($color: $color-primary, $alpha: $color-ocapacity-hover)
+          solid;
 
         #expand-button-svg {
           fill: var(--primary-color);
           fill-opacity: $color-ocapacity-hover;
         }
+      }
+
+      .hide-button {
+        display: none;
       }
     }
   }
@@ -69,4 +84,16 @@ $color-ocapacity-hover: 1;
     width: 100%;
     background-color: var(--secondary-color);
   }
+}
+
+.settings-off{
+  transform: translateX(-30vw);
+
+  transition: all $transition-time ease-in-out;
+}
+
+.settings-on{
+  transform: translateX(0);
+
+  transition: all $transition-time ease-in-out;
 }

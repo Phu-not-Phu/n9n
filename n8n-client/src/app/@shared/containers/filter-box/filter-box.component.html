@@ -15,9 +15,16 @@
     </svg>
     Filters
   </button>
-  
-  <div class="content" [ngClass]="{ 'close-content': _isOpen !== false }">
-    <filter-credential></filter-credential>
-    <filter-execution></filter-execution>
-  </div>
+
+  <filter-credential
+    class="credentials"
+    [ngClass]="{ 'open-credentials': _isOpen !== false }"
+    *ngIf="this.currentTab === 'credentials'"
+  ></filter-credential>
+
+  <filter-execution
+    class="executions"
+    [ngClass]="{ 'open-executions': _isOpen !== false }"
+    *ngIf="this.currentTab === 'executions'"
+  ></filter-execution>
 </div>

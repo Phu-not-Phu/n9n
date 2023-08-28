@@ -19,3 +19,8 @@ export interface NodeModel {
     updatedAt: string;
 }
 
+export interface NodeSocketsType {
+    inputs?: string[];
+    outputs?: string[];
+}
+

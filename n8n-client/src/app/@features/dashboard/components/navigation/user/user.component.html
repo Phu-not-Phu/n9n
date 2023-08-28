@@ -1,8 +1,9 @@
-<div>
-    <span>
-        <img src="" alt="">
-    </span>
-    <span>
-        <!-- <h3>USERNAME</h3> -->
-    </span>
+<div class="container" [ngClass]="{'close-container': _isOpen !== true}">
+  <span id="nameAndAvatar">
+    <img
+      src="https://tintuc-divineshop.cdn.vccloud.vn/wp-content/uploads/2022/08/nhung-su-that-thu-vi-ve-tom-jerry-ba-giup-viec-bi-an-tung-lo-mat_62e8f715e5c8c.jpeg"
+      alt="avatar"
+    />
+    <p [ngClass]="{'close': _isOpen !== true}">Golden Fellas</p>
+  </span>
 </div>

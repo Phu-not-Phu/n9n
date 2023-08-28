@@ -15,13 +15,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'project/:id',
-        loadChildren: () =>
-          import('./pages/project/project.module').then(
-            (m) => m.ProjectModule
-          ),
-      },
-      {
         path: 'credentials',
         loadChildren: () =>
           import('./pages/credentials/credentials.module').then(
@@ -36,13 +29,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'personal',
-        loadChildren: () =>
-          import('./pages/personal/personal.module').then(
-            (m) => m.PersonalModule
-          ),
-      },
-      {
         path: 'workflow/:id',
         loadChildren: () =>
           import('./pages/workflow/workflow.module').then(
@@ -50,11 +36,23 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'users',
+        path: 'settings/personal',
         loadChildren: () =>
-          import('./pages/users/users.module').then(
-            (m) => m.UsersModule),
+          import('./pages/personal/personal.module').then(
+            (m) => m.PersonalModule
+          ),
       },
+      {
+        path: 'settings/users',
+        loadChildren: () =>
+          import('./pages/users/users.module').then((m) => m.UsersModule),
+      },
+      {
+        path: 'helps',
+        loadChildren: () =>
+          import('./pages/helps/helps.module').then((m) => m.HelpsModule),
+      },
+      { path: 'settings', redirectTo: 'settings/personal' },
       { path: 'workflow', redirectTo: 'project/:id' },
       { path: 'project', redirectTo: 'projects' },
       { path: '**', redirectTo: 'projects' },

@@ -1,0 +1,34 @@
+//for Node
+$node-width: 100px;
+$node-height: 100px;
+$node-border-radius: 4px;
+
+$node-background-color: white;
+
+$node-border-color: var(--primary-color);
+$node-border-color-success: #4fff83;
+$node-border-color-failed: #ff4f4f;
+
+$node-border-width: 2.5px;
+
+//for Socket
+$socket-size: 20px;
+$socket-margin: 6px;
+
+$socket-input-width: 20px;
+$socket-input-height: 30px;
+$socket-input-border-radius: 2px;
+$socket-input-border-color: var(--primary-color);
+$socket-input-border-width: 2px;
+$socket-input-background-color: white;
+
+$socket-output-width: 20px;
+$socket-output-height: 20px;
+$socket-output-border-radius: 50%;
+$socket-output-border-color: var(--primary-color);
+$socket-output-border-width: 2px;
+$socket-output-background-color: white;
+
+//for Connection
+$connection-width: 2px;
+$connection-color: var(--primary-color);
