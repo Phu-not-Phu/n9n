@@ -12,7 +12,6 @@ export class MainSettingsComponent {
 
   @Input() set currentTab(value: string) {
     this._currentTab = value;
-    console.log(this._currentTab);
   }
 
   changeNavigation(tab: string) {

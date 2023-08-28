@@ -9,19 +9,24 @@ import { Router } from '@angular/router';
 export class SettingsComponent {
   constructor(private router: Router) {}
 
-  settingIsOn!: string;
+  settingIsOn: boolean = false;
+  _currentSettings!: string;
   _currentTab: string = 'personal';
 
   @Input() set currentNavigation(value: string) {
     this._currentTab = value;
   }
 
-  @Input() set currentSettingsNavigation(value: string) {
+  @Input() set currentSettings(value: string) {
+    this._currentSettings = value;
+  }
+
+  @Input() set isOpenSettings(value: boolean) {
     this.settingIsOn = value;
   }
 
   changeNavigation(tab: string) {
     this.router.navigate(['dashboard', tab]);
-    this.settingIsOn = tab;
+    this._currentSettings = tab;
   }
 }
