@@ -95,5 +95,5 @@ $button-padding: 0.5rem;
 .settings-on{
   transform: translateX(0);
 
-  transition: all $transition-time ease-in-out;
+  transition: all calc($transition-time * 3) ease-in-out;
 }
