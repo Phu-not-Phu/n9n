@@ -1,10 +1,12 @@
-.body {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
+.khanh{
   background-color: #F6F1F1;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 100%;  align-items: center;
+}
+
+.body {
+  margin-bottom: 95px;
 }
 
 .bigbox {
