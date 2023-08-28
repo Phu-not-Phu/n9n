@@ -12,4 +12,4 @@ import { MainSettingsComponent } from './settings/main-settings/main-settings.co
   imports: [CommonModule, SharedModule],
   exports: [MainComponent, HelperComponent, UserComponent, MainSettingsComponent],
 })
-export class ComponentModule {}
+export class ComponentModule { }

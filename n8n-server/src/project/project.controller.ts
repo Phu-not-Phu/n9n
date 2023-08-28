@@ -15,7 +15,7 @@ import { UpdateWorkflowDto } from './dto/update-workflow.dto';
 
 @Controller('project')
 export class ProjectController {
-  constructor(private readonly projectService: ProjectService) {}
+  constructor(private readonly projectService: ProjectService) { }
 
   //------------------Project------------------
   @Post('/create')

@@ -1,8 +1,10 @@
 export const environment = {
-  n8n: {
-    apiServer: 'https://core.n9n.codes/api/v1/',
-    server: 'https://core.n9n.codes/',
+  server: {
     outerShellServer: 'http://localhost:3000/',
+  },
+  n8n: {
+    server: 'https://core.n9n.codes/',
+    apiVersion: 'api/v1/',
     apiKey: 'n8n_api_25795750bc7a5984713ebcc9f29264db312bdd3476d81f03263e2e3a346f5ce7b47d85ea80ad6789',
   },
   firebase: {

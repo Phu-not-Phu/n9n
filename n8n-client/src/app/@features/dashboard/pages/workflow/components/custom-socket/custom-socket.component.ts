@@ -27,7 +27,6 @@ export class CustomSocketComponent {
   ngOnInit(): void {
     this.name = this.data.name;
     this.cdr.detectChanges();
-    console.log(this.name);
   }
 
   ngOnChanges(): void {
