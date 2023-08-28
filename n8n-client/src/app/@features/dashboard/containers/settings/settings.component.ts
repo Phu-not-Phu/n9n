@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class SettingsComponent {
   constructor(private router: Router) {}
 
+  navbarExpand: boolean = true;
   settingIsOn: boolean = false;
   _currentSettings!: string;
   _currentTab: string = 'personal';
@@ -24,6 +25,7 @@ export class SettingsComponent {
   @Input() set isOpenSettings(value: boolean) {
     this.settingIsOn = value;
   }
+
 
   changeNavigation(tab: string) {
     this.router.navigate(['dashboard', tab]);
