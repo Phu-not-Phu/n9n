@@ -8,28 +8,28 @@ export class User {
   @Prop()
   id: string;
 
-  @Prop()
+  @Prop({ required: true })
   username: string;
 
-  @Prop()
+  @Prop({ default: '' })
   password: string;
 
-  @Prop()
+  @Prop({ required: true })
   email: string;
 
-  @Prop()
+  @Prop({ default: '' })
   googleID: string;
 
-  @Prop()
+  @Prop({ default: '' })
   githubID: string;
 
-  @Prop()
+  @Prop({ default: new Date() })
   createAt: Date;
 
-  @Prop()
+  @Prop({ default: new Date() })
   updateAt: Date;
 
-  @Prop()
+  @Prop({ default: false })
   isDeleted: boolean;
 }
 

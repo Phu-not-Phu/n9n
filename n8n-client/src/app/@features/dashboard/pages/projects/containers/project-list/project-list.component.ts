@@ -1,19 +1,20 @@
 import { Component, Input } from '@angular/core';
-import { FormExport, Project } from '../../models/project.model';
+import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
+import { FormExport } from 'src/app/models/type-helper.model';
 
 @Component({
-  selector: 'app-new-project',
-  templateUrl: './new-project.component.html',
-  styleUrls: ['./new-project.component.scss'],
+  selector: 'app-project-list',
+  templateUrl: './project-list.component.html',
+  styleUrls: ['./project-list.component.scss'],
 })
-export class NewProjectComponent {
+export class ProjectListComponent {
   isDialogOpen: boolean = false;
 
   @Input()
   quantity: number = 0;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService) {}
 
   addQuantity() {
     this.quantity += 1;
@@ -24,7 +25,7 @@ export class NewProjectComponent {
     const newProject: Project = {
       name: project.name || 'Untitled Project',
       description: project.description || 'No description provided',
-    }
+    };
 
     console.log(newProject);
 
@@ -32,5 +33,4 @@ export class NewProjectComponent {
       console.log(res);
     });
   }
-
 }

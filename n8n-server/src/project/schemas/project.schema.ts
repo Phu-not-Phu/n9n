@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 
 export type ProjectDocument = HydratedDocument<Project>;
 
@@ -25,6 +25,9 @@ export class Project {
 
   @Prop()
   isDeleted: boolean;
+
+  @Prop({ type: Types.ObjectId })
+  ownerID: Types.ObjectId;
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);
