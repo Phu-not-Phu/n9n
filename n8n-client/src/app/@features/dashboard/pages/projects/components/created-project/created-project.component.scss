@@ -38,6 +38,8 @@ $card-height: 200px;
     align-items: center;
     gap: 10px;
 
+    transition: all $transition-speed ease-in-out;
+
     #dots-icon,
     #trash-icon {
       transition: all $transition-speed ease-in-out;
@@ -92,6 +94,10 @@ $card-height: 200px;
   }
 
   .setting-icon {
+    gap: 15px;
+
+    transition: all $transition-speed ease-in-out;
+
     .circle-behind:hover {
       display: flex;
       justify-content: center;

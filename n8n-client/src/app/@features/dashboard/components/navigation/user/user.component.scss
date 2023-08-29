@@ -35,14 +35,14 @@ $button-padding: 0.4rem;
 
 #nameAndAvatar {
   padding: 0.25rem $button-padding;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
 
   color: var(--secondary-color);
 
   img {
-    width: 30px;
-    height: 30px;
+    width: 23px;
+    height: 23px;
     object-fit: cover;
     border-radius: 40px;
   }
@@ -58,7 +58,7 @@ $button-padding: 0.4rem;
     margin: 0;
     margin-left: 14px;
 
-    transition: all calc($transition-time * 3) ease-in-out;
+    transition: all calc($transition-time / 5) ease-in-out;
   }
 
   .close {

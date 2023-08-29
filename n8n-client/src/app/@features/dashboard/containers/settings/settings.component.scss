@@ -1,11 +1,11 @@
 $container-padding: 0.5rem;
 $transition-time: 0.25s;
 
-$button-icon: 28;
-$button-icon-px: 28px;
-$button-text: 170;
-$button-text-px: 170px;
-$button-height: 50px;
+$button-icon: 20;
+$button-icon-px: 20px;
+$button-text: 150;
+$button-text-px: 150px;
+$button-height: 40px;
 $button-padding: 0.5rem;
 
 .container {
@@ -29,7 +29,7 @@ $button-padding: 0.5rem;
 
 .button-back{
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
@@ -68,7 +68,7 @@ button {
   }
 
   .return-text {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
 
     flex: $button-text 0 auto;
