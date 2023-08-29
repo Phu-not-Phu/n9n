@@ -28,7 +28,7 @@
     
         <span>
             <p>Email</p>
-            <input type="text" placeholder="gjhgjhgj123@sinhvien.hoasen.edu.vn">
+            <input type="email" placeholder="gjhgjhgj123@sinhvien.hoasen.edu.vn">
         </span>
 
         <span class="sections">
@@ -36,7 +36,7 @@
         </span>
 
         <span>
-            <button>Change Password</button>
+            <button (click)="this.router.navigate(['dashboard', 'users'])">Change Password</button>
         </span>
 
         <div>

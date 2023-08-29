@@ -1,0 +1,40 @@
+.container{
+    padding: 40px 290px;
+
+    & > div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+
+        & > h1{
+            color: #19003f;
+            font-size: larger;
+            font-weight: 600;
+        }
+
+        & > span{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            & > button{
+                width: 80px;
+                height: 40px;
+                border: 1px solid #19003f;
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: transparent;
+                color: #19003f;
+                align-items: flex-end;
+                font-size: medium;
+            }
+
+            & > button:hover{
+                background-color: #19003f;
+                color: #fff;
+            }
+
+        }     
+    }
+}
+
