@@ -26,5 +26,6 @@
     class="executions"
     [ngClass]="{ 'open-executions': _isOpen !== false }"
     *ngIf="this.currentTab === 'executions'"
+    [isOpen]="_isOpen"
   ></filter-execution>
 </div>

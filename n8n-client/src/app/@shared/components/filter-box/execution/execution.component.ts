@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'filter-execution',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./execution.component.scss']
 })
 export class ExecutionComponent {
+  _isOpen: boolean = false;
 
+  @Input() set isOpen(value: boolean) {
+    this._isOpen = value;
+  }
 }
