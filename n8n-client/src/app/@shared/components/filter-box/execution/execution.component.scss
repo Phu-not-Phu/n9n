@@ -1,6 +1,45 @@
 .container {
+  
   position: absolute;
-  padding: 10px 20px;
+  padding: 20px 30px;
+  width: 100%;
+  height: auto;
+  display: grid;
+  gap: 10px;
+
+  & > span{
+    margin-top: 10px;
+    color: var(--primary-color);
+    font-size: medium;
+    font-weight: 400;
+  }
+
+  & > input{
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: small;
+  }
+}
+
+#customData{
+  padding-left: 15px;
+  display: grid;
+  gap: 5px;
+
+  & > span{
+    color: var(--primary-color);
+    font-size: small;
+    font-weight: 400;
+  }
+
+  & > input{
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: small;
+    color: rgb(222, 215, 215);
+  }
 }
 
 
