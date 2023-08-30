@@ -12,7 +12,8 @@ import { SelectListComponent } from './select-list/select-list.component';
     CommonModule
   ],
   exports: [
-    CreCardComponent
+    CreCardComponent,
+    SelectListComponent
   ],
 })
 export class ComponentModule { }
