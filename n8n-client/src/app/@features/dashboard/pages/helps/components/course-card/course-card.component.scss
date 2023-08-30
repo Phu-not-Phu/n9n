@@ -55,17 +55,21 @@ $transition-time: 0.2s;
   box-shadow: 0px 0px 10px 0px rgba($color: #000000, $alpha: 0.25);
 }
 
-.container:hover {
+.container-2:hover {
   cursor: pointer;
-  background-color: $container-color-hover;
+  
+  .container {
+    cursor: pointer;
+    background-color: $container-color-hover;
 
-  border: 2px solid rgba($color: #f6f1f1, $alpha: 0.5);
+    border: 2px solid rgba($color: #f6f1f1, $alpha: 0.5);
 
-  color: $color-secondary;
+    color: $color-secondary;
 
-  transform: translateY(20px);
+    transform: translateY(20px);
 
-  box-shadow: 0px 0px 10px 0px rgba($color: #000000, $alpha: 0.25);
+    box-shadow: 0px 0px 10px 0px rgba($color: #000000, $alpha: 0.25);
+  }
 }
 
 .icon {
