@@ -1,11 +1,8 @@
 export interface Project {
-    id?: string;
-    name: string;
-    description: string;
-    createdAt?: string;
-    updatedAt?: string;
+  id?: string;
+  name: string;
+  description: string;
+  createdAt?: string;
+  updatedAt?: string;
+  owner?: string;
 }
-
-export type FormExport<T> = Partial<{
-    [P in keyof T]: T[P] | null;
-}>;

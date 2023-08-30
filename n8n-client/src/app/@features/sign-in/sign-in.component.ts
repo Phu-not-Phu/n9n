@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GoogleService } from 'src/app/@core/services/google.service';
+
+import { UserService } from 'src/app/@core/services/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,27 +9,27 @@ import { GoogleService } from 'src/app/@core/services/google.service';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
-  constructor(private googleService: GoogleService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   loginWithGoogle() {
-    this.googleService.loginWithGoogle().then(console.log);
+    this.userService.loginWithGoogle().then(console.log);
   }
 
   loginWithFacebook() {}
 
   loginWithGithub() {
-    this.googleService.loginWithGithub().then(console.log);
+    this.userService.loginWithGithub().then(console.log);
   }
 
   logout() {
-    this.googleService.logOut();
+    this.userService.logOut();
   }
 
   navigateToRegister() {
     this.router.navigate(['/register']);
   }
 
-  navigateToHome(){
+  navigateToHome() {
     this.router.navigate(['/dashboard']);
   }
 }

@@ -1,6 +1,6 @@
 <div class="container">
   <create-new-project (createProject)="dialog.openDialog()"></create-new-project>
-  <app-created-project></app-created-project>
+  <!-- <app-created-project></app-created-project> -->
 </div>
 
 <app-dialog [(isOpen)]="isDialogOpen" #dialog [data]="{title: 'Create Project'}">

@@ -1,15 +1,20 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormExport, Project } from '../../models/project.model';
-
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Project } from '../../models/project.model';
+import { FormExport } from 'src/app/models/type-helper.model';
 
 @Component({
   selector: 'app-project-form',
   templateUrl: './project-form.component.html',
-  styleUrls: ['./project-form.component.scss']
+  styleUrls: ['./project-form.component.scss'],
 })
 export class ProjectFormComponent {
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   _isSubmitted: boolean = false;
 
@@ -32,5 +37,4 @@ export class ProjectFormComponent {
   onCancel(): void {
     this.cancelForm.emit();
   }
-
 }
