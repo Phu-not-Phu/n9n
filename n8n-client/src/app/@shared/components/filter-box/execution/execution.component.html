@@ -1,36 +1,25 @@
-<div class="container" [ngClass]="{'hidden': _isOpen === false}">
-    <span>
-        Workflows
-    </span>
+<div class="container" [ngClass]="{ 'hidden': _isOpen === false }">
+  <span> Workflows </span>
 
-    
+  <input list="workflows" type="text" placeholder="All Workflows" />
+  <datalist id="workflows">
+    <option value="edge"></option>
+  </datalist>
 
-    <input list="workflows" type="text" placeholder="All Workflows">
-    <datalist id="workflows">
-        <option value="edge"></option>
-    </datalist>
+  <span> Status </span>
 
-    <span>
-        Status
-    </span>
+  <input type="text" placeholder="Any status" />
 
-    <input type="text" placeholder="Any status">
-        
+  <span> Execution start </span>
 
-    <span>
-        Execution start
-    </span>
+  <input type="date" placeholder="Earliest" />
 
-    <input type="date" placeholder="Earliest">
+  <span>Custom data (saved in exxecution)</span>
 
-    
-
-    <span>Custom data (saved in exxecution)</span>
-
-    <div id="customData">
-        <span>Key</span>
-        <input type="text" placeholder="ID">
-        <span>Value (exact match)</span>
-        <input type="number" placeholder="123">
-    </div>
+  <div id="customData">
+    <span>Key</span>
+    <input type="text" placeholder="ID" />
+    <span>Value (exact match)</span>
+    <input type="number" placeholder="123" />
+  </div>
 </div>

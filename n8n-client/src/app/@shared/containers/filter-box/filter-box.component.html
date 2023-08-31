@@ -20,6 +20,7 @@
     class="credentials"
     [ngClass]="{ 'open-credentials': _isOpen !== false }"
     *ngIf="this.currentTab === 'credentials'"
+    [isOpen]="_isOpen"
   ></filter-credential>
 
   <filter-execution
