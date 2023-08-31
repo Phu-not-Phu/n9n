@@ -1,0 +1,40 @@
+<div>
+    <button id="filterBox" (click)="this.openFilter()">
+      <svg
+        width="18"
+        height="22"
+        viewBox="0 0 27 22"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          id="filterIcon"
+          d="M6.10352e-05 0L10.9688 11.2374V17.056L16.0313 21.4566V11.2374L27.0001 0H6.10352e-05Z"
+          fill="#19003F"
+        />
+      </svg>
+      Filters
+    </button>
+  
+    <div
+      class="workflow"
+      [ngClass]="{ 'open-workflow': _isOpen !== false }"
+    >
+      <div class="container" [ngClass]="{ hidden: _isOpen === false }">
+        <span> Tags </span>
+  
+        <input list="workflows" type="text" placeholder="Fitler by tags" />
+        <datalist id="workflows">
+          <option value="edge"></option>
+        </datalist>
+  
+        <span> Status </span>
+  
+        <input list="workflows" type="text" placeholder="All" />
+        <datalist id="workflows">
+          <option value="edge"></option>
+        </datalist>
+      </div>
+    </div>
+  </div>
+  

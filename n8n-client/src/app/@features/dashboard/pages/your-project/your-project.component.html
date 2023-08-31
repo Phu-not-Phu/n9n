@@ -1,13 +1,13 @@
 <div class="container">
   <div class="left">
     <div class="name">
-      <h1 id="name">Credentials</h1>
+      <h1 id="name">Your Project</h1>
     </div>
     <div id="button">
-      <button id="add">Add Credential</button>
+      <button id="add">Add Workflow</button>
     </div>
   </div>
-  
+
   <div class="midterm"></div>
 
   <div class="right">
@@ -28,7 +28,7 @@
           </svg>
         </div>
         <div id="search">
-          <input id="input" type="text" placeholder="Search credentials..." />
+          <input id="input" type="text" placeholder="Search workflows..." />
         </div>
       </div>
 
@@ -37,15 +37,15 @@
           <app-sort-list-box></app-sort-list-box>
         </div>
         <div class="filter">
-          <filter-credential></filter-credential>
+          <filter-workflow></filter-workflow>
         </div>
       </div>
     </div>
-    
+
     <div class="mid"></div>
 
     <div class="down">
-      <con-cre-card></con-cre-card>
+      <app-workflow-card></app-workflow-card>
     </div>
   </div>
 </div>
