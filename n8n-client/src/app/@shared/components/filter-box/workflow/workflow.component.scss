@@ -24,8 +24,8 @@ $transition-time: 0.3s;
   }
 }
 
-.executions {
-  width: 400px;
+.workflow {
+  width: 200px;
   height: 0px;
   position: absolute;
   background-color: #f6f1f1;
@@ -33,32 +33,32 @@ $transition-time: 0.3s;
   border-radius: 5px;
   margin: 8px 0;
 
-  transform: translateX(-60%);
+  transform: translateX(-40%);
 
   visibility: hidden;
 
   transition: all $transition-time ease-in-out;
 }
 
-.executions.open-executions {
-  width: 400px;
-  height: 500px;
+.workflow.open-workflow {
+  width: 200px;
+  height: 180px;
   position: absolute;
   background-color: rgb(245, 242, 242);
   box-shadow: 0 0 10px 0.5px rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 5px;
 
-  transform: translateX(-60%);
+  transform: translateX(-40%);
 
   visibility: visible;
 
-  transition: all $transition-time ease-in-out;
+  transition: all calc($transition-time / 2) ease-in-out;
 }
 
 .container {
   visibility: visible;
-  padding: 20px 30px;
+  padding: 10px 10px;
   width: 100%;
   height: auto;
   display: grid;
@@ -67,7 +67,6 @@ $transition-time: 0.3s;
   opacity: 1;
 
   & > span {
-    margin-top: 10px;
     color: var(--primary-color);
     font-size: medium;
     font-weight: 400;

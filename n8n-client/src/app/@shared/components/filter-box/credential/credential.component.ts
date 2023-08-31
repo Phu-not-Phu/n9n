@@ -7,8 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class CredentialComponent {
   _isOpen: boolean = false;
+  currentTab: string = 'credentials';
 
-  @Input() set isOpen(value: boolean) {
-    this._isOpen = value;
+  openFilter() {
+    this._isOpen = !this._isOpen;
+    console.log(this.currentTab);
   }
 }

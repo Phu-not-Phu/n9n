@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilterBoxComponent } from './filter-box.component';
+import { WorkflowComponent } from './workflow.component';
 
-describe('FilterBoxComponent', () => {
-  let component: FilterBoxComponent;
-  let fixture: ComponentFixture<FilterBoxComponent>;
+describe('WorkflowComponent', () => {
+  let component: WorkflowComponent;
+  let fixture: ComponentFixture<WorkflowComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FilterBoxComponent]
+      declarations: [WorkflowComponent]
     });
-    fixture = TestBed.createComponent(FilterBoxComponent);
+    fixture = TestBed.createComponent(WorkflowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
