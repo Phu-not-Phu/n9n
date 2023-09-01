@@ -11,7 +11,7 @@ $button-padding: 0.4rem;
 .container {
   width: calc($button-text-px + $button-icon-px + $container-padding * 2);
 
-  border-top: 1px solid var(--secondary-color);
+  border-top: 1px solid gray;
 
   padding: 0 $container-padding;
   transition: all $transition-time ease-in-out;

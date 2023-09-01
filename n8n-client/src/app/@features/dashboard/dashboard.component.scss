@@ -35,6 +35,8 @@ $button-padding: 0.5rem;
       display: flex;
       align-items: center;
 
+      border-right: 2px solid gray;
+
       width: 0;
 
       .btn-nav {

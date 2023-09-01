@@ -1,0 +1,72 @@
+$transition-time: 0.2s;
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0.25rem;
+}
+
+.switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0.15rem;
+
+  & > span {
+    color: var(--secondary-color);
+    font-size: small;
+  }
+
+  & > button {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+
+    transition: all $transition-time ease-in-out;
+  }
+}
+
+.off {
+  transition: all $transition-time ease-in-out;
+
+  svg {
+    width: 46px;
+    height: 18px;
+    fill: none;
+
+    rect {
+      transition: all $transition-time ease-in-out;
+
+      fill: gray;
+    }
+
+    circle {
+      transition: all $transition-time ease-in-out;
+
+      cx: 11px;
+    }
+  }
+}
+
+.off:hover {
+  cursor: pointer;
+}
+
+.off.on {
+  transition: all $transition-time ease-in-out;
+
+  svg {
+    rect {
+      fill: green;
+    }
+
+    circle {
+      cx: 35px;
+    }
+  }
+}
