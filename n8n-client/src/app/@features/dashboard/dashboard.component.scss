@@ -29,11 +29,13 @@ $button-padding: 0.5rem;
     background-color: var(--primary-color);
     height: 100%;
 
-    $button-nav-size: 5px;
+    $button-nav-size: 1px;
 
     & > div {
       display: flex;
       align-items: center;
+
+      border-right: 2px solid gray;
 
       width: 0;
 

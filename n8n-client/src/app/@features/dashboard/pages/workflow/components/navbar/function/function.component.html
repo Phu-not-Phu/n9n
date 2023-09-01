@@ -1,0 +1,28 @@
+<div class="container">
+  <span class="switch">
+    <span>Inactive</span>
+    <!-- <span>Active</span> -->
+
+    <button class="on-off" (click)="turnOn()">
+      <span class="off" [ngClass]="{'on': this._isOn === true}">
+        <svg
+          viewBox="0 0 46 21"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="46" height="21" rx="10.5"/>
+          <circle cy="11" r="9" fill="#F6F1F1" />
+        </svg>
+      </span>
+      <span class="on"></span>
+    </button>
+  </span>
+  <span class="button">
+    <button class="share">
+      <span></span>
+    </button>
+    <button class="save">
+      <span></span>
+    </button>
+  </span>
+  <span class="setting"></span>
+</div>
