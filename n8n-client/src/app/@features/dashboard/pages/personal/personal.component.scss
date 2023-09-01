@@ -99,24 +99,50 @@
         cursor: pointer;
     }
 
-    & > div > button{
-        background-color: gray;
-        border: none;
-        border-radius: 8px;
-        width: 80px;
-        height: 40px;
-        color: #f6f1f1;
-        float: right;
-        font-size: medium;
-        transition: all 0.2s;
+    & > div{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: flex-end;
     }
+}
 
-    & > div > button:hover{
-        cursor: pointer;
-        border: none;
-        background-color: #19003f;
-        color: #f6f1f1;
-    }
+#cancelButtn{
+    background-color: transparent;
+    border: 1px solid #19003f;
+    border-radius: 8px;
+    width: 80px;
+    height: 40px;
+    color: #19003f;
+    float: right;
+    font-size: medium;
+    transition: all 0.2s;
+}
+
+#cancelButtn:hover{
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: #19003f;
+    color: #f6f1f1;
+}
+
+#saveButtn{
+    background-color: gray;
+    border: none;
+    border-radius: 8px;
+    width: 80px;
+    height: 40px;
+    color: #f6f1f1;
+    float: right;
+    font-size: medium;
+    transition: all 0.2s;
+}
+
+#saveButtn:hover{
+    cursor: pointer;
+    border: none;
+    background-color: #19003f;
+    color: #f6f1f1;
 }
 
 input{
