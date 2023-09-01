@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./sort-list-box.component.scss']
 })
 export class SortListBoxComponent {
-
+  defaultOption: string = "Sort by last updated"; // Giá trị mặc định của Sort by
 }
