@@ -5,8 +5,6 @@ import { ExecutionComponent } from './filter-box/execution/execution.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { SortListBoxComponent } from './sort-list-box/sort-list-box.component';
 import { WorkflowComponent } from './filter-box/workflow/workflow.component';
-import { ActivationComponent } from './activation/activation.component';
-import { SettingDotComponent } from './setting-dot/setting-dot.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +13,6 @@ import { SettingDotComponent } from './setting-dot/setting-dot.component';
     DialogComponent,
     SortListBoxComponent,
     WorkflowComponent,
-    ActivationComponent,
-    SettingDotComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -25,8 +21,6 @@ import { SettingDotComponent } from './setting-dot/setting-dot.component';
     DialogComponent,
     SortListBoxComponent,
     WorkflowComponent,
-    ActivationComponent,
-    SettingDotComponent,
   ],
 })
 export class ComponentModule {}
