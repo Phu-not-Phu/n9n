@@ -29,6 +29,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'workflow',
+        loadChildren: () =>
+          import('./pages/workflow/workflow.module').then(
+            (m) => m.WorkflowModule
+          ),
+      },
+      {
         path: 'workflow/:id',
         loadChildren: () =>
           import('./pages/workflow/workflow.module').then(
