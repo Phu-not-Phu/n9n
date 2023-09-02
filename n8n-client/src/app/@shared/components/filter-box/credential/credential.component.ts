@@ -13,4 +13,14 @@ export class CredentialComponent {
     this._isOpen = !this._isOpen;
     console.log(this.currentTab);
   }
+  isDropdownOpen: boolean = false;
+  options: string[] = ["Sort by last updated", "Sort by last created", "Sort by name (A-Z)", "Sort by name (Z-A)"];
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  selectOption(option: string) {
+    this.isDropdownOpen = false;
+  }
 }

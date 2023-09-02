@@ -1,4 +1,12 @@
-<input list="sortby" id="select" name="ice-cream-choice" [value]="defaultOption" />
+
+<div class="custom-dropdown">
+  <button class="dropdown-toggle" (click)="toggleDropdown()">
+    <input id="select" name="ice-cream-choice" [value]="selectedOption" />
+  </button>
+  <ul class="dropdown-options" [hidden]="!isDropdownOpen">
+    <li *ngFor="let option of options" (click)="selectOption(option)">{{ option }}</li>
+  </ul>
+</div>
 <datalist id="sortby">
   <option value="Sort by last updated"></option>
   <option value="Sort by last created"></option>
