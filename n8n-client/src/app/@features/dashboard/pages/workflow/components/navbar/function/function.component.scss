@@ -1,0 +1,164 @@
+$transition-time: 0.2s;
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0.15rem;
+
+  & > span {
+    color: var(--secondary-color);
+    font-size: small;
+  }
+
+  & > button {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+
+    transition: all $transition-time ease-in-out;
+  }
+}
+
+.off {
+  transition: all $transition-time ease-in-out;
+
+  svg {
+    width: 46px;
+    height: 18px;
+    fill: none;
+
+    rect {
+      transition: all $transition-time ease-in-out;
+
+      fill: rgb(188, 188, 188);
+    }
+
+    circle {
+      transition: all $transition-time ease-in-out;
+
+      cx: 11px;
+    }
+  }
+}
+
+.off:hover {
+  cursor: pointer;
+  svg {
+    rect {
+      fill: gray;
+    }
+  }
+}
+
+.off.on {
+  transition: all $transition-time ease-in-out;
+
+  svg {
+    rect {
+      fill: rgb(1, 165, 1);
+    }
+
+    circle {
+      cx: 35px;
+    }
+  }
+}
+
+.off.on:hover {
+  svg {
+    rect {
+      fill: rgb(1, 130, 1);
+    }
+  }
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+
+  .share {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 3px;
+
+    width: 60px;
+    height: 30px;
+
+    color: var(--primary-color);
+    float: right;
+    font-size: small;
+
+    transition: all $transition-time ease-in-out;
+  }
+
+  .share:hover {
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  .save {
+    background-color: gray;
+    border: 1px solid gray;
+    border-radius: 3px;
+
+    width: 60px;
+    height: 30px;
+
+    color: var(--secondary-color);
+    float: right;
+    font-size: small;
+
+    transition: all $transition-time ease-in-out;
+  }
+
+  .save:hover {
+    cursor: pointer;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+  }
+}
+
+.setting {
+  width: 25px;
+  height: 30px;
+
+  border-radius: 3px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  transition: all $transition-time ease-in-out;
+
+  svg > path {
+    transition: all $transition-time ease-in-out;
+  }
+}
+
+.setting:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+
+  svg > path {
+    fill: var(--primary-color);
+  }
+}

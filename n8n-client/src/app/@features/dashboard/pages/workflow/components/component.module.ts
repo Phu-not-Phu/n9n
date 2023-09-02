@@ -4,23 +4,24 @@ import { CustomNodeComponent } from './custom-node/custom-node.component';
 import { CustomSocketComponent } from './custom-socket/custom-socket.component';
 import { CustomConnectionComponent } from './custom-connection/custom-connection.component';
 import { ReteModule } from 'rete-angular-plugin/16';
-
-
+import { InforComponent } from './navbar/infor/infor.component';
+import { FunctionComponent } from './navbar/function/function.component';
 
 @NgModule({
   declarations: [
     CustomNodeComponent,
     CustomSocketComponent,
-    CustomConnectionComponent
+    CustomConnectionComponent,
+    InforComponent,
+    FunctionComponent,
   ],
-  imports: [
-    CommonModule,
-    ReteModule
-  ],
+  imports: [CommonModule, ReteModule],
   exports: [
     CustomNodeComponent,
     CustomSocketComponent,
-    CustomConnectionComponent
-  ]
+    CustomConnectionComponent,
+    InforComponent,
+    FunctionComponent,
+  ],
 })
-export class ComponentModule { }
+export class ComponentModule {}

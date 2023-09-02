@@ -1,10 +1,15 @@
 
-<input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
-
-<datalist id="ice-cream-flavors">
-  <option value="Chocolate"></option>
-  <option value="Coconut"></option>
-  <option value="Mint"></option>
-  <option value="Strawberry"></option>
-  <option value="Vanilla"></option>
+<div class="custom-dropdown">
+  <button class="dropdown-toggle" (click)="toggleDropdown()">
+    <input id="select" name="ice-cream-choice" [value]="selectedOption" />
+  </button>
+  <ul class="dropdown-options" [hidden]="!isDropdownOpen">
+    <li *ngFor="let option of options" (click)="selectOption(option)">{{ option }}</li>
+  </ul>
+</div>
+<datalist id="sortby">
+  <option value="Sort by last updated"></option>
+  <option value="Sort by last created"></option>
+  <option value="Sort by name (A-Z)"></option>
+  <option value="Sort by name (Z-A)"></option>
 </datalist>

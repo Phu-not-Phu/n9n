@@ -15,9 +15,9 @@ import { StoreModule } from '@ngrx/store';
 
     CoreModule,
     SharedModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

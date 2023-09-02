@@ -1,5 +1,94 @@
 .view,
 .editor {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+$transition-time: 0.2s;
+
+$color-primary: #19003f;
+$color-ocapacity: 0.25;
+$color-ocapacity-hover: 1;
+
+$container-padding: 0.5rem;
+
+$button-icon: 28;
+$button-icon-px: 28px;
+$button-text: 170;
+$button-text-px: 170px;
+$button-height: 40px;
+$button-padding: 0.5rem;
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--primary-color);
+
+  width: 100%;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 0;
+
+    border-bottom: 2px solid gray;
+
+    $button-nav-size: 5px;
+
+    .btn-nav {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+
+      gap: 5px;
+
+      padding: $button-nav-size;
+
+      background-color: gray;
+
+      border-radius: 3px;
+      border: 2px solid gray;
+
+      cursor: pointer;
+
+      transition: all $transition-time ease-in-out;
+
+      & > button {
+        background-color: transparent;
+        border: none;
+        border-radius: 3px;
+
+        padding: 3px 10px;
+
+        cursor: pointer;
+
+        font-size: small;
+        font-weight: 400;
+        color: var(--primary-color);
+
+        transition: all calc($transition-time / 1.5) ease-in-out;
+      }
+
+      & > button:hover {
+        color: rgba($color: #f6f1f1, $alpha: 1);
+        font-weight: 400;
+      }
+
+      & > button:focus {
+        color: rgba($color: #19003f, $alpha: 1);
+        font-weight: 400;
+
+        background-color: var(--secondary-color);
+      }
+    }
+  }
 }
