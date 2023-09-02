@@ -20,7 +20,7 @@
     <button class="save">Save</button>
   </span>
 
-  <span class="setting">
+  <span class="setting" (click)="openSetting()">
     <svg
       width="9"
       height="15"
@@ -34,4 +34,19 @@
       />
     </svg>
   </span>
+</div>
+
+<div
+  class="setting-box"
+  [ngClass]="{ 'open-setting-box': _isOpenSetting !== false }"
+>
+  <div class="content-setting" [ngClass]="{ hidden: _isOpenSetting === false }">
+    <span> Duplicate </span>
+    <span> Download </span>
+    <span> Import from URL... </span>
+    <span> Import from File... </span>
+    <span> Push to Git </span>
+    <span> Settings </span>
+    <span> Delete</span>
+  </div>
 </div>

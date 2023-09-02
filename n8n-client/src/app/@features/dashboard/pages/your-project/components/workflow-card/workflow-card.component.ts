@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class WorkflowCardComponent {
   _isOn: boolean = false;
+  _isOpenSetting: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -17,5 +18,9 @@ export class WorkflowCardComponent {
 
   turnOn() {
     this._isOn = !this._isOn;
+  }
+
+  openSetting(){
+    this._isOpenSetting = !this._isOpenSetting;
   }
 }

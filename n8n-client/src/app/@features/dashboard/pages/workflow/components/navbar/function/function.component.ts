@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class FunctionComponent {
   _isOn: boolean = false;
+  _isOpenSetting: boolean = false;
 
   turnOn(){
     this._isOn = !this._isOn;;
+  }
+
+  openSetting(){
+    this._isOpenSetting = !this._isOpenSetting;
   }
 }
