@@ -1,3 +1,5 @@
+$transition-time: 0.2s;
+
 .container {
   display: flex;
   align-items: center;
@@ -11,11 +13,12 @@
   border: #19003f solid 1.5px;
 }
 
-.container:hover{
+.container:hover {
   cursor: pointer;
 }
 
 .left {
+  width: 100%;
   height: 100%;
   padding: 5px 10px;
 
@@ -49,6 +52,12 @@
 }
 
 .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
   padding: 10px;
 
   #setting-icon {
@@ -58,14 +67,151 @@
 
   .setting {
     width: 20px;
-    height: 20px;
+    height: 100%;
   }
 
   .setting:hover {
     cursor: pointer;
-    
+
     #setting-icon {
       fill: #19003f;
     }
   }
+}
+
+.switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0.15rem;
+
+  & > span {
+    color: #19003f4c;
+    font-size: small;
+    font-weight: bold;
+  }
+
+  & > button {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+
+    transition: all $transition-time ease-in-out;
+  }
+}
+
+.off {
+  transition: all $transition-time ease-in-out;
+
+  svg {
+    width: 46px;
+    height: 18px;
+    fill: none;
+
+    rect {
+      transition: all $transition-time ease-in-out;
+
+      fill: rgb(188, 188, 188);
+    }
+
+    circle {
+      transition: all $transition-time ease-in-out;
+
+      cx: 11px;
+    }
+  }
+}
+
+.off:hover {
+  cursor: pointer;
+  svg {
+    rect {
+      fill: gray;
+    }
+  }
+}
+
+.off.on {
+  transition: all $transition-time ease-in-out;
+
+  svg {
+    rect {
+      fill: rgb(1, 165, 1);
+    }
+
+    circle {
+      cx: 35px;
+    }
+  }
+}
+
+.off.on:hover {
+  svg {
+    rect {
+      fill: rgb(1, 130, 1);
+    }
+  }
+}
+
+.setting-box {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  background-color: #f6f1f1;
+  border: none;
+  border-radius: 5px;
+  margin: 8px 0;
+
+  visibility: hidden;
+
+  transition: all $transition-time ease-in-out;
+}
+
+.setting-box.open-setting-box {
+  width: 100px;
+  height: 135px;
+  position: absolute;
+  background-color: rgb(245, 242, 242);
+  box-shadow: 0 0 10px 0.5px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 5px;
+  margin: 8px 0;
+
+  visibility: visible;
+
+  transition: all $transition-time ease-in-out;
+}
+
+.content-setting {
+  visibility: visible;
+  padding: 10px 10px;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  transition: all calc($transition-time * 2) ease-in-out;
+  opacity: 1;
+
+  & > span {
+    color: rgb(134, 134, 134);
+    font-size: medium;
+    font-weight: 400;
+  }
+
+  & > span:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+}
+
+.content-setting.hidden {
+  visibility: hidden;
+  transition: all calc($transition-time / 2) ease-in-out;
+  opacity: 0;
 }
