@@ -52,6 +52,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/helps/helps.module').then((m) => m.HelpsModule),
       },
+      {
+        path: 'your-project',
+        loadChildren: () =>
+          import('./pages/your-project/your-project.module').then(
+            (m) => m.YourProjectModule
+          ),
+      },
       { path: 'settings', redirectTo: 'settings/personal' },
       { path: 'workflow', redirectTo: 'projects' },
       { path: '**', redirectTo: 'projects' },

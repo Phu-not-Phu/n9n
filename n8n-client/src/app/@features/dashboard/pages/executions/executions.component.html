@@ -10,11 +10,24 @@
         <label>Auto Refresh</label>
       </span>
 
-      <app-filter-box [currentNavigation]="currentTab"></app-filter-box>
+      <filter-execution></filter-execution>
     </span>
   </div>
 
   <div id="div2">
-    <container-exe-card></container-exe-card>
+    <div id="workFlowName">
+      <input type="checkbox">
+      <label>Name</label>
+    </div>
+
+    <div id="workFlowInfo">
+      <label>Project</label>
+
+      <label>Started At</label>
+
+      <label>Status</label>
+
+      <label>Execution ID</label>
+    </div>
   </div>
 </div>

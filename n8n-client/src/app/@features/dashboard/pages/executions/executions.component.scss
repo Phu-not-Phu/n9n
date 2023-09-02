@@ -34,26 +34,36 @@
 }
 
 
-// #filterBox {
-//   height: 30px;
-//   width: 100px;
-//   background-color: #ffff;
-//   border: 1.5px solid #19003f;
-//   border-radius: 5px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   color: #19003f;
-//   font-size: 13px;
-//   font-weight: bold;
-// }
+#div2{
+  margin-top: 20px;
+  padding: 0 40px;
+  width: 100%;
+  height: 62px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(87, 87, 87, 0.25);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(220, 220, 220, 0.79);
 
-// #filterBox:hover {
-//   background-color: #19003f;
-//   color: #f6f1f1;
+  & > div > label{
+    font-size: 15px;
+    color: #19003f;
+  }
+}
 
-//   #filterIcon {
-//     fill: #f6f1f1;
-//   }
-// }
+#workFlowName{
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+}
+
+#workFlowInfo{
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
 

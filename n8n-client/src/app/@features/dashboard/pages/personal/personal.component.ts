@@ -8,4 +8,6 @@ import { Router } from '@angular/router';
 })
 export class PersonalComponent {
   constructor(public router: Router) {}
+
+  isDialogOpen: boolean = false;
 }

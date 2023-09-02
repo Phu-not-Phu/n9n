@@ -3,17 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ComponentModule } from '../components/component.module';
 import { CreCardComponent } from './cre-card/cre-card.component';
 
-
 @NgModule({
-  declarations: [
-    CreCardComponent
-  ],
-  imports: [
-    CommonModule,
-    ComponentModule
-  ],
-  exports: [
-    CreCardComponent
-  ]
+  declarations: [CreCardComponent],
+  imports: [CommonModule, ComponentModule],
+  exports: [CreCardComponent],
 })
-export class ContainerModule { }
+export class ContainerModule {}
