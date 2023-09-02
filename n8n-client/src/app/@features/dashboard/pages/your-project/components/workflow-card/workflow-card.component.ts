@@ -7,9 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./workflow-card.component.scss'],
 })
 export class WorkflowCardComponent {
+  _isOn: boolean = false;
+
   constructor(private router: Router) {}
 
   navigateToWorkflow() {
-    this.router.navigate(['dashboard','workflow']);
+    this.router.navigate(['dashboard', 'workflow']);
+  }
+
+  turnOn() {
+    this._isOn = !this._isOn;
   }
 }

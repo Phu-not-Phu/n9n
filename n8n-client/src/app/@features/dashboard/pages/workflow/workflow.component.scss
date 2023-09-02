@@ -51,10 +51,12 @@ $button-padding: 0.5rem;
 
       padding: $button-nav-size;
 
-      background-color: gray;
+      background-color: rgb(186, 186, 186);
 
       border-radius: 3px;
-      border: 2px solid gray;
+      border: 2px solid rgb(186, 186, 186);
+
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 
       cursor: pointer;
 

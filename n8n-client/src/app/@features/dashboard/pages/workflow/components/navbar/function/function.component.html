@@ -1,6 +1,7 @@
 <div class="container">
   <span class="switch">
-    <span>Inactive</span>
+    <span *ngIf="this._isOn == false">Inactive</span>
+    <span *ngIf="this._isOn == true">Active</span>
     <!-- <span>Active</span> -->
 
     <button class="on-off" (click)="turnOn()">
@@ -10,7 +11,6 @@
           <circle cy="11" r="9" fill="#F6F1F1" />
         </svg>
       </span>
-      <span class="on"></span>
     </button>
   </span>
 

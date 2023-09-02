@@ -1,3 +1,5 @@
+$transition-time: 0.2s;
+
 .container {
   display: flex;
   align-items: center;
@@ -11,11 +13,12 @@
   border: #19003f solid 1.5px;
 }
 
-.container:hover{
+.container:hover {
   cursor: pointer;
 }
 
 .left {
+  width: 100%;
   height: 100%;
   padding: 5px 10px;
 
@@ -49,6 +52,11 @@
 }
 
 .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
   padding: 10px;
 
   #setting-icon {
@@ -58,14 +66,89 @@
 
   .setting {
     width: 20px;
-    height: 20px;
+    height: 100%;
   }
 
   .setting:hover {
     cursor: pointer;
-    
+
     #setting-icon {
       fill: #19003f;
+    }
+  }
+}
+
+.switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0.15rem;
+
+  & > span {
+    color: var(--primary-color);
+    font-size: small;
+  }
+
+  & > button {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+
+    transition: all $transition-time ease-in-out;
+  }
+}
+
+.off {
+  transition: all $transition-time ease-in-out;
+
+  svg {
+    width: 46px;
+    height: 18px;
+    fill: none;
+
+    rect {
+      transition: all $transition-time ease-in-out;
+
+      fill: rgb(188, 188, 188);
+    }
+
+    circle {
+      transition: all $transition-time ease-in-out;
+
+      cx: 11px;
+    }
+  }
+}
+
+.off:hover {
+  cursor: pointer;
+  svg {
+    rect {
+      fill: gray;
+    }
+  }
+}
+
+.off.on {
+  transition: all $transition-time ease-in-out;
+
+  svg {
+    rect {
+      fill: rgb(1, 165, 1);
+    }
+
+    circle {
+      cx: 35px;
+    }
+  }
+}
+
+.off.on:hover {
+  svg {
+    rect {
+      fill: rgb(1, 130, 1);
     }
   }
 }
