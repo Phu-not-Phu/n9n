@@ -6,6 +6,7 @@ import { WorkflowComponent } from './workflow.component';
 import { ContainerModule } from './containers/container.module';
 import { ReteModule } from 'rete-angular-plugin/16';
 import { ComponentsModule } from '../projects/components/components.module';
+import { ComponentModule } from './components/component.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import { ComponentsModule } from '../projects/components/components.module';
 
     ComponentsModule,
     ContainerModule,
+
+    ComponentModule
   ],
 
 })
