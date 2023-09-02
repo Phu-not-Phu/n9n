@@ -27,11 +27,13 @@
                 color: #19003f;
                 align-items: flex-end;
                 font-size: medium;
+                transition: all 0.25s ease-in-out;
             }
 
             & > button:hover{
                 background-color: #19003f;
                 color: #fff;
+                transition: all 0.25s ease-in-out;
             }
 
         }     

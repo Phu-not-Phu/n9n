@@ -6,6 +6,7 @@ import { CustomConnectionComponent } from './custom-connection/custom-connection
 import { ReteModule } from 'rete-angular-plugin/16';
 import { InforComponent } from './navbar/infor/infor.component';
 import { FunctionComponent } from './navbar/function/function.component';
+import { AddNodeComponent } from './add-node/add-node.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FunctionComponent } from './navbar/function/function.component';
     CustomConnectionComponent,
     InforComponent,
     FunctionComponent,
+    AddNodeComponent,
   ],
   imports: [CommonModule, ReteModule],
   exports: [
@@ -22,6 +24,7 @@ import { FunctionComponent } from './navbar/function/function.component';
     CustomConnectionComponent,
     InforComponent,
     FunctionComponent,
+    AddNodeComponent
   ],
 })
 export class ComponentModule {}

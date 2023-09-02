@@ -36,12 +36,17 @@
         </span>
 
         <span>
-            <button (click)="this.router.navigate(['dashboard', 'users'])">Change Password</button>
+            <button (click)="dialog.openDialog()">Change Password</button>
         </span>
 
         <div>
-            <button>Save</button>
+            <button id="cancelButtn">Cancel</button>
+            <button id="saveButtn">Save</button>
         </div>
 
     </div>
 </div>
+
+<app-dialog [(isOpen)]="isDialogOpen" #dialog [data]="{title: 'Change Password'}">
+    <app-change-pass-form (cancelChange)="dialog.closeDialog()"></app-change-pass-form>
+</app-dialog>
