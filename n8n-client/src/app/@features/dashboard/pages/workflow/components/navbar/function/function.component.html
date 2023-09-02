@@ -1,6 +1,7 @@
 <div class="container">
   <span class="switch">
-    <span>Inactive</span>
+    <span *ngIf="this._isOn == false">Inactive</span>
+    <span *ngIf="this._isOn == true">Active</span>
     <!-- <span>Active</span> -->
 
     <button class="on-off" (click)="turnOn()">
@@ -10,7 +11,6 @@
           <circle cy="11" r="9" fill="#F6F1F1" />
         </svg>
       </span>
-      <span class="on"></span>
     </button>
   </span>
 
@@ -20,7 +20,7 @@
     <button class="save">Save</button>
   </span>
 
-  <span class="setting">
+  <span class="setting" (click)="openSetting()">
     <svg
       width="9"
       height="15"
@@ -34,4 +34,19 @@
       />
     </svg>
   </span>
+</div>
+
+<div
+  class="setting-box"
+  [ngClass]="{ 'open-setting-box': _isOpenSetting !== false }"
+>
+  <div class="content-setting" [ngClass]="{ hidden: _isOpenSetting === false }">
+    <span> Duplicate </span>
+    <span> Download </span>
+    <span> Import from URL... </span>
+    <span> Import from File... </span>
+    <span> Push to Git </span>
+    <span> Settings </span>
+    <span> Delete</span>
+  </div>
 </div>
