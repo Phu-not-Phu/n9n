@@ -2,15 +2,13 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ProjectModule } from './project/project.module';
-import { UsersModule } from './users/users.module';
-import { NodesController } from './types/nodes/nodes.controller';
-import { CredentialsController } from './types/credentials/credentials.controller';
-import { CredentialsService } from './types/credentials/credentials.service';
-import { NodesModule } from './types/nodes/nodes.module';
+
+import { ApiModule } from './domains/api.module';
+import { CoreModule } from './core/core.module';
 
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { JwtModule } from '@nestjs/jwt';
 
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -18,13 +16,17 @@ dotenv.config();
 @Module({
   imports: [
     MongooseModule.forRoot(process.env.MONGO_URI),
-    ProjectModule,
-    NodesModule,
+    JwtModule.register({
+      global: true,
+      secret: process.env.JWT_SECRET,
+    }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
+    ApiModule,
+    CoreModule,
   ],
-  controllers: [AppController, NodesController, CredentialsController],
-  providers: [AppService, CredentialsService],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

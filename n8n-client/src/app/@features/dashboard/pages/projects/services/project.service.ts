@@ -6,13 +6,12 @@ import { environment } from 'src/environments/environment';
 const API_URL = environment.server.outerShellServer;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProjectService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   createProject(project: Project) {
-    return this.httpClient.post(`${API_URL}project/create`, project);
+    return this.httpClient.post(`${API_URL}project`, project);
   }
 }
