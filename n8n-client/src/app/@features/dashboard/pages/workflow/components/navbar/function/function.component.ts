@@ -16,4 +16,8 @@ export class FunctionComponent {
   openSetting(){
     this._isOpenSetting = !this._isOpenSetting;
   }
+  
+  clickOutside() {
+    this._isOpenSetting = false;
+  }
 }
