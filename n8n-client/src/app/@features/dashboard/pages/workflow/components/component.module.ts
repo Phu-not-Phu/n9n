@@ -7,6 +7,7 @@ import { ReteModule } from 'rete-angular-plugin/16';
 import { InforComponent } from './navbar/infor/infor.component';
 import { FunctionComponent } from './navbar/function/function.component';
 import { AddNodeComponent } from './add-node/add-node.component';
+import { SearchNodesComponent } from './search-nodes/search-nodes.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AddNodeComponent } from './add-node/add-node.component';
     InforComponent,
     FunctionComponent,
     AddNodeComponent,
+    SearchNodesComponent,
   ],
   imports: [CommonModule, ReteModule],
   exports: [
@@ -24,7 +26,8 @@ import { AddNodeComponent } from './add-node/add-node.component';
     CustomConnectionComponent,
     InforComponent,
     FunctionComponent,
-    AddNodeComponent
+    AddNodeComponent,
+    SearchNodesComponent
   ],
 })
 export class ComponentModule {}
