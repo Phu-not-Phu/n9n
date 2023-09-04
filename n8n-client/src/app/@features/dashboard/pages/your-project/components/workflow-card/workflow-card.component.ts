@@ -37,4 +37,8 @@ export class WorkflowCardComponent {
   openDeleteDialog() {
     this.currentDialog = 'Delete Workflow';
   }
+
+  clickOutside() {
+    this._isOpenSetting = false;
+  }
 }

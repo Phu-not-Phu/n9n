@@ -8,7 +8,14 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { WorkflowFormComponent } from './workflow-form/workflow-form.component';
 
 @NgModule({
-  declarations: [WorkflowCardComponent, DialogShareComponent, DialogDuplicateComponent, DialogDeleteComponent, WorkflowFormComponent],
+  declarations: [
+    WorkflowCardComponent,
+    DialogShareComponent,
+    DialogDuplicateComponent,
+    DialogDeleteComponent,
+    WorkflowFormComponent,
+    
+  ],
   imports: [CommonModule, SharedModule],
   exports: [WorkflowCardComponent, WorkflowFormComponent],
 })

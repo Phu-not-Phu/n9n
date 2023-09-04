@@ -7,6 +7,7 @@ import { ReteModule } from 'rete-angular-plugin/16';
 import { InforComponent } from './navbar/infor/infor.component';
 import { FunctionComponent } from './navbar/function/function.component';
 import { AddNodeComponent } from './add-node/add-node.component';
+import { SharedModule } from 'src/app/@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { AddNodeComponent } from './add-node/add-node.component';
     FunctionComponent,
     AddNodeComponent,
   ],
-  imports: [CommonModule, ReteModule],
+  imports: [CommonModule, ReteModule, SharedModule],
   exports: [
     CustomNodeComponent,
     CustomSocketComponent,

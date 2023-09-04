@@ -13,4 +13,8 @@ export class ExecutionComponent {
     this._isOpen = !this._isOpen;
     console.log(this.currentTab);
   }
+
+  clickOutside() {
+    this._isOpen = false;
+  }
 }
