@@ -35,16 +35,16 @@ export class UserService {
     );
   }
 
-  async createUser(userModel: UserModel): Promise<boolean> {
+  async createUser(userModel: UserModel): Promise<string> {
     const userResult = await lastValueFrom(
-      this.httpClient.post<UserModel>(`${backend}signup`, userModel)
+      this.httpClient.post<any>(`${backend.apiServer}users/register`, userModel)
     );
 
     if (!userResult) {
       throw new Error('User result is null');
     }
 
-    return true;
+    return userResult.data;
   }
 
   async checkUser(user: UserModel): Promise<boolean> {
@@ -66,7 +66,7 @@ export class UserService {
     return userCredential;
   }
 
-  loginWithFacebook() {
+  async loginWithFacebook() {
     alert('Coming soon!');
   }
 

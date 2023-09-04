@@ -4,5 +4,5 @@ export interface Project {
   description: string;
   createdAt?: string;
   updatedAt?: string;
-  owner?: string;
+  ownerID?: string;
 }
