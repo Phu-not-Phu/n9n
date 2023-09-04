@@ -17,7 +17,7 @@
   }
 }
 
-.right{
+.right {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -89,4 +89,12 @@
 #right_up {
   display: flex;
   align-items: center;
+}
+
+.down {
+  transition: all 0.2s ease-in-out;
+}
+
+.down:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }

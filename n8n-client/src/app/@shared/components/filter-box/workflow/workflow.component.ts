@@ -13,4 +13,8 @@ export class WorkflowComponent {
     this._isOpen = !this._isOpen;
     console.log(this.currentTab);
   }
+
+  clickOutside() {
+    this._isOpen = false;
+  }
 }

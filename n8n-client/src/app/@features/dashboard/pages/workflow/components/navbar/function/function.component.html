@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" clickOutside (clickOutside)="this.clickOutside()">
   <span class="switch">
     <span *ngIf="this._isOn == false">Inactive</span>
     <span *ngIf="this._isOn == true">Active</span>

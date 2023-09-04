@@ -23,4 +23,8 @@ export class CredentialComponent {
   selectOption(option: string) {
     this.isDropdownOpen = false;
   }
+
+  clickOutside() {
+    this._isOpen = false;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,9 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./created-project.component.scss']
 })
 export class CreatedProjectComponent {
+  isDialogOpen: boolean = false;
+  currentDialog: string = '';
+
   constructor(private router: Router) {}
   
   changeNavigation() {
     this.router.navigate(['dashboard', 'your-project']);
+  }
+
+  openSettingDialog(){
+    this.currentDialog = 'Setting Project';
+  }
+
+  openDeleteDialog(){
+    this.currentDialog = 'Delete Project';
   }
 }
