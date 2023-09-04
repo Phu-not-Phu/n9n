@@ -19,4 +19,5 @@ export class SortListBoxComponent {
     this.selectedOption = option;
     this.isDropdownOpen = false;
   }
+
 }
