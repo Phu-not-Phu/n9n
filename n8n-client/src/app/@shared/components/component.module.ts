@@ -5,7 +5,7 @@ import { ExecutionComponent } from './filter-box/execution/execution.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { SortListBoxComponent } from './sort-list-box/sort-list-box.component';
 import { WorkflowComponent } from './filter-box/workflow/workflow.component';
-import { ClickOutsideDirective } from '../directives/clickoutside.directive';
+import { ClickOutsideDirective } from '../directive/clickoutside.directive';
 
 @NgModule({
   declarations: [
