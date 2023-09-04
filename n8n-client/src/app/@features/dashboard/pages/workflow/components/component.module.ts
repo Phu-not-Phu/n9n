@@ -8,6 +8,10 @@ import { InforComponent } from './navbar/infor/infor.component';
 import { FunctionComponent } from './navbar/function/function.component';
 import { AddNodeComponent } from './add-node/add-node.component';
 
+import { SharedModule } from 'src/app/@shared/shared.module';
+import { SearchNodesComponent } from './search-nodes/search-nodes.component';
+
+
 @NgModule({
   declarations: [
     CustomNodeComponent,
@@ -16,15 +20,17 @@ import { AddNodeComponent } from './add-node/add-node.component';
     InforComponent,
     FunctionComponent,
     AddNodeComponent,
+    SearchNodesComponent,
   ],
-  imports: [CommonModule, ReteModule],
+  imports: [CommonModule, ReteModule, SharedModule],
   exports: [
     CustomNodeComponent,
     CustomSocketComponent,
     CustomConnectionComponent,
     InforComponent,
     FunctionComponent,
-    AddNodeComponent
+    AddNodeComponent,
+    SearchNodesComponent
   ],
 })
 export class ComponentModule {}

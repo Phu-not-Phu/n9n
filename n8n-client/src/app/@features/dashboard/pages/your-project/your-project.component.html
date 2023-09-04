@@ -5,7 +5,7 @@
         <h1 id="name">Your Project</h1>
       </div>
       <div id="button">
-        <button id="add">Add Workflow</button>
+        <button id="add" (click)="dialog.openDialog()">Add Workflow</button>
       </div>
     </div>
   </div>
@@ -51,3 +51,7 @@
     </div>
   </div>
 </div>
+
+<app-dialog [(isOpen)]="isDialogOpen" #dialog [data]="{ title: 'Create Workflow' }">
+  <app-workflow-form></app-workflow-form>
+</app-dialog>

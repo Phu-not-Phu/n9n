@@ -69,7 +69,7 @@ dialog {
         border: 2px solid var(--primary-color);
         border-radius: 50%;
 
-        background: none;
+        background: var(--secondary-color);
         cursor: pointer;
 
         transition: $transition;
@@ -89,7 +89,7 @@ dialog {
 
             svg {
                 path {
-                    fill: white;
+                    fill: var(--secondary-color);
                 }
             }
         }

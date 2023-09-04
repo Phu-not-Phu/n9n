@@ -5,6 +5,7 @@ import { YourProjectRoutingModule } from './your-project-routing.module';
 import { YourProjectComponent } from './your-project.component';
 import { SharedModule } from 'src/app/@shared/shared.module';
 import { ContainersModule } from './containers/container.module';
+import { ComponentsModule } from './components/component.module';
 
 @NgModule({
   declarations: [YourProjectComponent],
@@ -13,6 +14,7 @@ import { ContainersModule } from './containers/container.module';
     YourProjectRoutingModule,
     SharedModule,
     ContainersModule,
+    ComponentsModule
   ],
 })
 export class YourProjectModule {}

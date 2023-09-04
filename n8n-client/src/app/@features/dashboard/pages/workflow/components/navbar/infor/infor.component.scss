@@ -11,15 +11,9 @@ $transition-time: 0.2s;
 
 .name-workflow {
   display: flex;
+  flex-direction: row;
   align-items: center;
-
-  color: var(--primary-color);
-  font-size: small;
-
-  border: none;
-
-  width: 130px;
-  height: 100%;
+  justify-content: flex-start;
 
   padding: 5px;
 
@@ -28,7 +22,8 @@ $transition-time: 0.2s;
   & > input {
     width: 100%;
     height: 40px;
-    text-align: center;
+
+    box-sizing: border-box;
 
     padding: 10px;
 

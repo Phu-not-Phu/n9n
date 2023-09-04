@@ -90,7 +90,7 @@ $button-padding: 0.5rem;
         cursor: pointer;
 
         font-size: small;
-        font-weight: 400;
+        font-weight: bold;
         color: var(--primary-color);
 
         transition: all calc($transition-time / 1.5) ease-in-out;
@@ -98,15 +98,29 @@ $button-padding: 0.5rem;
 
       & > button:hover {
         color: rgba($color: #f6f1f1, $alpha: 1);
-        font-weight: 400;
       }
 
       & > button:focus {
         color: rgba($color: #19003f, $alpha: 1);
-        font-weight: 400;
 
         background-color: var(--secondary-color);
       }
+
+      .currentState {
+        color: rgba($color: #19003f, $alpha: 1);
+
+        background-color: var(--secondary-color);
+      }
+
+      .currentState:hover {
+        color: rgba($color: #19003f, $alpha: 1);
+      }
     }
   }
+}
+
+#searchNodes{
+  width: 400px;
+  height: 650px;
+  float: right;
 }

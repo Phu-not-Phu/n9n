@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" clickOutside (clickOutside)="this.clickOutside()">
   <div class="left" (click)="navigateToWorkflow()">
     <div id="up">
       <h5 id="name">Name</h5>
@@ -49,12 +49,37 @@
           class="content-setting"
           [ngClass]="{ hidden: _isOpenSetting === false }"
         >
-          <span> Open </span>
-          <span> Share... </span>
-          <span> Duplicate </span>
-          <span> Delete </span>
+          <span (click)="navigateToWorkflow()"> Open </span>
+          <span (click)="dialog.openDialog()" (click)="openShareDialog()">
+            Share...
+          </span>
+          <span (click)="dialog.openDialog()" (click)="openDuplicateDialog()">
+            Duplicate
+          </span>
+          <span (click)="dialog.openDialog()" (click)="openDeleteDialog()">
+            Delete
+          </span>
         </div>
       </div>
     </span>
   </div>
 </div>
+
+<app-dialog
+  [(isOpen)]="isDialogOpen"
+  #dialog
+  [data]="{ title: this.currentDialog }"
+>
+  <app-dialog-share
+    *ngIf="this.currentDialog === 'Sharing'"
+    (cancelForm)="dialog.closeDialog()"
+  ></app-dialog-share>
+  <app-dialog-duplicate
+    *ngIf="this.currentDialog === 'Duplicate Workflow'"
+    (cancelForm)="dialog.closeDialog()"
+  ></app-dialog-duplicate>
+  <app-dialog-delete
+    *ngIf="this.currentDialog === 'Delete Workflow'"
+    (cancelForm)="dialog.closeDialog()"
+  ></app-dialog-delete>
+</app-dialog>
