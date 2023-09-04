@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class WorkflowCardComponent {
   _isOn: boolean = false;
   _isOpenSetting: boolean = false;
+  isDialogOpen: boolean = false;
+  currentDialog: string = '';
 
   constructor(private router: Router) {}
 
@@ -20,7 +22,19 @@ export class WorkflowCardComponent {
     this._isOn = !this._isOn;
   }
 
-  openSetting(){
+  openSetting() {
     this._isOpenSetting = !this._isOpenSetting;
+  }
+
+  openShareDialog() {
+    this.currentDialog = 'Sharing';
+  }
+
+  openDuplicateDialog() {
+    this.currentDialog = 'Duplicate Workflow';
+  }
+
+  openDeleteDialog() {
+    this.currentDialog = 'Delete Workflow';
   }
 }
