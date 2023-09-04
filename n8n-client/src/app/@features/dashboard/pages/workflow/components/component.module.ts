@@ -7,7 +7,10 @@ import { ReteModule } from 'rete-angular-plugin/16';
 import { InforComponent } from './navbar/infor/infor.component';
 import { FunctionComponent } from './navbar/function/function.component';
 import { AddNodeComponent } from './add-node/add-node.component';
+
 import { SharedModule } from 'src/app/@shared/shared.module';
+import { SearchNodesComponent } from './search-nodes/search-nodes.component';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +20,7 @@ import { SharedModule } from 'src/app/@shared/shared.module';
     InforComponent,
     FunctionComponent,
     AddNodeComponent,
+    SearchNodesComponent,
   ],
   imports: [CommonModule, ReteModule, SharedModule],
   exports: [
@@ -25,7 +29,8 @@ import { SharedModule } from 'src/app/@shared/shared.module';
     CustomConnectionComponent,
     InforComponent,
     FunctionComponent,
-    AddNodeComponent
+    AddNodeComponent,
+    SearchNodesComponent
   ],
 })
 export class ComponentModule {}
