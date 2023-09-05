@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-nodes',
@@ -6,13 +6,9 @@ import { Component, Input, Output } from '@angular/core';
   styleUrls: ['./search-nodes.component.scss'],
 })
 export class SearchNodesComponent {
-  _isOpenTrigger: boolean = false;
+  @Output() _isOpenTrigger = new EventEmitter<void>();
 
-  openTrigger() {
-    this._isOpenTrigger = !this._isOpenTrigger;
-  }
-
-  clickOutside() {
-    this._isOpenTrigger = false;
+  openTrigger(): void {
+    this._isOpenTrigger.emit();
   }
 }

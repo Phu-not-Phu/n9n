@@ -1,7 +1,27 @@
-<div class="container">
+<div class="container" (click)="this.openTrigger()">
   <div id="header">
-    <h3>Select a trigger</h3>
-    <p>A trigger is a step that starts your workflow</p>
+    <span>
+      <svg
+        width="20"
+        height="15"
+        viewBox="0 0 78 63"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M74.0713 31.673H4.69513M4.69513 31.673L27.8205 4.69336M4.69513 31.673L27.8205 58.6526"
+          stroke="#19003f"
+          stroke-width="7.70846"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </span>
+
+    <span id="title">
+      <h3>Select a trigger</h3>
+      <p>A trigger is a step that starts your workflow</p>
+    </span>
   </div>
 
   <div id="searchDiv">
@@ -57,7 +77,10 @@
     <div>
       <span>
         <h4>When called by another workflow</h4>
-        <p>Runs the flow when called by the Execute Workflow node from a different workflow</p>
+        <p>
+          Runs the flow when called by the Execute Workflow node from a
+          different workflow
+        </p>
       </span>
     </div>
 
@@ -67,6 +90,5 @@
         <p>Runs the flow on workflow errors, file changes, etc.</p>
       </span>
     </div>
-
   </div>
 </div>

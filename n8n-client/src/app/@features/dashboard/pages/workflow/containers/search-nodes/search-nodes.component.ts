@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'search-nodes-container',
@@ -7,15 +7,17 @@ import { Component } from '@angular/core';
 })
 export class SearchNodesComponent {
   _isOpenSearch: boolean = false;
-  _isOpenTrigger: boolean = false;
+
+  @Input() _isOpenTrigger = false;
+  @Output() isOpenTriggerChange = new EventEmitter<boolean>();
 
   openSearch() {
     this._isOpenSearch = !this._isOpenSearch;
-    console.log('open search');
   }
 
   openTrigger() {
     this._isOpenTrigger = !this._isOpenTrigger;
+    this.isOpenTriggerChange.emit(this._isOpenTrigger);
   }
 
   clickOutside() {
