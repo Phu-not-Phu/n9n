@@ -27,7 +27,14 @@ export class ProjectController {
     return new HttpResponse(result.code, result.data, result.error);
   }
 
-  @UseGuards(AuthGuard)
+  //@UseGuards(AuthGuard)
+  @Get('all')
+  async readProjects(@Query('uid') uid: string) {
+    const result = await this.projectService.readProjects(uid);
+    return new HttpResponse(result.code, result.data, result.error);
+  }
+
+  //@UseGuards(AuthGuard)
   @Get('')
   async readProject(@Query('id') id: string) {
     const result = await this.projectService.readProject(id);

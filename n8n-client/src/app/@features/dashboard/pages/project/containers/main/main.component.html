@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="left">
+    <app-infomation [project]="(projectState$ | async)?.selectedProject!"></app-infomation>
+  </div>
+
+  <div class="right">
+    <div>
+      <app-toolbar></app-toolbar>
+    </div>
+    <div>
+      <app-workflow-list></app-workflow-list>
+    </div>
+  </div>
+</div>
+
+<app-dialog #addWorkflow [data]="{title: 'Create Workflow'}">
+  <app-workflow-form (submitForm)="handleAddWorkflow($event)"
+    (cancelForm)="addWorkflow.closeDialog()"></app-workflow-form>
+</app-dialog>

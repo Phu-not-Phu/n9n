@@ -6,11 +6,11 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signOut,
-  User,
   UserCredential,
 } from '@angular/fire/auth';
-import { lastValueFrom } from 'rxjs';
-import { UserModel } from 'src/app/models/user.model';
+import { CookieService } from 'ngx-cookie';
+import { lastValueFrom, map, of, throwError } from 'rxjs';
+import { UserCreateDTO, UserModel } from 'src/app/models/user.model';
 
 import { environment } from 'src/environments/environment';
 
@@ -20,39 +20,80 @@ const { backend } = environment;
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private auth: Auth, private httpClient: HttpClient) {}
+  constructor(
+    private auth: Auth,
+    private httpClient: HttpClient,
+    private cookieService: CookieService
+  ) {}
 
-  async getUser() {
-    let userToken = await this.auth.currentUser?.getIdToken();
+  getUser() {
+    const tokenCookie = this.cookieService.get('token');
 
-    const userResult = await lastValueFrom(
-      this.httpClient.get<UserModel>(`${backend}user`, {
-        params: {
-          githubID: userToken ?? '',
-          googleID: userToken ?? '',
+    if (!tokenCookie) {
+      return of(null);
+    }
+
+    return this.httpClient
+      .get<any>(`${backend.apiServer}users/me`, {
+        headers: {
+          Authorization: `Bearer ${tokenCookie}`,
         },
       })
-    );
+      .pipe(
+        map((res) => {
+          if (res.error !== null) {
+            throw new Error(res.error);
+          }
+          return res.data;
+        })
+      );
   }
 
-  async createUser(userModel: UserModel): Promise<string> {
-    const userResult = await lastValueFrom(
-      this.httpClient.post<any>(`${backend.apiServer}users/register`, userModel)
-    );
+  createUser(newUser: UserCreateDTO) {
+    return this.httpClient
+      .post<any>(`${backend.apiServer}users/register`, newUser)
+      .pipe(
+        map((res) => {
+          return res.data;
+        })
+      );
+  }
 
-    if (!userResult) {
-      throw new Error('User result is null');
-    }
+  updateUser(id: string, user: UserModel) {
+    return this.httpClient
+      .put<any>(`${backend.apiServer}users/update?id=${id}`, user)
+      .pipe(
+        map((res) => {
+          if (res.error !== null) {
+            throw new Error(res.error);
+          }
+
+          return res.data;
+        })
+      );
+  }
+
+  async checkUser(token: string): Promise<boolean> {
+    const userResult = await lastValueFrom(
+      this.httpClient.put<any>(
+        `${backend.apiServer}users/verify`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+    );
 
     return userResult.data;
   }
 
-  async checkUser(user: UserModel): Promise<boolean> {
-    const userResult = await lastValueFrom(
-      this.httpClient.put<boolean>(`${backend}check`, user)
-    );
-
-    return userResult;
+  loginWithEmail(email: string, password: string) {
+    return this.httpClient.post<any>(`${backend.apiServer}users/login`, {
+      email,
+      password,
+    });
   }
 
   async loginWithGoogle(): Promise<UserCredential> {
@@ -81,7 +122,8 @@ export class UserService {
     return userCredential;
   }
 
-  logOut() {
-    return signOut(this.auth);
+  logout() {
+    this.cookieService.remove('token');
+    return of(null);
   }
 }

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { UserService } from 'src/app/@core/services/user.service';
+import { UserState } from 'src/app/ngrx/user/user.state';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,27 +11,18 @@ import { UserService } from 'src/app/@core/services/user.service';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private store: Store<{ user: UserState }>,
+    private router: Router
+  ) {}
 
-  loginWithGoogle() {
-    this.userService.loginWithGoogle().then(console.log);
-  }
+  ngOnInit() {
+    this.store.select('user').subscribe((userState) => {
+      console.log(userState);
 
-  loginWithFacebook() {}
-
-  loginWithGithub() {
-    this.userService.loginWithGithub().then(console.log);
-  }
-
-  logout() {
-    this.userService.logOut();
-  }
-
-  navigateToRegister() {
-    this.router.navigate(['/register']);
-  }
-
-  navigateToHome() {
-    this.router.navigate(['/dashboard']);
+      if (userState.user !== null) {
+        this.router.navigate(['/dashboard/to-do']);
+      }
+    });
   }
 }

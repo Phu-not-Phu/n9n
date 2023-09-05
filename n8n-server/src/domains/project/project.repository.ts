@@ -15,18 +15,34 @@ export class ProjectRepository implements IProjectRepository {
     @InjectModel(Project.name) private projectModel: Model<Project>,
   ) {}
 
-  async createProject(project: CreateProjectDto): Promise<Response<string>> {
+  async createProject(
+    project: CreateProjectDto,
+  ): Promise<Response<ProjectDocument>> {
     const [err, response] = await to(this.projectModel.create(project));
 
     return {
       error: err,
-      data: err ? "Can't create project" : 'OK',
+      data: response,
       code: err ? 400 : 201,
     };
   }
 
   async readProject(id: string): Promise<Response<ProjectDocument>> {
     const [err, project] = await to(this.projectModel.findById(id));
+
+    return {
+      error: err,
+      data: project,
+      code: err ? 400 : 200,
+    };
+  }
+
+  async readProjects(uid: string): Promise<Response<ProjectDocument[]>> {
+    const [err, project] = await to(
+      this.projectModel.find({
+        ownerID: uid,
+      }),
+    );
 
     return {
       error: err,

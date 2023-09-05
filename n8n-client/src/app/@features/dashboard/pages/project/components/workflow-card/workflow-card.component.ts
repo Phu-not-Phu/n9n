@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-workflow-card-component',
+  selector: 'app-workflow-card',
   templateUrl: './workflow-card.component.html',
   styleUrls: ['./workflow-card.component.scss'],
 })

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Response } from 'src/models/response.model';
@@ -137,6 +137,8 @@ export class UserAuthService implements IUserAuthService {
     let tempUserObject: CreateUserDto = {
       uid: uuidv4(),
       username: registerUserDto.username,
+      firstName: registerUserDto.firstName,
+      lastName: registerUserDto.lastName,
       displayName: registerUserDto.firstName + ' ' + registerUserDto.lastName,
       email: registerUserDto.email,
       password: hashedPassword,

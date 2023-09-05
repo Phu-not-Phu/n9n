@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  padding: 40px 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

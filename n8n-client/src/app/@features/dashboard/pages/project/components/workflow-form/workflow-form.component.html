@@ -1,0 +1,25 @@
+<form [formGroup]="workflowFormGroups" class="form-container">
+    <div class="input-row">
+        <label for="name">Name: </label>
+        <input id="name" type="text" name="name" formControlName="name" placeholder="Your first workflow">
+        <span class="validation-error"
+            *ngIf="(_isSubmitted || workflowFormGroups.controls.name.touched) && !workflowFormGroups.controls.name.valid">Name
+            need to be
+            at least 6
+            character</span>
+    </div>
+
+    <!-- <div class="input-row">
+        <label for="description">Description: </label>
+        <input id="description" type="text" name="description" formControlName="description"
+            placeholder="My workflow is so awesome">
+        <span class="validation-error"
+            *ngIf="(_isSubmitted || workflowFormGroups.controls.description.touched) && !workflowFormGroups.controls.description.valid">Description
+            is required</span>
+    </div> -->
+
+    <div class="btn-group">
+        <button (click)="onCancel()">Cancel</button>
+        <button (click)="onSubmit()">Submit</button>
+    </div>
+</form>

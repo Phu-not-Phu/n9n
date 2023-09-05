@@ -1,6 +1,7 @@
 <div class="container">
   <create-new-project (createProject)="dialog.openDialog()"></create-new-project>
-  <app-created-project></app-created-project>
+  <app-created-project *ngFor="let project of (projectState$ | async)?.projects"
+    [project]="project"></app-created-project>
 </div>
 
 <app-dialog #dialog [data]="{title: 'Create Project'}">

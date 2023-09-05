@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit {
     this.router.events
       .pipe(filter((evt) => evt instanceof NavigationEnd))
       .subscribe((event: any) => {
-        console.log(event);
         let urls = event['url'].split('/');
         this.currentNavigation = urls[urls.length - 1];
         this.currentSettings = this.router.url.split('/')[2];
@@ -22,19 +21,13 @@ export class DashboardComponent implements OnInit {
         if (this.currentSettings == 'settings') {
           this.isOpenNavigation = true;
         }
-
-        console.log('Navbar: ' + this.currentNavigation);
-        console.log('Settings: ' + this.currentSettings);
       });
 
-    this.currentNavigation = this.router.url.split('/')[2     ];
+    this.currentNavigation = this.router.url.split('/')[2];
     this.currentSettings = this.router.url.split('/')[2];
     if (this.currentSettings == 'settings') {
       this.currentNavigation = this.router.url.split('/')[3];
     }
-
-    console.log('Navbar: ' + this.currentNavigation);
-    console.log('Settings: ' + this.currentSettings);
   }
 
   isOpenNavigation: boolean = true;

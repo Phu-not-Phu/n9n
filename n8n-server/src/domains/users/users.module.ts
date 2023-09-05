@@ -15,7 +15,7 @@ import { UserAuthService } from '../../core/services/auth.service';
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: User.name, schema: UserSchema, collection: 'nodes-types' },
+      { name: User.name, schema: UserSchema, collection: 'users' },
     ]),
   ],
   controllers: [UsersController],
