@@ -3,7 +3,9 @@
     <input id="select" name="ice-cream-choice" [value]="selectedOption" />
   </button>
   <ul class="dropdown-options" [hidden]="!isDropdownOpen">
-    <li *ngFor="let option of options" (click)="selectOption(option)">{{ option }}</li>
+    <li *ngFor="let option of options" (click)="selectOption(option)">
+      {{ option }}
+    </li>
   </ul>
 </div>
 <datalist id="sortby">

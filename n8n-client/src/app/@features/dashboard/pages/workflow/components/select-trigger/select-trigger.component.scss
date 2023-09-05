@@ -23,7 +23,7 @@
 }
 
 #header {
-  height: 60px;
+  height: auto;
   background-color: rgb(221, 221, 221);
   border-bottom: 1px solid var(--primary-color);
 }
@@ -105,15 +105,4 @@ p {
   font-size: small;
   word-wrap: break-word;
   margin: 0;
-}
-
-.selectTrigger {
-  float: right;
-  visibility: visible;
-
-  transition: all 0.25s ease-in-out;
-}
-
-.selectTrigger.hidden-trigger {
-  visibility: hidden;
 }

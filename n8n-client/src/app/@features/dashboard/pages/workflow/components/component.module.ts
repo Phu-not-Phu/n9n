@@ -6,11 +6,10 @@ import { CustomConnectionComponent } from './custom-connection/custom-connection
 import { ReteModule } from 'rete-angular-plugin/16';
 import { InforComponent } from './navbar/infor/infor.component';
 import { FunctionComponent } from './navbar/function/function.component';
-import { AddNodeComponent } from './add-node/add-node.component';
 
 import { SharedModule } from 'src/app/@shared/shared.module';
 import { SearchNodesComponent } from './search-nodes/search-nodes.component';
-
+import { SelectTriggerComponent } from './select-trigger/select-trigger.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,8 @@ import { SearchNodesComponent } from './search-nodes/search-nodes.component';
     CustomConnectionComponent,
     InforComponent,
     FunctionComponent,
-    AddNodeComponent,
     SearchNodesComponent,
+    SelectTriggerComponent,
   ],
   imports: [CommonModule, ReteModule, SharedModule],
   exports: [
@@ -29,8 +28,8 @@ import { SearchNodesComponent } from './search-nodes/search-nodes.component';
     CustomConnectionComponent,
     InforComponent,
     FunctionComponent,
-    AddNodeComponent,
-    SearchNodesComponent
+    SearchNodesComponent,
+    SelectTriggerComponent,
   ],
 })
 export class ComponentModule {}

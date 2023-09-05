@@ -1,20 +1,20 @@
 <div class="container">
-    <div class="navigation">
-        <app-navbar></app-navbar>
+  <div class="navigation">
+    <app-navbar></app-navbar>
 
-        <div>
-            <span class="btn-nav">
-                <button>Editor</button>
-                <button>Execution</button>
-            </span>
-        </div>
+    <div>
+      <span class="btn-nav">
+        <button class="currentState">Editor</button>
+        <button>Execution</button>
+      </span>
     </div>
+  </div>
 
   <!-- <app-add-node></app-add-node> -->
-  
+
   <div class="view">
     <div class="editor" #editor>
-      <app-search-nodes id="searchNodes"></app-search-nodes>
+      <search-nodes-container></search-nodes-container>
     </div>
   </div>
 </div>

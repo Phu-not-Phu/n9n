@@ -1,0 +1,94 @@
+#addNodeButtn {
+  width: 100px;
+  height: 100px;
+  padding: 15px 25px;
+  float: right;
+
+  & > span {
+    display: grid;
+    gap: 8px;
+    place-items: center;
+
+    & > button {
+      background-color: transparent;
+      border: 2.2px solid #19003f;
+      border-radius: 8px;
+      padding: 5px;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      cursor: pointer;
+      transition: all 0.25s ease-in-out;
+
+      & > svg {
+        transition: all 0.25s ease-in-out;
+      }
+
+      & > img {
+        width: 20px;
+        height: 20px;
+        transition: all 0.25s ease-in-out;
+      }
+    }
+  }
+}
+
+#addNodeButtn.hidden {
+  display: none;
+}
+
+#addButtn {
+  width: 60px;
+  height: 60px;
+}
+
+#addButtn:hover {
+  width: 65px;
+  height: 65px;
+
+  & > svg {
+    width: 30px;
+    height: 30px;
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+#noteButtn {
+  width: 40px;
+  height: 40px;
+}
+
+#noteButtn:hover {
+  width: 45px;
+  height: 45px;
+
+  & > img {
+    width: 25px;
+    height: 25px;
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+.searchNodes {
+  float: right;
+
+  transform: translateX(25%);
+
+  transition: all 0.25s ease-in-out;
+}
+
+.searchNodes.hidden {
+  transform: translateX(150%);
+}
+
+.selectTrigger {
+  float: right;
+
+  transform: translateX(125%);
+
+  transition: all 0.25s ease-in-out;
+}
+
+.selectTrigger.hidden-trigger {
+  transform: translateX(250%);
+}

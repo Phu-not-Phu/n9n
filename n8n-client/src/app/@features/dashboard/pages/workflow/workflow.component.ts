@@ -18,18 +18,17 @@ export class WorkflowComponent {
     private router: Router,
     private editor: EditorService,
     private coreServerService: CoreServerService
-  ) { }
+  ) {}
   @ViewChild('editor') editorElement!: ElementRef<HTMLDivElement>;
 
   ngOnInit() {
     const id = this.router.url.split('/').pop();
 
     if (id !== undefined) {
-      this.coreServerService.getWorkflow(id).subscribe(
-        (workflow: Workflow) => { this.workflow$.next(<Workflow>workflow) }
-      )
+      this.coreServerService.getWorkflow(id).subscribe((workflow: Workflow) => {
+        this.workflow$.next(<Workflow>workflow);
+      });
     }
-
   }
 
   ngAfterViewInit() {
