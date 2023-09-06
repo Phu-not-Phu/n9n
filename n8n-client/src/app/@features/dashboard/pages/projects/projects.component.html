@@ -41,7 +41,7 @@
                 stroke-opacity="0.5" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
                 stroke-linejoin="round" />
         </svg>
-        <span>Welcome Golden Feallas</span>
+        <span>Welcome {{(userState$ | async)?.user?.displayName}} </span>
     </span>
     <span>Create your new Project</span>
 </ng-template>

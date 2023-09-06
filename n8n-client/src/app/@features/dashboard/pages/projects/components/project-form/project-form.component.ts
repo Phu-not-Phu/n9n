@@ -15,6 +15,7 @@ import { DialogComponent } from 'src/app/@shared/components/dialog/dialog.compon
   styleUrls: ['./project-form.component.scss'],
 })
 export class ProjectFormComponent {
+
   constructor(private formBuilder: FormBuilder) {}
 
   _isSubmitted: boolean = false;

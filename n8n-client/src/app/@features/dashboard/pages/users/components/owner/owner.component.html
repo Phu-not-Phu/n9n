@@ -19,11 +19,11 @@
   </div>
   <div class="mid">
     <div id="up">
-      <h5 id="name">Nguyễn Lê Quốc Khánh</h5>
+      <h5 id="name">{{(userState$ | async)?.user?.displayName}}</h5>
       <h5 id="me">(you)</h5>
     </div>
     <div id="down">
-      <div id="email">khanh.nlq@sinhvien.hoasen.edu.vn</div>
+      <div id="email">{{(userState$ | async)?.user?.email}}</div>
     </div>
   </div>
   <div class="right">
