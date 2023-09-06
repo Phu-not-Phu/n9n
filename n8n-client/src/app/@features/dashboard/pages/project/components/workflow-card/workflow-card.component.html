@@ -1,7 +1,7 @@
 <div class="container" clickOutside (clickOutside)="this.clickOutside()">
-  <div class="left" (click)="navigateToWorkflow()">
+  <div class="left" (click)="navigateToWorkflow(_workflow?.coreID!)">
     <div id="up">
-      <h5 id="name">Name</h5>
+      <h5 id="name">{{_workflow?.name}}</h5>
     </div>
     <div id="down">
       <div id="d1">Element</div>
@@ -27,28 +27,13 @@
     </span>
 
     <span class="setting" (click)="openSetting()">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 9 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          id="setting-icon"
-          fill="#19003f"
-          d="M4.5 8.51613C6.9875 8.51613 9 10.0742 9 12C9 13.9258 6.9875 15.4839 4.5 15.4839C2.0125 15.4839 0 13.9258 0 12C0 10.0742 2.0125 8.51613 4.5 8.51613ZM0 3.48387C0 5.40968 2.0125 6.96774 4.5 6.96774C6.9875 6.96774 9 5.40968 9 3.48387C9 1.55806 6.9875 0 4.5 0C2.0125 0 0 1.55806 0 3.48387ZM0 20.5161C0 22.4419 2.0125 24 4.5 24C6.9875 24 9 22.4419 9 20.5161C9 18.5903 6.9875 17.0323 4.5 17.0323C2.0125 17.0323 0 18.5903 0 20.5161Z"
-        />
+      <svg width="20" height="20" viewBox="0 0 9 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="setting-icon" fill="#19003f"
+          d="M4.5 8.51613C6.9875 8.51613 9 10.0742 9 12C9 13.9258 6.9875 15.4839 4.5 15.4839C2.0125 15.4839 0 13.9258 0 12C0 10.0742 2.0125 8.51613 4.5 8.51613ZM0 3.48387C0 5.40968 2.0125 6.96774 4.5 6.96774C6.9875 6.96774 9 5.40968 9 3.48387C9 1.55806 6.9875 0 4.5 0C2.0125 0 0 1.55806 0 3.48387ZM0 20.5161C0 22.4419 2.0125 24 4.5 24C6.9875 24 9 22.4419 9 20.5161C9 18.5903 6.9875 17.0323 4.5 17.0323C2.0125 17.0323 0 18.5903 0 20.5161Z" />
       </svg>
 
-      <div
-        class="setting-box"
-        [ngClass]="{ 'open-setting-box': _isOpenSetting !== false }"
-      >
-        <div
-          class="content-setting"
-          [ngClass]="{ hidden: _isOpenSetting === false }"
-        >
+      <!-- <div class="setting-box" [ngClass]="{ 'open-setting-box': _isOpenSetting !== false }">
+        <div class="content-setting" [ngClass]="{ hidden: _isOpenSetting === false }">
           <span (click)="navigateToWorkflow()"> Open </span>
           <span (click)="dialog.openDialog()" (click)="openShareDialog()">
             Share...
@@ -60,11 +45,11 @@
             Delete
           </span>
         </div>
-      </div>
+      </div> -->
     </span>
   </div>
 </div>
-
+<!-- 
 <app-dialog
   [(isOpen)]="isDialogOpen"
   #dialog
@@ -83,5 +68,5 @@
   <app-dialog-delete
     *ngIf="this.currentDialog === 'Delete Workflow'"
     (cancelForm)="dialog.closeDialog()"
-  ></app-dialog-delete> -->
-</app-dialog>
+  ></app-dialog-delete>
+</app-dialog> -->

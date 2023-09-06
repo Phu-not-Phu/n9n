@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 
 import to from 'await-to-js';
@@ -13,12 +13,16 @@ import { CreateWorkflowDto, UpdateWorkflowDto } from './model/workflow.dto';
 export class WorkflowRepository implements IWorkflowRepository {
   constructor(
     @InjectModel(Workflow.name) private workflowModel: Model<Workflow>,
-  ) {}
+  ) { }
 
   async createWorkflow(
-    Workflow: CreateWorkflowDto,
+    workflow: CreateWorkflowDto,
   ): Promise<Response<WorkflowDocument>> {
-    const [err, response] = await to(this.workflowModel.create(Workflow));
+    if (typeof workflow.projectID === "string") {
+      workflow.projectID = new Types.ObjectId(workflow.projectID);
+    }
+
+    const [err, response] = await to(this.workflowModel.create(workflow));
 
     return {
       error: err,
@@ -40,7 +44,7 @@ export class WorkflowRepository implements IWorkflowRepository {
   async readWorkflows(pID: string): Promise<Response<WorkflowDocument[]>> {
     const [err, workflow] = await to(
       this.workflowModel.find({
-        projectID: pID,
+        projectID: new Types.ObjectId(pID),
       }),
     );
 

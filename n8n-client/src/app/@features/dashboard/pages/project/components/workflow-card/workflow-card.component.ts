@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Workflow } from '../../models/workflow.model';
 
 @Component({
   selector: 'app-workflow-card',
@@ -12,10 +13,17 @@ export class WorkflowCardComponent {
   isDialogOpen: boolean = false;
   currentDialog: string = '';
 
-  constructor(private router: Router) {}
+  _workflow: Workflow | undefined;
 
-  navigateToWorkflow() {
-    this.router.navigate(['dashboard', 'workflow']);
+  @Input() set workflow(workflow: Workflow) {
+    console.log(workflow);
+    this._workflow = workflow;
+  }
+
+  constructor(private router: Router) { }
+
+  navigateToWorkflow(coreID: string) {
+    this.router.navigate(['dashboard', 'workflow', coreID]);
   }
 
   turnOn() {

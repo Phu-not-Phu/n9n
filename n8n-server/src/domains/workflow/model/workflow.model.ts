@@ -3,14 +3,14 @@ import { WorkflowDocument } from '../schemas/workflow.schema';
 import { CreateWorkflowDto, UpdateWorkflowDto } from './workflow.dto';
 import { Observable } from 'rxjs';
 
-export interface Workflow {}
+export interface Workflow { }
 
 export interface IWorkflowService {
   createWorkflow(
     workflow: CreateWorkflowDto,
   ): Promise<Response<WorkflowDocument>>;
   readWorkflow(id: string): Promise<Response<WorkflowDocument>>;
-  readWorkflows(uid: string): Promise<Response<WorkflowDocument[]>>;
+  readWorkflows(pid: string): Promise<Response<WorkflowDocument[]>>;
   updateWorkflow(
     id: string,
     workflow: UpdateWorkflowDto,

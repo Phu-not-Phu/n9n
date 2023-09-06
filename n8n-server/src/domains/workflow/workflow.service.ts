@@ -19,7 +19,7 @@ export class WorkflowService implements IWorkflowService {
     private workflowRepository: IWorkflowRepository,
     @Inject(IWorkflowCoreRepository)
     private workflowCoreRepository: IWorkflowCoreRepository,
-  ) {}
+  ) { }
 
   async createWorkflow(
     workflow: CreateWorkflowDto,
@@ -45,8 +45,8 @@ export class WorkflowService implements IWorkflowService {
     return await this.workflowRepository.readWorkflow(id);
   }
 
-  async readWorkflows(uid: string): Promise<Response<WorkflowDocument[]>> {
-    return await this.workflowRepository.readWorkflows(uid);
+  async readWorkflows(pid: string): Promise<Response<WorkflowDocument[]>> {
+    return await this.workflowRepository.readWorkflows(pid);
   }
 
   async updateWorkflow(

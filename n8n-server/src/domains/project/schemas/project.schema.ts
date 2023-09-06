@@ -24,4 +24,5 @@ export class Project {
   ownerID: Types.ObjectId;
 }
 
-export const ProjectSchema = SchemaFactory.createForClass(Project);
+export const ProjectSchema = SchemaFactory.createForClass(Project)
+  .index({ ownerID: 1, name: 1 }, { unique: true });

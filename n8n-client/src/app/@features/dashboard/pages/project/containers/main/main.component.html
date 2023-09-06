@@ -1,6 +1,7 @@
 <div class="container">
   <div class="left">
-    <app-infomation [project]="(projectState$ | async)?.selectedProject!"></app-infomation>
+    <app-infomation (addWorkflow)="addWorkflow.openDialog()"
+      [project]="(projectState$ | async)?.selectedProject!"></app-infomation>
   </div>
 
   <div class="right">
@@ -8,7 +9,7 @@
       <app-toolbar></app-toolbar>
     </div>
     <div>
-      <app-workflow-list></app-workflow-list>
+      <app-workflow-list [workflows]="(workflowState$ | async)?.workflows!"></app-workflow-list>
     </div>
   </div>
 </div>

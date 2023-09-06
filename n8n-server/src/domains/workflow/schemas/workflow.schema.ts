@@ -9,6 +9,9 @@ export class Workflow {
   id: string;
 
   @Prop()
+  coreID: string;
+
+  @Prop()
   name: string;
 
   @Prop()
@@ -24,4 +27,7 @@ export class Workflow {
   projectID: Types.ObjectId;
 }
 
-export const WorkflowSchema = SchemaFactory.createForClass(Workflow);
+
+
+export const WorkflowSchema = SchemaFactory.createForClass(Workflow)
+  .index({ projectID: 1, name: 1 }, { unique: true })

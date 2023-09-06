@@ -18,6 +18,8 @@ import { userReducer } from '../ngrx/user/user.reducer';
 import { UserEffects } from '../ngrx/user/user.effects';
 import { projectReducer } from '../@features/dashboard/pages/projects/ngrx/project.reducer';
 import { ProjectEffects } from '../@features/dashboard/pages/projects/ngrx/project.effects';
+import { workflowReducer } from '../@features/dashboard/pages/project/ngrx/workflow.reducer';
+import { WorkflowEffects } from '../@features/dashboard/pages/project/ngrx/workflow.effects';
 
 const CORE_MODULES = [
   HttpClientModule,
@@ -37,10 +39,11 @@ const CORE_MODULES = [
       {
         user: userReducer,
         project: projectReducer,
+        workflow: workflowReducer,
       },
       {}
     ),
-    EffectsModule.forRoot([UserEffects, ProjectEffects]),
+    EffectsModule.forRoot([UserEffects, ProjectEffects, WorkflowEffects]),
     CookieModule.withOptions(),
   ],
   exports: [...CORE_MODULES],
