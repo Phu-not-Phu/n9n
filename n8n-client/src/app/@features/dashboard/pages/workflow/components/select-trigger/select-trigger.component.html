@@ -1,5 +1,5 @@
 <div class="container">
-  <div id="header" (click)="this.openTrigger()">
+  <div id="header">
     <span>
       <svg
         width="20"
@@ -43,7 +43,7 @@
   </div>
 
   <div id="options">
-    <div id="firstDiv">
+    <div id="firstDiv" (click)="this.selectTrigger()">
       <span>
         <h4>On app event</h4>
         <p>
