@@ -4,31 +4,38 @@
             <h1>Personal Settings</h1>
         </span>
         <span id="nameAndAvatar">
-            <p>Golden Fealla</p>
-            <img src="https://tintuc-divineshop.cdn.vccloud.vn/wp-content/uploads/2022/08/nhung-su-that-thu-vi-ve-tom-jerry-ba-giup-viec-bi-an-tung-lo-mat_62e8f715e5c8c.jpeg" alt="avatar" />
+            <p>{{(userState$ | async)?.user?.displayName}}</p>
+            <img src="https://tintuc-divineshop.cdn.vccloud.vn/wp-content/uploads/2022/08/nhung-su-that-thu-vi-ve-tom-jerry-ba-giup-viec-bi-an-tung-lo-mat_62e8f715e5c8c.jpeg"
+                alt="avatar" />
         </span>
     </div>
 
-    <div id="info">
+    <form id="info" [formGroup]="userProfileFormGroup">
         <span class="sections">
             <p>Basic Information</p>
         </span>
-        
+
         <div id="firstLastName">
             <span>
                 <p>First Name</p>
-                <input type="text" placeholder="Golden">
+                <input type="text" placeholder="John"
+                    (input)="checkPristine(currentUser?.firstName, userProfileFormGroup.controls['firstName'])"
+                    formControlName="firstName">
             </span>
 
             <span id="lastName">
                 <p>Last Name</p>
-                <input type="text" placeholder="Fealla">
+                <input type="text" placeholder="Kenedy"
+                    (input)="checkPristine(currentUser?.lastName, userProfileFormGroup.controls['lastName'])"
+                    formControlName="lastName">
             </span>
         </div>
-    
+
         <span>
             <p>Email</p>
-            <input type="email" placeholder="gjhgjhgj123@sinhvien.hoasen.edu.vn">
+            <input type="email" placeholder="user@example.com"
+                (input)="checkPristine(currentUser?.email, userProfileFormGroup.controls['email'])"
+                formControlName="email">
         </span>
 
         <span class="sections">
@@ -41,10 +48,13 @@
 
         <div>
             <button id="cancelButtn">Cancel</button>
-            <button id="saveButtn">Save</button>
+            <button id="saveButtn" (click)="updateUser()"
+                [disabled]="!userProfileFormGroup.dirty || !userProfileFormGroup.valid">
+                {{(userState$ | async)?.isUpdating ? 'Saving...' : 'Save'}}
+            </button>
         </div>
 
-    </div>
+    </form>
 </div>
 
 <app-dialog [(isOpen)]="isDialogOpen" #dialog [data]="{title: 'Change Password'}">

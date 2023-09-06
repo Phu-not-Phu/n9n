@@ -3,8 +3,9 @@ import { ProjectDocument } from '../schemas/project.schema';
 import { Response } from 'src/models/response.model';
 
 export interface IProjectService {
-  createProject(project: CreateProjectDto): Promise<Response<string>>;
+  createProject(project: CreateProjectDto): Promise<Response<ProjectDocument>>;
   readProject(id: string): Promise<Response<ProjectDocument>>;
+  readProjects(uid: string): Promise<Response<ProjectDocument[]>>;
   updateProject(
     id: string,
     project: UpdateProjectDto,
@@ -13,8 +14,9 @@ export interface IProjectService {
 }
 
 export interface IProjectRepository {
-  createProject(project: CreateProjectDto): Promise<Response<string>>;
+  createProject(project: CreateProjectDto): Promise<Response<ProjectDocument>>;
   readProject(id: string): Promise<Response<ProjectDocument>>;
+  readProjects(uid: string): Promise<Response<ProjectDocument[]>>;
   updateProject(
     id: string,
     project: UpdateProjectDto,

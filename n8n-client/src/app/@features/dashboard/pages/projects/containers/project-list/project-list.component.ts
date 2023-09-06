@@ -3,6 +3,12 @@ import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 import { FormExport } from 'src/app/models/type-helper.model';
 import { DialogComponent } from 'src/app/@shared/components/dialog/dialog.component';
+import { Store } from '@ngrx/store';
+import { ProjectState } from '../../ngrx/project.state';
+import { projectActions } from '../../ngrx/project.actions';
+import { Observable, lastValueFrom, take } from 'rxjs';
+import { UserState } from 'src/app/ngrx/user/user.state';
+import { UserModel } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-project-list',
@@ -12,6 +18,11 @@ import { DialogComponent } from 'src/app/@shared/components/dialog/dialog.compon
 export class ProjectListComponent {
   notificationMessage: string = 'Project created successfully!';
 
+  currentUser: UserModel | null | undefined;
+
+  projectState$!: Observable<ProjectState>;
+  userState$!: Observable<UserState>;
+
   @Input() quantity: number = 0;
 
   @ViewChild('dialog') dialog: DialogComponent | undefined;
@@ -19,31 +30,38 @@ export class ProjectListComponent {
     | DialogComponent
     | undefined;
 
-  constructor(private projectService: ProjectService) {}
+  constructor(
+    private store: Store<{ project: ProjectState; user: UserState }>
+  ) {}
 
-  addQuantity() {
-    this.quantity += 1;
-    console.log(this.quantity);
+  async ngOnInit() {
+    this.projectState$ = this.store.select('project');
+    this.userState$ = this.store.select('user');
+
+    this.currentUser = await lastValueFrom(this.userState$.pipe(take(1))).then(
+      (user) => user.user
+    );
+
+    this.userState$.subscribe((userState) => {
+      this.currentUser = userState.user;
+
+      this.store.dispatch(
+        projectActions.loadProjects({ uid: this.currentUser?.uid || '' })
+      );
+    });
+
+    this.store.dispatch(
+      projectActions.loadProjects({ uid: this.currentUser?.uid || '' })
+    );
   }
 
-  createProject(project: FormExport<Project>) {
+  async createProject(project: FormExport<Project>) {
     const newProject: Project = {
       name: project.name || 'Untitled Project',
       description: project.description || 'No description provided',
-      ownerID: 'uid001',
+      ownerID: this.currentUser?.uid,
     };
 
-    console.log(newProject);
-
-    this.projectService.createProject(newProject).subscribe((res: any) => {
-      if (res.statusCode !== 201) {
-        this.notificationMessage = 'Project creation failed!';
-      } else {
-        this.notificationMessage = 'Project created successfully!';
-        this.dialog?.closeDialog();
-      }
-
-      this.notificationDialog?.openDialog();
-    });
+    this.store.dispatch(projectActions.createProject({ project: newProject }));
   }
 }

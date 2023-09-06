@@ -15,6 +15,12 @@ export class User {
   @Prop({ required: true })
   username: string;
 
+  @Prop({ default: '' })
+  firstName: string;
+
+  @Prop({ default: '' })
+  lastName: string;
+
   @Prop({ default: 'user' + uuidv4() })
   displayName: string;
 

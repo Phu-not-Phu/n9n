@@ -12,12 +12,18 @@ export class ProjectService implements IProjectService {
     @Inject(IProjectRepository) private projectRepository: IProjectRepository,
   ) {}
 
-  async createProject(project: CreateProjectDto): Promise<Response<string>> {
+  async createProject(
+    project: CreateProjectDto,
+  ): Promise<Response<ProjectDocument>> {
     return await this.projectRepository.createProject(project);
   }
 
   async readProject(id: string): Promise<Response<ProjectDocument>> {
     return await this.projectRepository.readProject(id);
+  }
+
+  async readProjects(uid: string): Promise<Response<ProjectDocument[]>> {
+    return await this.projectRepository.readProjects(uid);
   }
 
   async updateProject(

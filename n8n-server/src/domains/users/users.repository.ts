@@ -49,7 +49,9 @@ export class UsersRepository implements IUsersRepository {
 
   async updateUser(id: string, newUser: UpdateUserDto): Promise<UserDocument> {
     try {
-      const updatedUser = await this.userModel.findByIdAndUpdate(id, newUser);
+      const updatedUser = await this.userModel.findByIdAndUpdate(id, newUser, {
+        new: true,
+      });
       return updatedUser;
     } catch (error) {
       throw new Error(error);

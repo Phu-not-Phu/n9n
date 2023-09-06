@@ -7,59 +7,67 @@ export interface Response<T> {
 export class HttpResponse {
   statusCode: number;
   data: any;
-  error: Error;
+  error: {
+    name: string;
+    message: string;
+  };
 
   constructor(statusCode: number, data: any, error: Error = null) {
     this.statusCode = statusCode;
     this.data = data;
-    this.error = error;
+    this.error = error
+      ? {
+          name: error.name,
+          message: error.message,
+        }
+      : null;
   }
 
-  static ok(data: any) {
-    return new HttpResponse(200, data);
+  static ok(data: any, error: Error = null) {
+    return new HttpResponse(200, data, error);
   }
 
-  static created(data: any) {
-    return new HttpResponse(201, data);
+  static created(data: any, error: Error = null) {
+    return new HttpResponse(201, data, error);
   }
 
-  static badRequest(data: any) {
-    return new HttpResponse(400, data);
+  static badRequest(data: any, error: Error = null) {
+    return new HttpResponse(400, data, error);
   }
 
-  static unauthorized(data: any) {
-    return new HttpResponse(401, data);
+  static unauthorized(data: any, error: Error = null) {
+    return new HttpResponse(401, data, error);
   }
 
-  static forbidden(data: any) {
-    return new HttpResponse(403, data);
+  static forbidden(data: any, error: Error = null) {
+    return new HttpResponse(403, data, error);
   }
 
-  static notFound(data: any) {
-    return new HttpResponse(404, data);
+  static notFound(data: any, error: Error = null) {
+    return new HttpResponse(404, data, error);
   }
 
-  static conflict(data: any) {
-    return new HttpResponse(409, data);
+  static conflict(data: any, error: Error = null) {
+    return new HttpResponse(409, data, error);
   }
 
-  static unprocessableEntity(data: any) {
-    return new HttpResponse(422, data);
+  static unprocessableEntity(data: any, error: Error = null) {
+    return new HttpResponse(422, data, error);
   }
 
-  static internalServerError(data: any) {
-    return new HttpResponse(500, data);
+  static internalServerError(data: any, error: Error = null) {
+    return new HttpResponse(500, data, error);
   }
 
-  static serviceUnavailable(data: any) {
-    return new HttpResponse(503, data);
+  static serviceUnavailable(data: any, error: Error = null) {
+    return new HttpResponse(503, data, error);
   }
 
-  static gatewayTimeout(data: any) {
-    return new HttpResponse(504, data);
+  static gatewayTimeout(data: any, error: Error = null) {
+    return new HttpResponse(504, data, error);
   }
 
-  static custom(statusCode: number, data: any) {
-    return new HttpResponse(statusCode, data);
+  static custom(statusCode: number, data: any, error: Error = null) {
+    return new HttpResponse(statusCode, data, error);
   }
 }

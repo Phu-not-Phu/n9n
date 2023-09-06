@@ -1,23 +1,13 @@
-.khanh{
-  background-color: #F6F1F1;
+.khanh {
+  background-color: #f6f1f1;
   display: flex;
   justify-content: center;
-  height: 100%;  align-items: center;
+  height: 100%;
+  align-items: center;
 }
 
 .body {
   margin-bottom: 120px;
-}
-
-.bigbox {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.box {
-  background-color: #19003f;
 }
 
 .welcomeBack {
@@ -29,114 +19,3 @@
     font-size: 2rem;
   }
 }
-
-#signin {
-  & > h3 {
-  color: #F6F1F1;
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 40px;
-  font-size: 1rem;
-  }
-}
-
-
-#input{
-  display: flex;
-  flex-direction: column;
-
-  & > input{
-    color: #19003f;
-    background-color: #D9D9D9;
-
-    height: 35px;
-    border-radius: 35px;
-    border: none;
-
-    font-size: 0.5rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    padding: 0 20px;
-    margin-left: 45px;
-    margin-right: 45px;
-  }
-
-  & > button{
-    margin-bottom: 25px;
-    margin-left: 45px;
-    margin-right: 45px;
-    border-radius: 35px;
-    box-shadow: none;
-  }
-}
-
-#login{
-  display: flex;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: #19003f;
-  text-align: center;
-  height: 33px;
-  margin-top: 2px;
-  font-weight: 700;
-}
-
-hr{
-  width: 5rem;
-  margin-bottom: 30px;
-}
-
-.box {
-  border: 2px solid #f6f1f1;
-  border-radius: 23px;
-  width: 360px;
-  height: 500px;
-}
-
-#icon_signin{
-  display: grid;
-  grid-template-columns: 0.2fr 0.2fr 0.2fr;
-  justify-content: center;
-  justify-items: center;
-}
-
-#gg{
-  border: none;
-  background-color: #F6F1F1;
-  width: 35px;
-  border-radius: 40px;
-  display: flex;
-  align-items: center;
-}
-
-#fb{
-  border: none;
-  background-color: #F6F1F1;
-  width: 35px;
-  border-radius: 45px;
-}
-
-#gh{
-  border: none;
-  background-color: #F6F1F1;
-  width: 35px;
-  border-radius: 40px;
-  display: flex;
-  align-items: center;
-}
-
-#no_account{
-  display: flex;
-  justify-content: center;
-  & > h6{
-    font-size: 0.6rem;
-    color: #F6F1F1;
-  }
-  & > a{
-    font-size: 0.6rem;
-    margin-top: 33px;
-    margin-left: 5px;
-    color: rgb(179, 110, 243);
-  }
-}
-

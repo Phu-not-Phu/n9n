@@ -19,10 +19,13 @@ dotenv.config();
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET,
+      signOptions: { expiresIn: '1d' },
+      verifyOptions: { ignoreExpiration: false },
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
+
     ApiModule,
     CoreModule,
   ],

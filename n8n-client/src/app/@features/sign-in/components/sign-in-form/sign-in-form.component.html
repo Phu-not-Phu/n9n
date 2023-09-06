@@ -1,0 +1,29 @@
+<form id="input" [formGroup]="loginFormGroup">
+    <input id="text" type="text" placeholder="Email or User Name" formControlName="email">
+    <span class="validation-error">
+        <span *ngIf="_isSubmitted || loginFormGroup.controls.email.touched">
+            <ng-container *ngIf="loginFormGroup.controls.email === null">
+                *Email is required
+            </ng-container>
+            <ng-container *ngIf="!loginFormGroup.controls.email.valid">
+                *Email is not valid
+            </ng-container>
+        </span>
+    </span>
+
+    <input id="pass" type="password" placeholder="Password" formControlName="password">
+    <span class="validation-error">
+        <span *ngIf="_isSubmitted || loginFormGroup.controls.password.touched">
+            <ng-container *ngIf="loginFormGroup.controls.password === null">
+                *Password is required
+            </ng-container>
+            <ng-container *ngIf="loginFormGroup.controls.password.value?.length! < 8">
+                *Password must be at least 8 characters
+            </ng-container>
+        </span>
+    </span>
+
+    <button id="button_login" (click)="signInUser()">
+        <span id="login">Login</span>
+    </button>
+</form>

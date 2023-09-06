@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkflowCardComponent } from './workflow-card.component';
+import { WorkflowCardComponent } from './main.component';
 
 describe('WorkflowCardComponent', () => {
   let component: WorkflowCardComponent;
@@ -8,7 +8,7 @@ describe('WorkflowCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WorkflowCardComponent]
+      declarations: [WorkflowCardComponent],
     });
     fixture = TestBed.createComponent(WorkflowCardComponent);
     component = fixture.componentInstance;

@@ -1,0 +1,28 @@
+#name {
+  color: #19003f;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #19003f;
+}
+
+#add {
+  padding: 10px 10px;
+  width: 200px;
+  font-size: 0.75rem;
+  border-radius: 10px;
+  background-color: gray;
+  border: none;
+  color: #f6f1f1;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#add:hover {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--secondary-color);
+  cursor: pointer;
+}

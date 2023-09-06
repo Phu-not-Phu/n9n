@@ -1,9 +1,14 @@
 export interface UserModel {
-  id: string;
+  _id: string;
   uid: string;
   username: string;
+
+  displayName?: string;
+  firstName?: string;
+  lastName?: string;
+
   email: string;
-  password: string;
+  password?: string;
 
   googleID: string;
   githubID: string;
@@ -13,4 +18,15 @@ export interface UserModel {
   isDeleted: boolean;
 }
 
-export type UserDTO = Exclude<UserModel, ['id', 'password', 'isDeleted']>;
+export type UserDTO = Omit<UserModel, 'id' | 'password' | 'isDeleted'>;
+export type UserCreateDTO = Omit<
+  UserDTO,
+  | 'id'
+  | 'uid'
+  | 'displayName'
+  | 'createAt'
+  | 'updateAt'
+  | 'isDeleted'
+  | 'githubID'
+  | 'googleID'
+>;

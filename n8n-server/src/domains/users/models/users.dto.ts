@@ -3,6 +3,8 @@ export interface UserDTO {
   uid?: string;
 
   username: string;
+  firstName: string;
+  lastName: string;
   displayName: string;
   password: string;
 

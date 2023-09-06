@@ -1,165 +1,168 @@
-.container{
-    padding: 50px 245px;
-    width: 100%;
-    height: auto;
+.container {
+  padding: 50px 245px;
+  width: 100%;
+  height: auto;
 }
 
 //////////////////
 
-#title{
-    display: grid;
-    grid-template-columns: 0.5fr 0.5fr;
-    justify-items: center;
-    // margin-bottom: 10px;
+#title {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  justify-items: center;
+  // margin-bottom: 10px;
 
-    & > *{
-        color: #19003f;
-    }
+  & > * {
+    color: #19003f;
+  }
 
-    & > span{
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        gap: 20px;
-    }
+  & > span {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+  }
 
-    & > span > img{
-        width: 55px;
-        height: 55px;
-        object-fit: cover;
-        border-radius: 40px;
-    }
+  & > span > img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 40px;
+  }
 }
 
-#personalSettings{
-    width: 100%;
-    float: left;
+#personalSettings {
+  width: 100%;
+  float: left;
 
-    & > h1{
-        font-size: larger;
-        font-weight: 600;
-    }
+  & > h1 {
+    font-size: larger;
+    font-weight: 600;
+  }
 }
 
-#nameAndAvatar{
-    width: 100%;
-    justify-content: flex-end;
+#nameAndAvatar {
+  width: 100%;
+  justify-content: flex-end;
 
-    & > p{
-        font-size: small;
-        font-weight: 600;
-    }
+  & > p {
+    font-size: small;
+    font-weight: 600;
+  }
 }
 
 ///////////////////
 
-#info{
+#info {
+  display: grid;
+
+  & > .sections > p {
+    margin: 0;
+    margin-top: 50px;
+    font-size: large;
+    font-weight: 550;
+    opacity: 0.8;
+  }
+
+  & > div,
+  span > p {
+    margin: 10px 0;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  & > #firstLastName {
+    width: 100%;
     display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
 
-    & > .sections > p{
-        margin: 0;
-        margin-top: 50px;
-        font-size: large;
-        font-weight: 550;
-        opacity: 0.8;
+    & > #lastName {
+      display: grid;
+      justify-content: end;
     }
+  }
 
-    & > div, span > p{
-        margin: 10px 0;
-        font-size: 13px;
-        font-weight: 600;
-    }
-
-    & > #firstLastName{
-        width: 100%;
-        display: grid;
-        grid-template-columns: 0.5fr 0.5fr;
-        
-        & > #lastName{
-            display: grid;
-            justify-content: end;
-        }
-    }
-    
-    & > *{
-        float: left;
-        color: #19003f;
-    }
-
-    & > span > button{
-        padding: 0;
-        margin-bottom: 20px;
-        font-size: medium;
-        font-weight: 500;
-        border: none;
-        background-color: transparent;
-        color: #900bce;
-    }
-
-    & > span > button:hover{
-        cursor: pointer;
-    }
-
-    & > div{
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        justify-content: flex-end;
-    }
-}
-
-#cancelButtn{
-    background-color: transparent;
-    border: 1px solid #19003f;
-    border-radius: 8px;
-    width: 80px;
-    height: 40px;
+  & > * {
+    float: left;
     color: #19003f;
-    float: right;
+  }
+
+  & > span > button {
+    padding: 0;
+    margin-bottom: 20px;
     font-size: medium;
-    transition: all 0.2s;
-}
-
-#cancelButtn:hover{
-    cursor: pointer;
-    border: 1px solid transparent;
-    background-color: #19003f;
-    color: #f6f1f1;
-}
-
-#saveButtn{
-    background-color: gray;
+    font-weight: 500;
     border: none;
-    border-radius: 8px;
-    width: 80px;
-    height: 40px;
-    color: #f6f1f1;
-    float: right;
-    font-size: medium;
-    transition: all 0.2s;
-}
+    background-color: transparent;
+    color: #900bce;
+  }
 
-#saveButtn:hover{
+  & > span > button:hover {
     cursor: pointer;
-    border: none;
-    background-color: #19003f;
-    color: #f6f1f1;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+  }
 }
 
-input{
-    padding: 10px;
-    width: 360px;
-    height: 40px;
-    font-size: small;
-    border: 1px solid #19003f;
-    border-radius: 5px;
-    outline-color: #19003f;
-
+#cancelButtn {
+  background-color: transparent;
+  border: 1px solid #19003f;
+  border-radius: 8px;
+  width: 80px;
+  height: 40px;
+  color: #19003f;
+  float: right;
+  font-size: medium;
+  transition: all 0.2s;
 }
 
+#cancelButtn:hover {
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: #19003f;
+  color: #f6f1f1;
+}
 
+#saveButtn {
+  background-color: #19003f;
+  border: none;
+  border-radius: 8px;
+  width: 80px;
+  height: 40px;
+  color: #f6f1f1;
+  float: right;
+  font-size: medium;
+  transition: all 0.2s;
+}
+
+#saveButtn:hover {
+  cursor: pointer;
+  border: none;
+  background-color: #6e1f84;
+  color: #f6f1f1;
+  transition: all 0.2s;
+}
+
+#saveButtn:disabled {
+  background-color: gray;
+  color: #f6f1f1;
+  cursor: not-allowed;
+  transition: all 0.2s;
+}
+
+input {
+  padding: 10px;
+  width: 360px;
+  height: 40px;
+  font-size: small;
+  border: 1px solid #19003f;
+  border-radius: 5px;
+  outline-color: #19003f;
+}
 
 ///////////////////////////////#6e1f84
-
-
-    

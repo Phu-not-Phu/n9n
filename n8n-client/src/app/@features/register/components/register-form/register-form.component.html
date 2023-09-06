@@ -1,15 +1,87 @@
-<div id="box">
+<form id="box" [formGroup]="registerFormGroup">
     <h3>
         Register
     </h3>
 
-    <input type="text" placeholder="Username">
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
+    <input type="text" placeholder="Username" formControlName="username">
+    <span class="validation-error">
+        <span *ngIf="_isSubmitted || registerFormGroup.controls.username.touched">
+            <ng-container *ngIf="registerFormGroup.controls.username === null">
+                *Username is required
+            </ng-container>
+            <ng-container *ngIf="registerFormGroup.controls.username.value?.length! < 6">
+                *Username must be at least 6 characters
+            </ng-container>
+        </span>
+    </span>
+
+    <input type="text" placeholder="First name" formControlName="firstName">
+    <span class="validation-error">
+        <span *ngIf="_isSubmitted || registerFormGroup.controls.firstName.touched">
+            <ng-container *ngIf="registerFormGroup.controls.firstName === null">
+                *First name is required
+            </ng-container>
+            <ng-container *ngIf="registerFormGroup.controls.firstName.value?.length! < 2">
+                *First name must be at least 2 characters
+            </ng-container>
+        </span>
+    </span>
+
+    <input type="text" placeholder="Last name" formControlName="lastName">
+    <span class="validation-error">
+        <span *ngIf="_isSubmitted || registerFormGroup.controls.lastName.touched">
+            <ng-container *ngIf="registerFormGroup.controls.lastName === null">
+                *Last name is required
+            </ng-container>
+            <ng-container *ngIf="registerFormGroup.controls.lastName.value?.length! < 2">
+                *Last name must be at least 2 characters
+            </ng-container>
+        </span>
+    </span>
+
+    <input type="email" placeholder="Email" formControlName="email">
+    <span class="validation-error">
+        <span *ngIf="_isSubmitted || registerFormGroup.controls.email.touched">
+            <ng-container *ngIf="registerFormGroup.controls.email === null">
+                *Email is required
+            </ng-container>
+            <ng-container *ngIf="!registerFormGroup.controls.email.valid">
+                *Email is not valid
+            </ng-container>
+        </span>
+    </span>
+
+    <input type="password" placeholder="Password" formControlName="password">
+    <span class="validation-error">
+        <span *ngIf="_isSubmitted || registerFormGroup.controls.password.touched">
+            <ng-container *ngIf="registerFormGroup.controls.password === null">
+                *Password is required
+            </ng-container>
+            <ng-container *ngIf="registerFormGroup.controls.password.value?.length! < 8">
+                *Password must be at least 8 characters
+            </ng-container>
+        </span>
+    </span>
+
+    <input type="password" placeholder="Comfirm Password" formControlName="confirmPassword">
+    <span class="validation-error">
+        <span *ngIf="_isSubmitted || registerFormGroup.controls.confirmPassword.touched">
+            <ng-container *ngIf="registerFormGroup.controls.confirmPassword === null">
+                *Comfirm password is required
+            </ng-container>
+            <ng-container *ngIf="registerFormGroup.controls.confirmPassword.value?.length! < 8">
+                *Password must be at least 8 characters
+            </ng-container>
+            <ng-container
+                *ngIf="registerFormGroup.controls.confirmPassword.value !== registerFormGroup.controls.password.value">
+                *Password and comfirm password must be the same
+            </ng-container>
+        </span>
+    </span>
 
     <hr>
 
-    <button (click)="this.router.navigate(['/signin'])">
+    <button (click)="registerUser()">
         <span>
             Register
         </span>
@@ -21,4 +93,4 @@
         </svg>
     </button>
 
-</div>
+</form>

@@ -1,0 +1,44 @@
+.up {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+#left_up {
+  display: flex;
+  border: #19003f solid 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+#icon_find {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+
+#input {
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  color: #19003f;
+  background-color: #ffffff;
+}
+
+#sort {
+  margin-right: 5px;
+}
+
+.icon_filter {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+
+#right_up {
+  display: flex;
+  align-items: center;
+}
