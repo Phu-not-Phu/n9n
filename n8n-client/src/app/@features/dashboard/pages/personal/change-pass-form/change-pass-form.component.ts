@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-change-pass-form',
@@ -7,9 +7,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ChangePassFormComponent {
 
+  newPass: string = '';
+  confirmPass: string = '';
+  oldPass: string = '';
+
   @Output() cancelChange = new EventEmitter<void>();
 
   cancel(): void {
     this.cancelChange.emit();
+    this.newPass = '';
+    this.confirmPass = '';
+    this.oldPass = '';
   }
 }
