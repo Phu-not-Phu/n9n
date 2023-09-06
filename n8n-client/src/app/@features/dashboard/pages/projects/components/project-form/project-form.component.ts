@@ -14,6 +14,7 @@ import { FormExport } from 'src/app/models/type-helper.model';
   styleUrls: ['./project-form.component.scss'],
 })
 export class ProjectFormComponent {
+
   constructor(private formBuilder: FormBuilder) {}
 
   _isSubmitted: boolean = false;
@@ -31,11 +32,11 @@ export class ProjectFormComponent {
 
     if (this.projectFormGroups.valid) {
       this.submitForm.emit(this.projectFormGroups.value);
-      this.cancelForm.emit();
     }
   }
 
   onCancel(): void {
     this.cancelForm.emit();
+    this.projectFormGroups.reset();
   }
 }
