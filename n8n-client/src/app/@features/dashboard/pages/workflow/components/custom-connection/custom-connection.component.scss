@@ -2,6 +2,7 @@
 @import "../../vars";
 
 svg {
+  z-index: -3;
   overflow: visible;
   position: absolute;
   pointer-events: none;

@@ -50,6 +50,8 @@ $button-padding: 0.5rem;
 
   width: 100%;
 
+  z-index: 999999999;
+
   & > div {
     display: flex;
     align-items: center;
@@ -117,16 +119,4 @@ $button-padding: 0.5rem;
       }
     }
   }
-}
-
-#searchNodes{
-  width: 400px;
-  float: right;
-  visibility: visible;
-  opacity: 1;
-}
-
-#searchNodes.hidden{
-  visibility: hidden;
-  opacity: 0;
 }

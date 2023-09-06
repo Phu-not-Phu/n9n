@@ -31,6 +31,7 @@ export class ProjectFormComponent {
 
     if (this.projectFormGroups.valid) {
       this.submitForm.emit(this.projectFormGroups.value);
+      this.cancelForm.emit();
     }
   }
 
