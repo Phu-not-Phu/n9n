@@ -1,4 +1,4 @@
-.container{
+.container {
   display: block;
   z-index: 1;
   position: relative;
@@ -79,7 +79,7 @@
   }
 }
 
-.searchNodes {
+.selectTrigger {
   float: right;
 
   transform: translateX(25%);
@@ -87,11 +87,11 @@
   transition: all 0.25s ease-in-out;
 }
 
-.searchNodes.hidden {
+.selectTrigger.hidden-trigger {
   transform: translateX(150%);
 }
 
-.selectTrigger {
+.searchNodes {
   float: right;
 
   transform: translateX(125%);
@@ -99,6 +99,6 @@
   transition: all 0.25s ease-in-out;
 }
 
-.selectTrigger.hidden-trigger {
+.searchNodes.hidden {
   transform: translateX(250%);
 }

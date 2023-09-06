@@ -1,7 +1,7 @@
 <div class="container" clickOutside (clickOutside)="this.clickOutside()">
   <div id="addNodeButtn" [ngClass]="{ 'hidden-node': _isOpenSearch !== false }">
     <span>
-      <button id="addButtn" (click)="this.openSearch()">
+      <button id="addButtn" (click)="this.openTrigger()">
         <svg
           width="25"
           height="25"
@@ -25,15 +25,14 @@
     </span>
   </div>
 
-  <app-search-nodes
-    class="searchNodes"
-    [ngClass]="{ hidden: _isOpenSearch === false }"
-    (_isOpenTrigger)="this.openTrigger()"
-  ></app-search-nodes>
-
   <app-select-trigger
     class="selectTrigger"
     [ngClass]="{ 'hidden-trigger': _isOpenTrigger === false }"
-    (_isOpenTrigger)="this.openTrigger()"
+    (_isOpenTrigger)="this.selectTrigger()"
   ></app-select-trigger>
+
+  <app-search-nodes
+    class="searchNodes"
+    [ngClass]="{ 'hidden': _isSelectTrigger === false }"
+  ></app-search-nodes>
 </div>

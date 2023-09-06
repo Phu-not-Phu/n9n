@@ -8,7 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SelectTriggerComponent {
   @Output() _isOpenTrigger = new EventEmitter<void>();
 
-  openTrigger(): void {
+  selectTrigger(): void {
     this._isOpenTrigger.emit();
   }
 }
