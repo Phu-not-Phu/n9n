@@ -1,20 +1,20 @@
 <!-- <form [formGroup]="projectFormGroups" class="form-container"> -->
     <div class="input-row">
         <label >New password: </label>
-        <input id="name" type="text" name="name"  placeholder="need to be at least 6 character">
+        <input id="name" type="text" [(ngModel)]="newPass"  placeholder="need to be at least 6 character">
         <span class="validation-error">
         </span>
     </div>
 
     <div class="input-row">
         <label >Confirm new password: </label>
-        <input id="name" type="text" name="name">
+        <input id="name" type="password" [(ngModel)]="confirmPass">
         <span class="validation-error"></span>
     </div>
 
     <div class="input-row">
         <label >Current password: </label>
-        <input id="description" type="text" name="description">
+        <input id="description" type="password" [(ngModel)]="oldPass">
         <span class="validation-error"></span>
     </div>
 

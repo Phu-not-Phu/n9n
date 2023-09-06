@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navigation-user',
@@ -11,4 +12,7 @@ export class UserComponent {
   @Input() set isOpen(value: boolean) {
     this._isOpen = value;
   }
+
+  constructor(private router: Router) { }
+
 }

@@ -19,8 +19,7 @@ export class SortListBoxComponent {
     this.selectedOption = option;
     this.isDropdownOpen = false;
   }
-
-
+  
   clickOutside() {
     this.isDropdownOpen = false;
   }
