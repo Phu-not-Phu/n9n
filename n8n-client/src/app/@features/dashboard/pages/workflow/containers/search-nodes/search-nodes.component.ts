@@ -22,6 +22,7 @@ export class SearchNodesComponent {
 
   clickOutside() {
     this._isOpenTrigger = false;
+    this._isSelectTrigger = false;
   }
 
   selectTrigger() {

@@ -10,6 +10,7 @@ import { FunctionComponent } from './navbar/function/function.component';
 import { SharedModule } from 'src/app/@shared/shared.module';
 import { SearchNodesComponent } from './search-nodes/search-nodes.component';
 import { SelectTriggerComponent } from './select-trigger/select-trigger.component';
+import { NamePipe } from './custom-node/name.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SelectTriggerComponent } from './select-trigger/select-trigger.componen
     FunctionComponent,
     SearchNodesComponent,
     SelectTriggerComponent,
+    NamePipe,
   ],
   imports: [CommonModule, ReteModule, SharedModule],
   exports: [
