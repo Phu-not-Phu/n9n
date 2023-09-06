@@ -10,6 +10,7 @@
   justify-content: flex-start;
   background-color: white;
   overflow: auto;
+  z-index: 0;
 
   & > div {
     width: 100%;

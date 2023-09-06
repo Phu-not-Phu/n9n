@@ -1,8 +1,16 @@
+.container{
+  display: block;
+  z-index: 1;
+  position: relative;
+}
+
 #addNodeButtn {
   width: 100px;
   height: 100px;
   padding: 15px 25px;
   float: right;
+  background: transparent;
+  z-index: 0;
 
   & > span {
     display: grid;
@@ -10,7 +18,7 @@
     place-items: center;
 
     & > button {
-      background-color: transparent;
+      background-color: white;
       border: 2.2px solid #19003f;
       border-radius: 8px;
       padding: 5px;
@@ -40,11 +48,13 @@
 #addButtn {
   width: 60px;
   height: 60px;
+  background: white;
 }
 
 #addButtn:hover {
   width: 65px;
   height: 65px;
+  background: white;
 
   & > svg {
     width: 30px;

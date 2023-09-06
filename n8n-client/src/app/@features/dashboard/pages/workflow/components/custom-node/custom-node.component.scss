@@ -2,6 +2,7 @@
 @import "../../vars.scss";
 
 :host {
+  z-index: -2;
   .node {
     display: block;
     margin: 0;
