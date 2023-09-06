@@ -14,7 +14,6 @@ import { WorkflowFormComponent } from './workflow-form/workflow-form.component';
     DialogDuplicateComponent,
     DialogDeleteComponent,
     WorkflowFormComponent,
-    
   ],
   imports: [CommonModule, SharedModule],
   exports: [WorkflowCardComponent, WorkflowFormComponent],

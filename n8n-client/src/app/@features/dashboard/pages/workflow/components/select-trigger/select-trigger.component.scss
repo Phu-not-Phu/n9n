@@ -23,9 +23,34 @@
 }
 
 #header {
-  height: 60px;
+  height: auto;
   background-color: rgb(221, 221, 221);
   border-bottom: 1px solid var(--primary-color);
+
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 10px;
+
+  & > #title {
+    display: flex;
+    flex-direction: column;
+
+    & > h3 {
+      width: 150px;
+      border-bottom: 3px solid rgb(221, 221, 221);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}
+
+#header:hover {
+  cursor: pointer;
+
+  & > #title > h3 {
+    border-bottom: 3px solid var(--primary-color);
+  }
 }
 
 #searchDiv {
@@ -51,7 +76,6 @@
     height: auto;
     display: flex;
     padding: 13px 20px;
-
 
     & > span {
       height: auto;
@@ -106,15 +130,4 @@ p {
   font-size: small;
   word-wrap: break-word;
   margin: 0;
-}
-
-.selectTrigger {
-  float: right;
-  visibility: visible;
-
-  transition: all 0.25s ease-in-out;
-}
-
-.selectTrigger.hidden-trigger {
-  visibility: hidden;
 }

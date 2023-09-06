@@ -1,0 +1,94 @@
+<div class="container">
+  <div id="header" (click)="this.openTrigger()">
+    <span>
+      <svg
+        width="20"
+        height="15"
+        viewBox="0 0 78 63"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M74.0713 31.673H4.69513M4.69513 31.673L27.8205 4.69336M4.69513 31.673L27.8205 58.6526"
+          stroke="#19003f"
+          stroke-width="7.70846"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </span>
+
+    <span id="title">
+      <h3>Select a trigger</h3>
+      <p>A trigger is a step that starts your workflow</p>
+    </span>
+  </div>
+
+  <div id="searchDiv">
+    <span id="searchBox">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="30px"
+        viewBox="0 0 24 24"
+        width="35px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        />
+      </svg>
+      <input type="text" placeholder="Search nodes..." />
+    </span>
+  </div>
+
+  <div id="options">
+    <div id="firstDiv">
+      <span>
+        <h4>On app event</h4>
+        <p>
+          Runs the flow when something happens in an app like Telegram, Notion
+          or Airtable
+        </p>
+      </span>
+    </div>
+
+    <div>
+      <span>
+        <h4>On a schedule</h4>
+        <p>Runs the flow every day, hour, or custom interval</p>
+      </span>
+    </div>
+
+    <div>
+      <span>
+        <h4>On webhook call</h4>
+        <p>Runs the flow when another app sends a webhook</p>
+      </span>
+    </div>
+
+    <div>
+      <span>
+        <h4>Manually</h4>
+        <p>Runs the flow on clicking a button in n8n</p>
+      </span>
+    </div>
+
+    <div>
+      <span>
+        <h4>When called by another workflow</h4>
+        <p>
+          Runs the flow when called by the Execute Workflow node from a
+          different workflow
+        </p>
+      </span>
+    </div>
+
+    <div>
+      <span>
+        <h4>Other ways...</h4>
+        <p>Runs the flow on workflow errors, file changes, etc.</p>
+      </span>
+    </div>
+  </div>
+</div>

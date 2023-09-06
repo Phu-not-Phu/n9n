@@ -74,10 +74,12 @@
     *ngIf="this.currentDialog === 'Sharing'"
     (cancelForm)="dialog.closeDialog()"
   ></app-dialog-share>
+
   <app-dialog-duplicate
     *ngIf="this.currentDialog === 'Duplicate Workflow'"
     (cancelForm)="dialog.closeDialog()"
   ></app-dialog-duplicate>
+  
   <app-dialog-delete
     *ngIf="this.currentDialog === 'Delete Workflow'"
     (cancelForm)="dialog.closeDialog()"

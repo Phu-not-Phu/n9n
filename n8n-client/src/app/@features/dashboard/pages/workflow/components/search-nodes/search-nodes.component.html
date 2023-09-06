@@ -1,107 +1,78 @@
 <div class="container">
-    <div id="header">
-        <h3>What happens next?</h3>
+  <div id="header">
+    <h3>What happens next?</h3>
+  </div>
+
+  <div id="searchDiv">
+    <span id="searchBox">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="30px"
+        viewBox="0 0 24 24"
+        width="35px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        />
+      </svg>
+      <input type="text" placeholder="Search nodes..." />
+    </span>
+  </div>
+
+  <div id="options">
+    <div id="firstDiv">
+      <span>
+        <h4>Action in an app</h4>
+        <p>
+          Do something in an app or service like Google Sheets, Telegram, or
+          Notion.
+        </p>
+      </span>
     </div>
-    
-    <div id="searchDiv">
-        <span id="searchBox">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="30px"
-                viewBox="0 0 24 24"
-                width="35px"
-                fill="#000000"
-              >
-                <path d="M0 0h24v24H0V0z" fill="none" />
-                <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                />
-              </svg>
-            <input type="text" placeholder="Search nodes...">
-        </span>
 
+    <div>
+      <span>
+        <h4>Data tranformation</h4>
+        <p>Manipulate data, run JavaScript code, etc.</p>
+      </span>
     </div>
 
-
-    <div id="options">
-        <div id="firstDiv">
-
-            <span>
-                <h4>
-                    Action in an app
-                </h4>
-                <p>
-                    Do something in an app or service like Google Sheets, Telegram, or Notion.
-                </p>
-            </span>
-
-        </div>
-
-        <div>
-
-            <span>
-                <h4>
-                    Data tranformation
-                </h4>
-                <p>
-                    Manipulate data, run JavaScript code, etc.
-                </p>
-            </span>
-
-        </div>
-
-        <div>
-
-            <span>
-                <h4>
-                    Helpers
-                </h4>
-                <p>
-                    HTTP Requests (API Calls), date and time, scrape HTML, RSS, SSH, etc.
-                </p>
-            </span>
-
-        </div>
-
-        <div>
-
-            <span>
-                <h4>Flow</h4>
-                <p>
-                    IF, Switch, Wait, Compare and Merge data, etc.
-                </p>
-            </span>
-
-        </div>
-
-        <div>
-
-            <span>
-                <h4>Files</h4>
-                <p>
-                    CSV, XLS, XML, text, images, etc.
-                </p>
-            </span>
-
-        </div>
-
-       
-        <div id="breakLine">
-            <hr>
-        </div>
-        
-
-        <div>
-
-            
-            <span>
-                <h4>Add another trigger</h4>
-            <p>
-                Triggers start your workflow. Workflows can have multiple triggers.
-            </p>
-            </span>
-
-        </div>
-        
+    <div>
+      <span>
+        <h4>Helpers</h4>
+        <p>
+          HTTP Requests (API Calls), date and time, scrape HTML, RSS, SSH, etc.
+        </p>
+      </span>
     </div>
+
+    <div>
+      <span>
+        <h4>Flow</h4>
+        <p>IF, Switch, Wait, Compare and Merge data, etc.</p>
+      </span>
+    </div>
+
+    <div>
+      <span>
+        <h4>Files</h4>
+        <p>CSV, XLS, XML, text, images, etc.</p>
+      </span>
+    </div>
+
+    <div id="breakLine">
+      <hr />
+    </div>
+
+    <div (click)="this.openTrigger()">
+      <span>
+        <h4>Add another trigger</h4>
+        <p>
+          Triggers start your workflow. Workflows can have multiple triggers.
+        </p>
+      </span>
+    </div>
+  </div>
 </div>

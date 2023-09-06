@@ -121,6 +121,12 @@ $button-padding: 0.5rem;
 
 #searchNodes{
   width: 400px;
-  height: 650px;
   float: right;
+  visibility: visible;
+  opacity: 1;
+}
+
+#searchNodes.hidden{
+  visibility: hidden;
+  opacity: 0;
 }
