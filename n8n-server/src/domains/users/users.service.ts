@@ -9,7 +9,7 @@ import { Response } from 'src/models/response.model';
 export class UsersService implements IUsersService {
   constructor(
     @Inject(IUsersRepository) private usersRepository: IUsersRepository,
-  ) {}
+  ) { }
 
   createUser(newUser: CreateUserDto): Promise<string> {
     throw new Error('Method not implemented.');
@@ -34,6 +34,9 @@ export class UsersService implements IUsersService {
         error: new Error('ID is required'),
       };
     }
+
+    newUser.updateAt = new Date().toISOString();
+    newUser.displayName = newUser.firstName + ' ' + newUser.lastName;
 
     const result = await this.usersRepository.updateUser(id, newUser);
 

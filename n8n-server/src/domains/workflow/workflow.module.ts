@@ -14,6 +14,7 @@ import { Workflow, WorkflowSchema } from './schemas/workflow.schema';
 import { WorkflowCoreRepository } from './core.repository';
 import { HttpModule, HttpService } from '@nestjs/axios';
 
+
 @Module({
   imports: [
     MongooseModule.forFeature([
@@ -23,6 +24,7 @@ import { HttpModule, HttpService } from '@nestjs/axios';
       timeout: 5000,
       maxRedirects: 5,
     }),
+
   ],
   controllers: [WorkflowController],
   providers: [
@@ -40,4 +42,4 @@ import { HttpModule, HttpService } from '@nestjs/axios';
     },
   ],
 })
-export class WorkflowModule {}
+export class WorkflowModule { }

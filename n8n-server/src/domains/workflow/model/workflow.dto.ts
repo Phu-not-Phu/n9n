@@ -1,3 +1,5 @@
+import { Types } from "mongoose";
+
 export interface WorkflowDTO {
   id: string;
   coreID: string;
@@ -5,7 +7,7 @@ export interface WorkflowDTO {
   createAt: string;
   updateAt: string;
   tags: Array<string>;
-  projectID: string;
+  projectID: Types.ObjectId;
 }
 
 export type CreateWorkflowDto = Omit<
@@ -19,26 +21,28 @@ export type UpdateWorkflowDto = Omit<WorkflowDTO, 'id' | 'createAt'>;
 export interface WorkflowCoreDTO {
   id?: string;
   name: string;
-  nodes: [];
-  connections: [];
-  active: boolean;
+  nodes: Array<any>;
+  connections: {};
   settings: WorkflowSettings;
+  staticData?: {};
 }
 
 export interface WorkflowSettings {
   saveExecutionProgress: boolean;
   saveManualExecutions: boolean;
-  saveDataErrorExecution: string;
-  saveDataSuccessExecution: string;
+  saveDataErrorExecution: "all" | "none";
+  saveDataSuccessExecution: "all" | "none";
   executionTimeout: number;
-  timeZone: string;
+  errorWorkflow: string;
+  timezone: string;
 }
 
 export const DEFAULT_SETTINGS: WorkflowSettings = {
-  saveExecutionProgress: false,
-  saveManualExecutions: false,
+  saveExecutionProgress: true,
+  saveManualExecutions: true,
   saveDataErrorExecution: 'all',
   saveDataSuccessExecution: 'all',
   executionTimeout: 3600,
-  timeZone: 'Asia/Ho_Chi_Minh',
+  errorWorkflow: '',
+  timezone: 'Asia/Ho_Chi_Minh',
 };

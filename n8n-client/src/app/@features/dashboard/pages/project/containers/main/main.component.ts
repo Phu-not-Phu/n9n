@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ProjectState } from '../../../projects/ngrx/project.state';
+
 import { Observable } from 'rxjs';
-import { projectActions } from '../../../projects/ngrx/project.actions';
-import { CreateWorkflow, Workflow } from '../../models/workflow.model';
 import { FormExport } from 'src/app/models/type-helper.model';
+
+import { projectActions } from '../../../projects/ngrx/project.actions';
+import { ProjectState } from '../../../projects/ngrx/project.state';
+
+import { workflowActions } from '../../ngrx/workflow.actions';
+import { WorkflowState } from '../../ngrx/workflow.state';
+import { CreateWorkflow } from '../../models/workflow.model';
+
 
 @Component({
   selector: 'app-project-main',
@@ -15,16 +21,19 @@ import { FormExport } from 'src/app/models/type-helper.model';
 export class MainComponent {
   constructor(
     private router: Router,
-    private store: Store<{ project: ProjectState }>
-  ) {}
+    private store: Store<{ project: ProjectState, workflow: WorkflowState }>
+  ) { }
 
   projectState$!: Observable<ProjectState>;
+  workflowState$!: Observable<WorkflowState>;
 
   currentProjectID: string = '';
 
   ngOnInit(): void {
+
     this.currentProjectID = this.router.url.split('/')[3];
     this.projectState$ = this.store.select('project');
+    this.workflowState$ = this.store.select('workflow');
 
     if (!this.currentProjectID) {
       this.router.navigate(['projects']);
@@ -34,8 +43,16 @@ export class MainComponent {
       );
     }
 
-    this.projectState$.subscribe(console.log);
+    this.store.dispatch(workflowActions.loadWorkflows({ projectID: this.currentProjectID }));
+    this.workflowState$.subscribe(console.log);
   }
 
-  handleAddWorkflow(workflow: FormExport<CreateWorkflow>) {}
+  handleAddWorkflow(workflow: FormExport<CreateWorkflow>) {
+    const tempWorkflow: CreateWorkflow = {
+      name: workflow.name!,
+      projectID: this.currentProjectID,
+    }
+
+    this.store.dispatch(workflowActions.createWorkflow({ workflow: tempWorkflow }));
+  }
 }
