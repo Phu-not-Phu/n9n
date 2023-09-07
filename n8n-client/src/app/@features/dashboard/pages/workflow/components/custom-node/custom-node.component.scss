@@ -35,7 +35,6 @@
 
     .input-sockets-container,
     .output-sockets-container {
-      width: auto;
       height: 100%;
 
       margin: 0;
@@ -48,10 +47,12 @@
     }
 
     .input-sockets-container {
+      width: $socket-input-width;
       transform: translateX(-50%);
     }
 
     .output-sockets-container {
+      width: $socket-output-width;
       transform: translateX(50%);
     }
 
@@ -107,37 +108,6 @@
     padding: 8px;
   }
 
-  //   .output {
-  //     text-align: right;
-  //   }
-
-  //   .input {
-  //     text-align: left;
-  //   }
-
-  //   .output-socket {
-  //     text-align: right;
-  //     margin-right: -1px;
-  //     display: inline-block;
-  //   }
-
-  //   .input-socket {
-  //     text-align: left;
-  //     margin-left: -1px;
-  //     display: inline-block;
-  //   }
-
-  //   .input-title,
-  //   .output-title {
-  //     vertical-align: middle;
-  //     color: white;
-  //     display: inline-block;
-  //     font-family: sans-serif;
-  //     font-size: 14px;
-  //     margin: $socket-margin;
-  //     line-height: $socket-size;
-  //   }
-
   .input-control {
     z-index: 1;
     width: calc(100% - #{$socket-size + 2 * $socket-margin});
@@ -147,5 +117,16 @@
 
   .control {
     padding: $socket-margin math.div($socket-size, 2) + $socket-margin;
+  }
+
+  .icon-wrapper {
+    width: calc($node-width / 2);
+    height: calc($node-height / 2);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 }

@@ -7,7 +7,7 @@ import {
   Presets as ConnectionPresets,
 } from 'rete-connection-plugin';
 import { AngularPlugin, Presets, AngularArea2D } from 'rete-angular-plugin/16';
-import { NodeModel } from '../models/node.model';
+import { NodeInformation, NodeModel } from '../models/node.model';
 import { Workflow } from '../models/workflow.model';
 import { CoreServerService } from './core-server.service';
 import { lastValueFrom } from 'rxjs';
@@ -26,7 +26,7 @@ type AreaExtra = AngularArea2D<Schemes>;
   providedIn: 'root',
 })
 export class EditorService {
-  constructor(private coreServerService: CoreServerService) { }
+  constructor(private coreServerService: CoreServerService) {}
 
   editor!: NodeEditor<Schemes>;
   area!: AreaPlugin<Schemes, AreaExtra>;
@@ -85,8 +85,8 @@ export class EditorService {
     return () => this.area.destroy();
   }
 
-  async createBaseNode(nodeModel: NodeModel) {
-    const node = new ClassicPreset.Node(nodeModel.name);
+  async createBaseNode(nodeModel: Partial<NodeModel>) {
+    const node = new ClassicPreset.Node(`${nodeModel.name}|${nodeModel.type}`);
 
     if (nodeModel.id) {
       node.id = nodeModel.id;
@@ -95,10 +95,19 @@ export class EditorService {
     return node;
   }
 
-  async createNode(nodeModel: NodeModel) {
+  async addNode(node: ClassicPreset.Node) {
+    await this.editor.addNode(node);
+  }
+
+  async translateNode(node: ClassicPreset.Node, position: [number, number]) {
+    await this.area.translate(node.id, { x: position[0], y: position[1] });
+  }
+
+  async createNode(nodeModel: Partial<NodeModel>) {
     const node = await this.createBaseNode(nodeModel);
+
     const { inputs, outputs } = await lastValueFrom(
-      this.coreServerService.getNodeTypes(nodeModel.type)
+      this.coreServerService.getNodeTypes(nodeModel.type ?? '')
     );
 
     if (inputs) {
@@ -122,31 +131,26 @@ export class EditorService {
     return node;
   }
 
-  async addNode(node: ClassicPreset.Node) {
-    await this.editor.addNode(node);
-  }
-
-  async translateNode(node: ClassicPreset.Node, position: [number, number]) {
-    await this.area.translate(node.id, { x: position[0], y: position[1] });
-  }
-
   async connectNodes(workflow: Workflow) {
     const nodes = this.editor.getNodes();
     const connections = workflow.connections;
 
     for (let [key, targeNodes] of Object.entries(connections)) {
-      const sourceNode = nodes.find((node) => node.label === key);
+      const sourceNode = nodes.find((node) => node.label.split('|')[0] === key);
 
       for (let [index, element] of targeNodes.main.entries()) {
-        const targetNode = nodes.find((node) => node.label === element[0].node);
-        await this.editor.addConnection(
-          new ClassicPreset.Connection(
-            sourceNode!,
-            `main ${index}`,
-            targetNode!,
-            `main ${element[0].index}`
-          )
+        const targetNode = nodes.find(
+          (node) => node.label.split('|')[0] === element[0].node
         );
+
+        const connection = new ClassicPreset.Connection(
+          sourceNode!,
+          `main ${index}`,
+          targetNode!,
+          `main ${element[0].index}`
+        );
+
+        await this.editor.addConnection(connection);
       }
     }
   }

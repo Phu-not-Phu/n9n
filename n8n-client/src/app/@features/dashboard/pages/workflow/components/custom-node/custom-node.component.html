@@ -44,7 +44,9 @@
 </ng-template>
 
 <ng-template #logo>
-    test2
+    <div class="icon-wrapper">
+        <img [src]="serverAPI + nodeInformation?.iconUrl" [alt]="">
+    </div>
 </ng-template>
 
 <ng-template #outputs>
