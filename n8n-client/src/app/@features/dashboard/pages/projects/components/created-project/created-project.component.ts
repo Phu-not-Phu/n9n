@@ -21,12 +21,4 @@ export class CreatedProjectComponent {
   changeNavigation(id: string) {
     this.router.navigate(['dashboard', 'project', id]);
   }
-
-  openSettingDialog() {
-    this.currentDialog = 'Setting Project';
-  }
-
-  openDeleteDialog() {
-    this.currentDialog = 'Delete Project';
-  }
 }
