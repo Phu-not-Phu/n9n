@@ -28,10 +28,12 @@
   </div>
 </div>
 
-<app-dialog #deleteDialog [data]="{ title: 'Delete ' + this._project?.name }">
-  <div class="content-dialog">
-    <button class="function-btn" (click)="this.deleteProject(_project?._id!)">
-      Confirm
-    </button>
-  </div>
-</app-dialog>
+<div>
+  <app-dialog #deleteDialog [data]="{ title: 'Delete ' + this._project?.name }">
+    <div class="content-dialog">
+      <button class="function-btn" (click)="this.deleteProject(_project?._id!)">
+        Confirm
+      </button>
+    </div>
+  </app-dialog>
+</div>
