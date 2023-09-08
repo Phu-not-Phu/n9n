@@ -6,8 +6,8 @@ import { ComponentModule } from '../components/component.module';
 import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
-  declarations: [NavigationComponent, SettingsComponent],
-  imports: [CommonModule, ComponentModule],
-  exports: [NavigationComponent, SettingsComponent],
+    declarations: [NavigationComponent, SettingsComponent],
+    exports: [NavigationComponent, SettingsComponent],
+    imports: [CommonModule, ComponentModule]
 })
 export class ContainerModule {}

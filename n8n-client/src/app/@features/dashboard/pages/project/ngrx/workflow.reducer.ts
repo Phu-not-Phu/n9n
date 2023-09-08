@@ -60,7 +60,7 @@ export const workflowReducer = createReducer(
     })),
     on(workflowActions.updateWorkflowSuccess, (state, { workflow }) => ({
         ...state,
-        workflows: state.workflows.map(w => w.id === workflow.id ? workflow : w),
+        workflows: state.workflows.map(w => w._id === workflow._id ? workflow : w),
         isUpdating: false,
         isUpdateSuccess: true,
         error: ''
@@ -79,7 +79,7 @@ export const workflowReducer = createReducer(
     })),
     on(workflowActions.deleteWorkflowSuccess, (state, { id }) => ({
         ...state,
-        workflows: state.workflows.filter(w => w.id !== id),
+        workflows: state.workflows.filter(w => w._id !== id),
         isUpdating: false,
         isUpdateSuccess: true,
         error: ''

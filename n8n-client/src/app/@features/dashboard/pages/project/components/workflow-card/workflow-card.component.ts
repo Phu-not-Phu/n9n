@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Workflow } from '../../models/workflow.model';
+import { WorkflowService } from '../../services/workflow.service';
 
 @Component({
   selector: 'app-workflow-card',
@@ -20,7 +21,7 @@ export class WorkflowCardComponent {
     this._workflow = workflow;
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private workflowService: WorkflowService) { }
 
   navigateToWorkflow(coreID: string) {
     this.router.navigate(['dashboard', 'workflow', coreID]);
@@ -48,5 +49,12 @@ export class WorkflowCardComponent {
 
   clickOutside() {
     this._isOpenSetting = false;
+  }
+
+  deleteWorkflow(id: string){
+    console.log(id);
+    this.workflowService.deleteWorkflow(id).subscribe(() => {
+      window.location.reload();
+    });
   }
 }

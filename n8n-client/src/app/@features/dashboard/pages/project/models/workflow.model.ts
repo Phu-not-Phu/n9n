@@ -1,5 +1,5 @@
 export interface Workflow {
-  id?: string;
+  _id?: string;
   coreID?: string;
   name: string;
   projectID: string;
