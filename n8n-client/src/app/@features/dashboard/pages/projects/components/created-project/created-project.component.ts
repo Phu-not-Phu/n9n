@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from '../../models/project.model';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-created-project',
@@ -16,7 +17,7 @@ export class CreatedProjectComponent {
     this._project = value;
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private projectService: ProjectService) {}
 
   changeNavigation(id: string) {
     this.router.navigate(['dashboard', 'project', id]);
@@ -28,5 +29,11 @@ export class CreatedProjectComponent {
 
   openDeleteDialog() {
     this.currentDialog = 'Delete Project';
+  }
+
+  deleteProject(id: string) {
+    this.projectService.deleteProject(id).subscribe(() => {
+      this.router.navigate(['']);
+    });
   }
 }
