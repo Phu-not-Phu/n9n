@@ -46,14 +46,6 @@
   }
 }
 
-#header:hover {
-  cursor: pointer;
-
-  & > #title > h3 {
-    border-bottom: 3px solid var(--primary-color);
-  }
-}
-
 #searchDiv {
   width: 100%;
   height: 70px;
