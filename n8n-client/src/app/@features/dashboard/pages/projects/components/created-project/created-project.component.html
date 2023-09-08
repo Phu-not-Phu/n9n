@@ -52,10 +52,13 @@
   </div>
 </div>
 
-<app-dialog #settingDialog [data]="{title: 'Setting ' + '[' + this._project?.name + ']'}">
-  
+<app-dialog #settingDialog [data]="{ title: 'Setting ' + this._project?.name }">
 </app-dialog>
 
-<app-dialog #deleteDialog [data]="{title: 'Delete ' + '[' + this._project?.name + ']'}">
-
+<app-dialog #deleteDialog [data]="{ title: 'Delete ' + this._project?.name }">
+  <div class="content-dialog">
+    <button class="function-btn" (click)="this.deleteProject(_project?._id!)">
+      Confirm
+    </button>
+  </div>
 </app-dialog>
