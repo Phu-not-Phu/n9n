@@ -21,10 +21,7 @@ export class CreatedProjectComponent {
     this._project = value;
   }
 
-  constructor(
-    private router: Router,
-    private projectService: ProjectService,
-  ) {}
+  constructor(private router: Router, private projectService: ProjectService) {}
 
   changeNavigation(id: string) {
     this.router.navigate(['dashboard', 'project', id]);

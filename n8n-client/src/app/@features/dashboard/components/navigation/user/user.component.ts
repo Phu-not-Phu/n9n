@@ -3,7 +3,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { SignInForm } from 'src/app/@features/sign-in/models/sign-in.model';
+import { FormExport } from 'src/app/models/type-helper.model';
 import { UserModel } from 'src/app/models/user.model';
+import { userActions } from 'src/app/ngrx/user/user.actions';
 import { UserState } from 'src/app/ngrx/user/user.state';
 
 @Component({
@@ -13,6 +16,7 @@ import { UserState } from 'src/app/ngrx/user/user.state';
 })
 export class UserComponent {
   _isOpen: boolean = false;
+  _isLoggingOut: boolean = false;
 
   @Input() set isOpen(value: boolean) {
     this._isOpen = value;
@@ -55,5 +59,14 @@ export class UserComponent {
       lastName: user.lastName,
       email: user.email,
     });
+  }
+
+  async logOut() {
+    this._isLoggingOut = true;
+
+    this.store.dispatch(
+      userActions.logout()
+    );
+    this.router.navigate(['/signin']);
   }
 }
